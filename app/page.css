@@ -1,0 +1,13 @@
+.scrap-page {
+  --cta: var(--color-cta);
+}
+
+.scrap-page .cta-pulse,
+.scrap-page a[data-cta-id="sticky_mobile"] {
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--cta), white 14%) 0%,
+    var(--cta) 55%,
+    color-mix(in srgb, var(--cta), black 12%) 100%
+  );
+}
