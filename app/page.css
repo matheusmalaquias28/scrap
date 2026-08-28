@@ -1,5 +1,13 @@
 .scrap-page {
   --cta: var(--color-cta);
+  --p-paper: #fff1c9;
+  --p-blush: #fcd9d0;
+  --p-mint: #d4f0ea;
+  --p-peacock: #1f7a7a;
+  --p-plum: #3e2450;
+  --p-raspberry: #c22745;
+  --p-marigold: #e8a317;
+  --p-card: #fff8ef;
 }
 
 .scrap-page .cta-pulse,
@@ -10,4 +18,204 @@
     var(--cta) 55%,
     color-mix(in srgb, var(--cta), black 12%) 100%
   );
+}
+
+.scrap-hero {
+  background:
+    radial-gradient(ellipse 90% 70% at 0% -10%, oklch(0.86 0.1 20 / 0.55), transparent 62%),
+    radial-gradient(ellipse 70% 55% at 100% 0%, oklch(0.88 0.08 175 / 0.55), transparent 58%),
+    radial-gradient(ellipse 55% 45% at 50% 110%, oklch(0.9 0.12 85 / 0.45), transparent 55%),
+    var(--p-paper);
+}
+
+.scrap-card {
+  background: var(--p-card);
+}
+
+.scrap-faq-item {
+  background: color-mix(in srgb, var(--p-paper) 70%, white);
+}
+
+.parts-timeline__seg {
+  position: relative;
+  display: block;
+  width: 2px;
+  flex: 1 1 auto;
+  min-height: 28px;
+  margin: 6px 0 2px;
+}
+
+.parts-timeline__track {
+  position: absolute;
+  inset: 0;
+  border-radius: 999px;
+  background: rgb(255 255 255 / 0.16);
+}
+
+.parts-timeline__fill {
+  position: absolute;
+  inset: 0;
+  transform: scaleY(0);
+  transform-origin: top center;
+  border-radius: 999px;
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--cta), white 22%) 0%,
+    var(--cta) 55%,
+    color-mix(in srgb, var(--cta), #1f7a7a 35%) 100%
+  );
+}
+
+.parts-timeline__drop-track {
+  position: absolute;
+  inset: 0;
+  transform: translate3d(0, 0, 0);
+}
+
+.parts-timeline__drop {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 7px;
+  height: 11px;
+  margin-left: -3.5px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--cta), white 28%);
+  opacity: 0;
+  box-shadow:
+    0 0 8px 2px color-mix(in srgb, var(--cta), transparent 40%),
+    0 4px 10px color-mix(in srgb, var(--cta), transparent 55%);
+  transform: translate3d(0, -8px, 0);
+}
+
+.parts-timeline__node {
+  display: flex;
+  width: 40px;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  border: 2px solid rgb(255 255 255 / 0.35);
+  background: color-mix(in srgb, var(--p-plum) 86%, black);
+  font-family: var(--font-fredoka), sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: rgb(255 255 255 / 0.55);
+  transform: scale(0.92);
+}
+
+.parts-timeline__body {
+  transform: translate3d(0, 8px, 0);
+  opacity: 0.55;
+}
+
+.parts-timeline__note {
+  background: rgb(255 255 255 / 0.08);
+  transform: translate3d(0, 8px, 0);
+  opacity: 0.55;
+}
+
+.parts-timeline.is-in .parts-timeline__fill {
+  animation: parts-fill 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation-delay: calc(0.38s + var(--i, 0) * 0.62s);
+}
+
+.parts-timeline.is-in .parts-timeline__drop-track {
+  animation: parts-flow 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation-delay: calc(0.38s + var(--i, 0) * 0.62s);
+}
+
+.parts-timeline.is-in .parts-timeline__drop {
+  animation: parts-drop 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation-delay: calc(0.38s + var(--i, 0) * 0.62s);
+}
+
+.parts-timeline.is-in .parts-timeline__node {
+  animation: parts-node 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: calc(0.12s + var(--i, 0) * 0.62s);
+}
+
+.parts-timeline.is-in .parts-timeline__body {
+  animation: parts-copy 0.55s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: calc(0.18s + var(--i, 0) * 0.62s);
+}
+
+.parts-timeline.is-in .parts-timeline__note {
+  animation: parts-copy 0.55s cubic-bezier(0.16, 1, 0.3, 1) 1.75s forwards;
+}
+
+@keyframes parts-fill {
+  from {
+    transform: scaleY(0);
+  }
+  to {
+    transform: scaleY(1);
+  }
+}
+
+@keyframes parts-flow {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(0, 100%, 0);
+  }
+}
+
+@keyframes parts-drop {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, -8px, 0);
+  }
+  18% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translate3d(0, -2px, 0);
+  }
+}
+
+@keyframes parts-node {
+  to {
+    transform: scale(1);
+    color: #fff;
+    border-color: var(--cta);
+    background: color-mix(in srgb, var(--cta), var(--p-plum) 28%);
+    box-shadow: 0 0 0 4px color-mix(in srgb, var(--cta), transparent 82%);
+  }
+}
+
+@keyframes parts-copy {
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .parts-timeline .parts-timeline__fill {
+    transform: scaleY(1);
+    animation: none;
+  }
+
+  .parts-timeline .parts-timeline__node {
+    transform: scale(1);
+    color: #fff8ef;
+    border-color: var(--cta);
+    background: color-mix(in srgb, var(--cta), var(--p-plum) 28%);
+    box-shadow: 0 0 0 4px color-mix(in srgb, var(--cta), transparent 82%);
+    animation: none;
+  }
+
+  .parts-timeline .parts-timeline__body,
+  .parts-timeline .parts-timeline__note {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+
+  .parts-timeline__drop-track {
+    display: none;
+  }
 }

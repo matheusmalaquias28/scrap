@@ -26,7 +26,7 @@ export function Marquee({
   containerClassName = "max-w-[382px]",
 }: Props) {
   return (
-    <div className={`w-full overflow-hidden rounded-[7px] ${containerClassName}`}>
+    <div className={`marquee w-full overflow-hidden rounded-[7px] ${containerClassName}`}>
       <div
         className="marquee-track flex w-max gap-[6px]"
         style={{ "--marquee-duration": `${duration}s` } as React.CSSProperties}

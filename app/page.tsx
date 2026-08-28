@@ -1,6 +1,8 @@
 import dynamic from "next/dynamic";
 import { CtaButton } from "@/components/CtaButton";
+import { ImagePlaceholder } from "@/components/ImagePlaceholder";
 import { Marquee } from "@/components/Marquee";
+import { AnchorScroll } from "@/components/AnchorScroll";
 import {
   theme,
   offerBar,
@@ -9,13 +11,16 @@ import {
   whySection,
   idealSection,
   offerSection,
+  bonusSection,
   plansSection,
   guarantee,
   contact,
   testimonials,
   stepsSection,
   faq,
+  faqTitle,
   footer,
+  checkout,
 } from "@/lib/content";
 
 const StickyCta = dynamic(() =>
@@ -24,19 +29,23 @@ const StickyCta = dynamic(() =>
 const TestimonialCarousel = dynamic(() =>
   import("@/components/TestimonialCarousel").then((m) => m.TestimonialCarousel),
 );
+const PartsTimeline = dynamic(() =>
+  import("@/components/PartsTimeline").then((m) => m.PartsTimeline),
+);
 /* ── palette ── */
 const P = {
-  cream:  "#fdf8f0",
-  white:  "#ffffff",
-  green:  "#3a7d44",
-  dark:   "#131313",
-  navy:   "#041774",
+  paper:     "#fff1c9",
+  blush:     "#fcd9d0",
+  mint:      "#d4f0ea",
+  peacock:   "#1f7a7a",
+  plum:      "#3e2450",
+  raspberry: "#c22745",
+  marigold:  "#e8a317",
+  card:      "#fff8ef",
 } as const;
 
 const BELOW = "cv-auto contain-paint";
 const SUB = "text-[18px] font-medium";
-const CHECKOUT_URL =
-  "https://pay.hotmart.com/N107138478A?off=a375p5al&checkoutMode=10&bid=1787453658844";
 
 function LazyImg({
   src,
@@ -46,13 +55,24 @@ function LazyImg({
   className = "",
   priority = false,
 }: {
-  src: string;
+  src?: string;
   alt: string;
   width: number;
   height: number;
   className?: string;
   priority?: boolean;
 }) {
+  if (!src) {
+    return (
+      <ImagePlaceholder
+        alt={alt}
+        width={width}
+        height={height}
+        className={className}
+      />
+    );
+  }
+
   return (
     // eslint-disable-next-line @next/next/no-img-element
     <img
@@ -88,7 +108,7 @@ function WaveDivider({ from, to }: { from: string; to: string }) {
 function Check({ className = "" }: { className?: string }) {
   return (
     <svg viewBox="0 0 18 13" fill="none" className={`w-4 shrink-0 ${className}`} aria-hidden>
-      <path d="M17 1L6 12L1 7" stroke="#07C707" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M17 1L6 12L1 7" stroke="#1f7a7a" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   );
 }
@@ -96,7 +116,7 @@ function Check({ className = "" }: { className?: string }) {
 function CrossIcon({ className = "" }: { className?: string }) {
   return (
     <svg viewBox="0 0 14 14" fill="none" className={`w-4 shrink-0 ${className}`} aria-hidden>
-      <path d="M1 1L13 13M13 1L1 13" stroke="#E53935" strokeWidth="2" strokeLinecap="round" />
+      <path d="M1 1L13 13M13 1L1 13" stroke="#c22745" strokeWidth="2" strokeLinecap="round" />
     </svg>
   );
 }
@@ -118,6 +138,22 @@ function Badge({ children, className = "" }: { children: React.ReactNode; classN
   return (
     <span className={`z-10 inline-block rounded-full bg-badge px-4 py-2 text-[13px] font-semibold text-white ${className}`}>
       {children}
+    </span>
+  );
+}
+
+function FreePriceBadge({ price }: { price: string }) {
+  return (
+    <span
+      className="inline-flex flex-col items-center rounded-2xl bg-badge px-6 py-3 leading-none"
+      aria-label={`De ${price} por grátis`}
+    >
+      <s className="text-[12px] font-medium tracking-wide text-white/60">
+        {price}
+      </s>
+      <strong className="mt-1 font-display text-[22px] font-semibold tracking-wide text-marigold">
+        GRÁTIS
+      </strong>
     </span>
   );
 }
@@ -147,34 +183,6 @@ function FeatureItem({
   );
 }
 
-function Avatars() {
-  return (
-    <div className="flex flex-col items-center gap-2">
-      <div className="flex items-center">
-        {(
-          [
-            ["avatar-2", "size-[28px]"],
-            ["avatar-4", "size-[34px]"],
-            ["avatar-5", "size-[42px] z-10"],
-            ["avatar-3", "size-[34px]"],
-            ["avatar-1", "size-[28px]"],
-          ] as [string, string][]
-        ).map(([a, cls], i) => (
-          <LazyImg
-            key={a}
-            src={`/${a}.webp`}
-            alt=""
-            width={42}
-            height={42}
-            className={`rounded-full object-cover ring-2 ring-white ${cls} ${i > 0 ? "-ml-2" : ""}`}
-          />
-        ))}
-      </div>
-      <p className={`${SUB} text-ink`}>{hero.socialProofLabel}</p>
-    </div>
-  );
-}
-
 /* ── page ── */
 
 export const revalidate = 3600;
@@ -192,45 +200,45 @@ export default function Home() {
       className="flex w-full flex-col overflow-x-hidden"
       style={{
         "--color-brand": theme.brandColor,
-        fontFamily: "var(--font-manrope-page), Manrope, sans-serif",
+        fontFamily: "var(--font-manrope), Manrope, sans-serif",
       } as React.CSSProperties}
     >
       {/* Offer bar */}
-      <div className="flex items-center justify-center bg-red-600 px-4 py-[10px]">
+      <div className="flex items-center justify-center px-4 py-[10px]" style={{ backgroundColor: P.raspberry }}>
         <p className="text-center font-display text-[12px] font-semibold leading-snug text-white">
           {offerBar.text} {today}
         </p>
       </div>
 
       <StickyCta label={hero.ctaLabel} />
+      <AnchorScroll />
 
       {/* ══ HERO ══ */}
-      <section
-        style={{ backgroundColor: P.cream }}
-        className="px-5 pb-1 pt-4 text-center"
-      >
+      <section className="scrap-hero px-5 pb-1 pt-4 text-center">
         <div className="mx-auto flex w-full max-w-[480px] flex-col items-center gap-5">
-          <span className="inline-flex items-center rounded-full border border-brand/20 bg-[#ecf7ee] px-4 py-2 text-[12px] font-semibold leading-snug text-ink shadow-[0_2px_8px_rgba(58,125,68,0.08)]">
-            {hero.secureSeal}
-          </span>
+          {hero.secureSeal ? (
+            <span className="inline-flex items-center rounded-full border border-brand/20 bg-blush px-4 py-2 text-[12px] font-semibold leading-snug text-ink shadow-[0_2px_8px_oklch(0.52_0.2_15_/_0.12)]">
+              {hero.secureSeal}
+            </span>
+          ) : null}
           <div role="heading" aria-level={1} className="leading-[1.05]">
             <p className="block font-display text-[26px] font-semibold text-brand">
               {hero.titleHighlight}
             </p>
-            <p className="block font-display text-[25px] font-semibold" style={{ color: "#5a5a5a" }}>
-              {hero.title}
-            </p>
+            {hero.title ? (
+              <p className="mt-1 block font-display text-[22px] font-semibold text-ink/70">
+                {hero.title}
+              </p>
+            ) : null}
           </div>
 
           <div className="relative mt-2 w-full max-w-[383px]">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
+            <LazyImg
               src={hero.poster.src}
               alt={hero.image.alt}
               width={hero.image.width}
               height={hero.image.height}
-              fetchPriority="high"
-              decoding="async"
+              priority
               className="h-auto w-full rounded-[10px]"
             />
           </div>
@@ -240,34 +248,31 @@ export default function Home() {
           </p>
 
           <CtaButton
-            href="#plano-completo"
+            href={checkout.hero}
             label={hero.ctaLabel}
             id="hero"
             className="w-full max-w-[382px]"
           />
-          {hero.deliveryNoteLines.length > 0 && (
+          {hero.deliveryNote ? (
             <p className={`text-center ${SUB} leading-snug text-muted`}>
-              {hero.deliveryNoteLines[0]}
-              <br />
-              {hero.deliveryNoteLines[1]}
+              {hero.deliveryNote}
             </p>
-          )}
-          {hero.socialProofLabel ? <Avatars /> : null}
+          ) : null}
         </div>
       </section>
 
-      {/* Wave cream→white */}
-      <WaveDivider from={P.cream} to={P.white} />
+      {/* Wave paper→mint */}
+      <WaveDivider from={P.paper} to={P.mint} />
 
       {/* ══ MATERIAIS ══ */}
-      <section style={{ backgroundColor: P.white }} className={`${BELOW} pb-14 pt-4 text-center`}>
+      <section style={{ backgroundColor: P.mint }} className={`${BELOW} pb-14 pt-4 text-center`}>
         <div className="mx-auto max-w-[640px] px-5">
           <h2 className="mb-7 font-display text-[36px] font-semibold leading-[0.9] text-ink">
             {materials.title}
           </h2>
         </div>
         <Marquee
-          duration={32}
+          duration={22.4}
           itemWidth={260}
           containerClassName="max-w-[480px] lg:max-w-[560px] mx-auto"
           imageSize={materials.imageSize}
@@ -275,45 +280,46 @@ export default function Home() {
         />
       </section>
 
-      {/* Wave white→green */}
-      <WaveDivider from={P.white} to={P.green} />
-
-      {/* ══ POR QUÊ ══ */}
-      <section
-        style={{ backgroundColor: P.green }}
-        className={`${BELOW} px-6 pb-16 pt-12 text-center`}
-      >
-        <h2 className="mb-9 font-display text-[36px] font-semibold leading-[0.9] text-white">
-          {whySection.title}
-        </h2>
-        <div className="mx-auto grid w-full max-w-[900px] gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {whySection.cards.map((c) => (
-            <div
-              key={c.title}
-              className="flex items-start gap-4 rounded-2xl bg-white px-5 py-5 text-left"
-            >
-              <span className="text-[30px] leading-none" aria-hidden>
-                {c.icon}
-              </span>
-              <div>
-                <p className="font-display text-[19px] font-semibold leading-snug text-ink">
-                  {c.title}
-                </p>
-                <p className={`mt-1 ${SUB} leading-snug`} style={{ color: "#555" }}>
-                  {c.desc}
-                </p>
-              </div>
+      {whySection.cards.length > 0 ? (
+        <>
+          <WaveDivider from={P.mint} to={P.peacock} />
+          <section
+            style={{ backgroundColor: P.peacock }}
+            className={`${BELOW} px-6 pb-16 pt-12 text-center`}
+          >
+            <h2 className="mb-9 font-display text-[36px] font-semibold leading-[0.9] text-white">
+              {whySection.title}
+            </h2>
+            <div className="mx-auto grid w-full max-w-[900px] gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {whySection.cards.map((c) => (
+                <div
+                  key={c.title}
+                  className="flex items-start gap-4 rounded-2xl scrap-card px-5 py-5 text-left"
+                >
+                  <span className="text-[30px] leading-none" aria-hidden>
+                    {c.icon}
+                  </span>
+                  <div>
+                    <p className="font-display text-[19px] font-semibold leading-snug text-ink">
+                      {c.title}
+                    </p>
+                    <p className={`mt-1 ${SUB} leading-snug text-muted`}>
+                      {c.desc}
+                    </p>
+                  </div>
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Wave green→cream */}
-      <WaveDivider from={P.green} to={P.cream} />
+          </section>
+          <WaveDivider from={P.peacock} to={P.blush} />
+        </>
+      ) : (
+        <WaveDivider from={P.mint} to={P.blush} />
+      )}
 
       {/* ══ IDEAL PARA VOCÊ ══ */}
       <section
-        style={{ backgroundColor: P.cream }}
+        style={{ backgroundColor: P.blush }}
         className={`${BELOW} px-5 pb-16 pt-12 text-center`}
       >
         <div className="mx-auto max-w-[960px]">
@@ -324,12 +330,12 @@ export default function Home() {
             {idealSection.items.map((item, i) => (
               <div
                 key={item.title}
-                className="flex flex-col gap-3 rounded-2xl bg-white p-7 text-left"
+                className="flex flex-col gap-3 rounded-2xl scrap-card p-7 text-left"
                 style={{ boxShadow: "0 2px 16px rgba(0,0,0,0.06)" }}
               >
                 <span
                   className="font-display text-[52px] font-semibold leading-none select-none"
-                  style={{ color: "rgba(58,125,68,0.18)" }}
+                  style={{ color: "color-mix(in srgb, var(--color-marigold) 55%, transparent)" }}
                   aria-hidden
                 >
                   {String(i + 1).padStart(2, "0")}
@@ -337,21 +343,23 @@ export default function Home() {
                 <p className="font-display text-[16px] font-bold uppercase leading-tight text-ink">
                   {item.title}
                 </p>
-                <p className={`${SUB} leading-relaxed`} style={{ color: "#666" }}>
-                  {item.desc}
-                </p>
+                {item.desc ? (
+                  <p className={`${SUB} leading-relaxed text-muted`}>
+                    {item.desc}
+                  </p>
+                ) : null}
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Wave cream→dark */}
-      <WaveDivider from={P.cream} to={P.dark} />
+      {/* Wave blush→plum */}
+      <WaveDivider from={P.blush} to={P.plum} />
 
       {/* ══ OFERTA PRINCIPAL ══ */}
       <section
-        style={{ backgroundColor: P.dark }}
+        style={{ backgroundColor: P.plum }}
         className={`${BELOW} px-5 pb-16 pt-12 text-center`}
       >
         <div className="mx-auto flex w-full max-w-[480px] flex-col items-center gap-5">
@@ -362,36 +370,98 @@ export default function Home() {
           <p className={`font-display ${SUB} text-white/60`}>
             {offerSection.cardTitle}
           </p>
+          {offerSection.lead ? (
+            <p className={`${SUB} text-white/70`}>{offerSection.lead}</p>
+          ) : null}
 
           <LazyImg
             src={offerSection.image.src}
             alt={offerSection.image.alt}
             width={offerSection.image.width}
             height={offerSection.image.height}
-            className="w-full max-w-[383px] rounded-[12px]"
+            className="w-full rounded-[12px]"
           />
 
-          <div className="flex w-full max-w-[400px] flex-col gap-5 text-left">
-            {offerSection.howItWorks.map((step) => (
-              <div key={step.title}>
-                <h3 className="font-display text-[22px] font-semibold leading-snug text-white">
-                  {step.title}
+          <PartsTimeline steps={offerSection.howItWorks} />
+        </div>
+      </section>
+
+      {/* Wave plum→peacock */}
+      <WaveDivider from={P.plum} to={P.peacock} />
+
+      {/* ══ BÔNUS ══ */}
+      <section
+        style={{ backgroundColor: P.peacock }}
+        className={`${BELOW} px-5 pb-16 pt-12 text-center`}
+      >
+        <div className="mx-auto flex max-w-[1040px] flex-col items-center gap-6">
+          <h2 className="font-display text-[32px] font-semibold leading-snug text-white">
+            {bonusSection.titleLines.map((line, i) => (
+              <span key={line}>
+                {i > 0 ? <br /> : null}
+                {line}
+              </span>
+            ))}
+          </h2>
+          <Badge>{bonusSection.pill}</Badge>
+          <div className="grid w-full gap-5 sm:grid-cols-2">
+            {bonusSection.items.map((b) => (
+              <article
+                key={b.title}
+                className="flex flex-col items-center gap-4 rounded-2xl scrap-card px-5 pb-6 pt-5 text-center"
+              >
+                <LazyImg
+                  src={b.src}
+                  alt={b.title}
+                  width={900}
+                  height={900}
+                  className="w-full rounded-xl"
+                />
+                <p className="font-display text-[13px] font-bold tracking-wide text-brand">
+                  {b.label}
+                </p>
+                <h3 className="font-display text-[20px] font-semibold leading-snug text-ink">
+                  {b.title}
                 </h3>
-                <p className={`mt-1 ${SUB} leading-relaxed text-white/70`}>{step.desc}</p>
-              </div>
+                <ul className="w-full max-w-[280px] text-left">
+                  {b.features.map((f) => (
+                    <FeatureItem key={f} text={f} />
+                  ))}
+                </ul>
+                <FreePriceBadge price={b.price} />
+                <p className="text-[12px] font-medium leading-snug text-muted">
+                  {bonusSection.exclusiveNote}
+                </p>
+              </article>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Wave dark→white */}
-      <WaveDivider from={P.dark} to={P.white} />
+      {/* Wave peacock→paper */}
+      <WaveDivider from={P.peacock} to={P.paper} />
+
+      {/* ══ DEPOIMENTOS ══ */}
+      <section
+        style={{ backgroundColor: P.paper }}
+        className={`${BELOW} px-5 pb-16 pt-12 text-center`}
+      >
+        <div className="mx-auto flex w-full max-w-[553px] flex-col items-center gap-7 lg:max-w-[960px]">
+          <h2 className="max-w-[480px] font-display text-[32px] font-semibold leading-[0.95] text-ink">
+            {testimonials.title}
+          </h2>
+          <TestimonialCarousel items={testimonials.items} />
+        </div>
+      </section>
+
+      {/* Wave paper→mint */}
+      <WaveDivider from={P.paper} to={P.mint} />
 
       {/* ══ PLANOS ══ */}
       <section
-        id="plano-completo"
-        style={{ backgroundColor: P.white }}
-        className={`${BELOW} scroll-mt-4 px-5 pb-16 pt-12 text-center`}
+        id="planos"
+        style={{ backgroundColor: P.mint }}
+        className="px-5 pb-16 pt-12 text-center"
       >
         <div className="mx-auto max-w-[1040px]">
           <Badge className="whitespace-nowrap px-3 py-1.5 text-[10px]">{plansSection.pill}</Badge>
@@ -399,22 +469,74 @@ export default function Home() {
             {plansSection.title}
           </h2>
 
-          <div className="mx-auto flex max-w-[480px] flex-col items-center">
+          <div className="flex w-full flex-col items-center gap-10 lg:grid lg:grid-cols-2 lg:items-start lg:gap-6">
+            {/* Plano Básico */}
+            <div
+              id="plano-basico"
+              className="flex w-full max-w-[480px] scroll-mt-[88px] flex-col items-center gap-4 rounded-2xl px-6 pb-10 pt-6 lg:max-w-none lg:scroll-mt-8"
+              style={{ backgroundColor: P.paper }}
+            >
+              <p className="font-display text-[24px] font-semibold text-ink">
+                {plansSection.basic.name}
+              </p>
+              <LazyImg
+                src={plansSection.basic.image.src}
+                alt={plansSection.basic.image.alt}
+                width={plansSection.basic.image.width}
+                height={plansSection.basic.image.height}
+                className="w-full rounded-xl"
+              />
+              <p className="font-display text-[20px] font-semibold text-ink">
+                {plansSection.basic.receiveLabel}
+              </p>
+              <ul className="w-full max-w-[320px] text-left">
+                {plansSection.basic.features.map((f) => (
+                  <FeatureItem key={f} text={f} />
+                ))}
+              </ul>
+              <p className="font-display text-[18px] text-alert line-through">
+                de {plansSection.basic.oldPrice} por:
+              </p>
+              <p className="font-display text-[60px] font-semibold leading-none text-ink">
+                {plansSection.basic.price}
+              </p>
+              <p className={`font-display ${SUB} text-ink`}>
+                {plansSection.basic.installments}
+              </p>
+              <p className={`font-display ${SUB} text-ink`}>
+                {plansSection.basic.savings}
+              </p>
+              <CtaButton
+                href={checkout.basic}
+                label={plansSection.basic.ctaLabel}
+                id="plano_basico"
+                planName="Basico"
+              />
+              {plansSection.upsellNote.alert ? (
+                <p className="max-w-[280px] font-display text-[16px] font-semibold leading-snug text-alert">
+                  {plansSection.upsellNote.alert}
+                </p>
+              ) : null}
+            </div>
+
             {/* Plano Completo */}
-            <div className="flex w-full flex-col items-center">
+            <div id="plano-completo" className="flex w-full max-w-[480px] scroll-mt-4 flex-col items-center lg:max-w-none">
+              {plansSection.complete.soldLabel ? (
+                <Badge className="relative z-10 -mb-3">{plansSection.complete.soldLabel}</Badge>
+              ) : null}
               <div
                 className="flex w-full flex-col items-center gap-4 rounded-2xl px-6 pb-10 pt-6"
-                style={{ backgroundColor: P.dark }}
+                style={{ backgroundColor: P.plum }}
               >
                 <span
                   className="mt-3 inline-block whitespace-nowrap rounded-full px-3 py-1.5 font-display text-[10px] font-bold text-white"
-                  style={{ backgroundColor: "#e30000" }}
+                  style={{ backgroundColor: P.raspberry }}
                 >
                   {plansSection.complete.badge}
                 </span>
                 <p
-                  className="px-3 py-2 font-display text-[22px] font-semibold text-white sm:text-[24px]"
-                  style={{ backgroundColor: P.green }}
+                  className="rounded-full px-6 py-2 font-display text-[22px] font-semibold text-white sm:text-[24px]"
+                  style={{ backgroundColor: P.peacock }}
                 >
                   {plansSection.complete.name}
                 </p>
@@ -428,7 +550,7 @@ export default function Home() {
                   alt={plansSection.complete.image.alt}
                   width={plansSection.complete.image.width}
                   height={plansSection.complete.image.height}
-                  className="w-full max-w-[320px] rounded-xl"
+                  className="w-full rounded-xl"
                 />
                 <Badge>{plansSection.complete.pill}</Badge>
                 <ul className="w-full max-w-[320px] text-left">
@@ -437,7 +559,7 @@ export default function Home() {
                   ))}
                 </ul>
                 <p className="font-display text-[18px] text-alert line-through">
-                  {plansSection.complete.oldPrice}
+                  de {plansSection.complete.oldPrice} por:
                 </p>
                 <p className="font-display text-[60px] font-semibold leading-none text-white">
                   {plansSection.complete.price}
@@ -449,11 +571,14 @@ export default function Home() {
                   {plansSection.complete.savings}
                 </p>
                 <CtaButton
-                  href={CHECKOUT_URL}
+                  href={checkout.complete}
                   label={plansSection.complete.ctaLabel}
                   id="plano_completo"
                   planName="Completo"
                 />
+                <p className={`font-display ${SUB} text-white/80`}>
+                  {guarantee.intro}
+                </p>
                 <SecurePurchaseBadge />
               </div>
             </div>
@@ -461,12 +586,12 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Wave white→navy */}
-      <WaveDivider from={P.white} to={P.navy} />
+      {/* Wave mint→peacock */}
+      <WaveDivider from={P.mint} to={P.peacock} />
 
       {/* ══ GARANTIA ══ */}
       <section
-        style={{ backgroundColor: P.navy }}
+        style={{ backgroundColor: P.peacock }}
         className={`${BELOW} px-10 pb-16 pt-12 text-center`}
       >
         <div className="mx-auto flex max-w-[400px] flex-col items-center gap-5">
@@ -480,7 +605,6 @@ export default function Home() {
             {guarantee.title}
           </h2>
           <div className={`text-left ${SUB} leading-relaxed`} style={{ color: "rgba(255,255,255,0.82)" }}>
-            <p className="text-center">{guarantee.intro}</p>
             <p className="mt-4">{guarantee.lead}</p>
             <ul className="mt-3 flex flex-col gap-2">
               {guarantee.bullets.map((t) => (
@@ -493,122 +617,113 @@ export default function Home() {
                 </li>
               ))}
             </ul>
-            <p className="mt-4">
-              {guarantee.outro} <strong>{guarantee.outroStrong}</strong>
-            </p>
+            {guarantee.outro ? (
+              <p className="mt-4">
+                {guarantee.outro}{" "}
+                {guarantee.outroStrong ? <strong>{guarantee.outroStrong}</strong> : null}
+              </p>
+            ) : null}
           </div>
-          <p className={SUB} style={{ color: "rgba(255,255,255,0.55)" }}>
-            {guarantee.helpLabel}
-          </p>
-          <a
-            href={`mailto:${contact.email}`}
-            className="rounded-full bg-cta px-6 py-3 font-display text-[18px] font-semibold text-navy transition hover:brightness-110"
+          {guarantee.helpLabel && contact.email ? (
+            <>
+              <p className={SUB} style={{ color: "rgba(255,255,255,0.55)" }}>
+                {guarantee.helpLabel}
+              </p>
+              <a
+                href={`mailto:${contact.email}`}
+                className="rounded-full bg-cta px-6 py-3 font-display text-[18px] font-semibold text-white transition hover:brightness-110"
+              >
+                {contact.email}
+              </a>
+            </>
+          ) : null}
+        </div>
+      </section>
+
+      {stepsSection.steps.length > 0 ? (
+        <>
+          <WaveDivider from={P.peacock} to={P.peacock} />
+          <section
+            style={{ backgroundColor: P.peacock }}
+            className={`${BELOW} px-6 pb-16 pt-12 text-center`}
           >
-            {contact.email}
-          </a>
-        </div>
-      </section>
-
-      {/* Wave navy→cream */}
-      <WaveDivider from={P.navy} to={P.cream} />
-
-      {/* ══ DEPOIMENTOS ══ */}
-      <section
-        style={{ backgroundColor: P.cream }}
-        className={`${BELOW} px-5 pb-16 pt-12 text-center`}
-      >
-        <div className="mx-auto flex w-full max-w-[553px] flex-col items-center gap-7">
-          <h2 className="max-w-[480px] font-display text-[32px] font-semibold leading-[0.95] text-ink">
-            {testimonials.title}
-          </h2>
-          <TestimonialCarousel items={testimonials.items} />
-        </div>
-      </section>
-
-      {/* Wave cream→green */}
-      <WaveDivider from={P.cream} to={P.green} />
-
-      {/* ══ COMO FUNCIONA ══ */}
-      <section
-        style={{ backgroundColor: P.green }}
-        className={`${BELOW} px-6 pb-16 pt-12 text-center`}
-      >
-        <h2 className="font-display text-[36px] font-semibold leading-[0.9] text-white">
-          {stepsSection.title}
-        </h2>
-        {stepsSection.subtitle ? (
-          <p className={`mt-2 font-display ${SUB} text-white/65`}>
-            {stepsSection.subtitle}
-          </p>
-        ) : null}
-
-        <div className="mx-auto mt-9 flex w-full max-w-[640px] flex-col gap-0">
-          {stepsSection.steps.map((s, i) => (
-            <div key={s.title} className="flex items-stretch gap-4 text-left">
-              <div className="flex flex-col items-center">
-                <div
-                  className="flex size-10 shrink-0 items-center justify-center rounded-full font-display text-[17px] font-bold text-white"
-                  style={{ backgroundColor: "rgba(255,255,255,0.2)", border: "2px solid rgba(255,255,255,0.5)" }}
-                >
-                  {i + 1}
+            <h2 className="font-display text-[36px] font-semibold leading-[0.9] text-white">
+              {stepsSection.title}
+            </h2>
+            {stepsSection.subtitle ? (
+              <p className={`mt-2 font-display ${SUB} text-white/65`}>
+                {stepsSection.subtitle}
+              </p>
+            ) : null}
+            <div className="mx-auto mt-9 flex w-full max-w-[640px] flex-col gap-0">
+              {stepsSection.steps.map((s, i) => (
+                <div key={s.title} className="flex items-stretch gap-4 text-left">
+                  <div className="flex flex-col items-center">
+                    <div
+                      className="flex size-10 shrink-0 items-center justify-center rounded-full font-display text-[17px] font-bold text-white"
+                      style={{ backgroundColor: "rgba(255,255,255,0.2)", border: "2px solid rgba(255,255,255,0.5)" }}
+                    >
+                      {i + 1}
+                    </div>
+                    {i < stepsSection.steps.length - 1 && (
+                      <div
+                        className="w-[2px] flex-1 my-1"
+                        style={{ backgroundColor: "rgba(255,255,255,0.2)", minHeight: 24 }}
+                        aria-hidden
+                      />
+                    )}
+                  </div>
+                  <div className="mb-4 flex flex-1 flex-col gap-1 rounded-2xl scrap-card p-5">
+                    <p className="font-display text-[20px] font-semibold text-ink">{s.title}</p>
+                    {s.desc ? (
+                      <p className={`${SUB} text-muted`}>{s.desc}</p>
+                    ) : null}
+                    {s.items.length > 0 ? (
+                      <ul className="mt-1 flex flex-col gap-1">
+                        {s.items.map((t) => (
+                          <li key={t} className={`flex items-center gap-2 ${SUB} text-ink`}>
+                            <Check className="!w-[12px]" /> {t}
+                          </li>
+                        ))}
+                      </ul>
+                    ) : null}
+                  </div>
                 </div>
-                {i < stepsSection.steps.length - 1 && (
-                  <div
-                    className="w-[2px] flex-1 my-1"
-                    style={{ backgroundColor: "rgba(255,255,255,0.2)", minHeight: 24 }}
-                    aria-hidden
-                  />
-                )}
-              </div>
-              <div className="mb-4 flex flex-1 flex-col gap-1 rounded-2xl bg-white p-5">
-                <p className="font-display text-[20px] font-semibold text-ink">{s.title}</p>
-                {s.desc ? (
-                  <p className={SUB} style={{ color: "#666" }}>{s.desc}</p>
-                ) : null}
-                {s.items.length > 0 ? (
-                  <ul className="mt-1 flex flex-col gap-1">
-                    {s.items.map((t) => (
-                      <li key={t} className={`flex items-center gap-2 ${SUB} text-ink`}>
-                        <Check className="!w-[12px]" /> {t}
-                      </li>
-                    ))}
-                  </ul>
-                ) : null}
-              </div>
+              ))}
             </div>
-          ))}
-        </div>
-
-        <div className="mt-4 flex justify-center">
-          <CtaButton
-            href="#plano-completo"
-            label={stepsSection.ctaLabel}
-            id="passo_a_passo"
-          />
-        </div>
-      </section>
-
-      {/* Wave green→white */}
-      <WaveDivider from={P.green} to={P.white} />
+            {stepsSection.ctaLabel ? (
+              <div className="mt-4 flex justify-center">
+                <CtaButton
+                  href={checkout.hero}
+                  label={stepsSection.ctaLabel}
+                  id="passo_a_passo"
+                />
+              </div>
+            ) : null}
+          </section>
+          <WaveDivider from={P.peacock} to={P.blush} />
+        </>
+      ) : (
+        <WaveDivider from={P.peacock} to={P.blush} />
+      )}
 
       {/* ══ FAQ ══ */}
       <section
-        style={{ backgroundColor: P.white }}
+        style={{ backgroundColor: P.blush }}
         className={`${BELOW} px-5 pb-16 pt-12`}
       >
         <div className="mx-auto max-w-[640px]">
           <h2 className="mb-8 text-center font-display text-[36px] font-semibold leading-[0.9] text-ink">
-            Perguntas Frequentes
+            {faqTitle}
           </h2>
           <div className="flex flex-col gap-2">
-            {faq.map(([q, a]) => (
+            {faq.map(([q, a], i) => (
               <details
                 key={q}
-                className="rounded-xl"
-                style={{ backgroundColor: "#f4f4f2" }}
+                className="scrap-faq-item rounded-xl"
               >
                 <summary className="flex cursor-pointer list-none items-center justify-between gap-3 px-5 py-4 font-display text-[15px] font-semibold text-ink">
-                  {q}
+                  {i + 1}. {q}
                   <svg
                     viewBox="0 0 13 7"
                     className="faq-chevron w-3 shrink-0 transition-transform duration-200"
@@ -616,7 +731,7 @@ export default function Home() {
                   >
                     <path
                       d="M0.5 0.5L6.5 6.5L12.5 0.5"
-                      stroke="black"
+                      stroke={P.plum}
                       strokeLinecap="round"
                       strokeLinejoin="round"
                       fill="none"
@@ -632,21 +747,23 @@ export default function Home() {
 
       {/* ══ RODAPÉ ══ */}
       <footer
-        style={{ backgroundColor: P.cream }}
+        style={{ backgroundColor: P.paper }}
         className="px-6 py-10 text-center"
       >
         <p className={`${SUB} text-ink`}>
-          Copyright {new Date().getFullYear()} — Todos os direitos reservados.
+          ©️ {footer.copyright}
         </p>
-        <p className={`mt-2 ${SUB}`}>
-          Contato:{" "}
-          <a
-            href={`mailto:${contact.email}`}
-            className="font-semibold text-brand hover:underline"
-          >
-            {contact.email}
-          </a>
-        </p>
+        {contact.email ? (
+          <p className={`mt-2 ${SUB}`}>
+            Contato:{" "}
+            <a
+              href={`mailto:${contact.email}`}
+              className="font-semibold text-brand hover:underline"
+            >
+              {contact.email}
+            </a>
+          </p>
+        ) : null}
         <p className={`mt-6 ${SUB} text-muted`}>{footer.legal}</p>
       </footer>
     </main>

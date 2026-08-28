@@ -1,14 +1,20 @@
 @import "tailwindcss";
 
 @theme {
-  --color-brand: #6d4aff;
+  --color-brand: #c22745;
   --color-cta: #00db6a;
-  --color-badge: #07c707;
-  --color-ink: #242424;
-  --color-dark: #131313;
-  --color-navy: #041774;
-  --color-alert: #e30000;
-  --color-muted: #757575;
+  --color-badge: #1f7a7a;
+  --color-ink: #2f241f;
+  --color-dark: #3e2450;
+  --color-navy: #1f7a7a;
+  --color-alert: #c22745;
+  --color-muted: #6f5e56;
+  --color-paper: #fff1c9;
+  --color-blush: #fcd9d0;
+  --color-mint: #d4f0ea;
+  --color-peacock: #1f7a7a;
+  --color-plum: #3e2450;
+  --color-marigold: #e8a317;
   --font-display: var(--font-fredoka);
   --font-sans: var(--font-manrope);
 }
@@ -23,7 +29,7 @@ body {
 }
 
 body {
-  background: #fff;
+  background: var(--color-paper);
   color: var(--color-ink);
   font-family: var(--font-manrope), sans-serif;
 }
@@ -39,6 +45,16 @@ body {
 }
 .marquee-track {
   animation: marquee var(--marquee-duration, 20s) linear infinite;
+}
+
+.marquee:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+  }
 }
 
 .cv-auto {

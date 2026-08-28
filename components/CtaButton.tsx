@@ -18,7 +18,7 @@ export function CtaButton({ href, label, id, planName, className = "" }: Props) 
       data-cta-label={label}
       data-plan-name={planName}
       data-external={isExternalCheckout ? "1" : undefined}
-      className={`cta-pulse flex h-[72px] w-full max-w-[365px] items-center justify-center rounded-full bg-cta font-display text-[24px] font-semibold text-white ${className}`}
+      className={`cta-pulse flex min-h-[72px] w-full max-w-[365px] items-center justify-center rounded-full bg-cta px-5 py-3 text-center font-display text-[18px] font-semibold leading-tight text-white sm:text-[20px] ${className}`}
     >
       {label}
     </a>

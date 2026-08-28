@@ -1,27 +1,38 @@
 import type { Metadata } from "next";
 import { headers } from "next/headers";
-import { Manrope } from "next/font/google";
+import { Fredoka, Manrope } from "next/font/google";
 import { DeferredVercel } from "@/components/DeferredVercel";
 import { TrackingHead } from "@/components/TrackingHead";
 import { hero } from "@/lib/content";
 import "./globals.css";
 import "./page.css";
 
-const manropePage = Manrope({
-  subsets: ["latin"],
-  weight: ["500", "700", "800"],
-  variable: "--font-manrope-page",
+const fredoka = Fredoka({
+  variable: "--font-fredoka",
+  subsets: ["latin", "latin-ext"],
+  weight: ["400", "600"],
   display: "swap",
+  preload: true,
+  adjustFontFallback: true,
+});
+
+const manrope = Manrope({
+  variable: "--font-manrope",
+  subsets: ["latin", "latin-ext"],
+  weight: ["400", "500", "600", "700", "800"],
+  display: "swap",
+  preload: true,
+  adjustFontFallback: true,
 });
 
 export const metadata: Metadata = {
-  title: "Aquarelas Personalizadas: Pinte o que Você Mais Deseja",
+  title: "Diário de Memórias — Crie Seu Scrapbooking de Forma Simples e Prática",
   description:
-    "Envie uma foto e receba o molde de desenho + o guia passo a passo para pintá-la em aquarela. Transforme o sorriso do seu filho, seu pet ou qualquer foto que você ama em arte.",
+    "Use referências visuais para posicionar fotos, papéis, frases e elementos decorativos sem precisar inventar tudo do zero.",
   openGraph: {
-    title: "Aquarelas Personalizadas: Pinte o que Você Mais Deseja",
+    title: "Diário de Memórias — Crie Seu Scrapbooking de Forma Simples e Prática",
     description:
-      "Envie uma foto e receba o molde de desenho + o guia passo a passo para pintá-la em aquarela.",
+      "Crie seu Diário de Memórias com modelos prontos que mostram exatamente como montar cada página.",
     locale: "pt_BR",
     type: "website",
   },
@@ -41,16 +52,18 @@ export default async function RootLayout({
   const pathname = (await headers()).get("x-pathname") ?? "/";
 
   return (
-    <html lang="pt-BR" className={`${manropePage.variable} antialiased`}>
+    <html lang="pt-BR" className={`${fredoka.variable} ${manrope.variable} antialiased`}>
       <head>
         <TrackingHead pathname={pathname} />
-        <link
-          rel="preload"
-          as="image"
-          href={hero.poster.src}
-          fetchPriority="high"
-          type="image/png"
-        />
+        {hero.poster.src ? (
+          <link
+            rel="preload"
+            as="image"
+            href={hero.poster.src}
+            fetchPriority="high"
+            type="image/png"
+          />
+        ) : null}
       </head>
       <body className="scrap-page">
         {children}

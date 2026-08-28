@@ -1,212 +1,281 @@
 export const contact = {
-  email: "contato@aquarelasdanatureza.com",
+  email: "",
 };
 
 export const footer = {
+  copyright: "Todos os direitos reservados.",
   legal:
-    "Este site n?o ? afiliado ao Facebook ou a qualquer entidade do Facebook. Ap?s sair do Facebook, a responsabilidade n?o ? deles e sim do nosso site. Fazemos todos os esfor?os para indicar claramente e mostrar todas as provas do produto e usamos resultados reais. N?s n?o vendemos o seu e-mail ou qualquer informa??o para terceiros. Jamais fazemos algum tipo de spam. Se voc? tiver alguma d?vida, sinta-se ? vontade para usar o link de contato e falar conosco em hor?rio comercial de Segunda a Sextas das 09h00 ?s 18h00. Lemos e respondemos todas as mensagens por ordem de chegada.",
+    "Este site não é afiliado ao Facebook ou a qualquer entidade do Facebook. Após sair do Facebook, a responsabilidade não é deles e sim do nosso site. Fazemos todos os esforços para indicar claramente e mostrar todas as provas do produto e usamos resultados reais. Nós não vendemos o seu e-mail ou qualquer informação para terceiros. Jamais fazemos algum tipo de spam. Se você tiver alguma dúvida, sinta-se à vontade para usar o link de contato e falar conosco em horário comercial de Segunda a Sextas das 09h00 às 18h00. Lemos e respondemos todas as mensagens por ordem de chegada.",
+};
+
+export const checkout = {
+  hero: "#plano-basico",
+  basic: "https://pay.hotmart.com/U107331805R?off=sz8wlcz6&checkoutMode=10&bid=1787952607380",
+  complete: "https://pay.hotmart.com/R107331870H?off=wcrp69ev&checkoutMode=10",
 };
 
 export const testimonials = {
-  title: "Veja quem comprou e j? fez seu quadro em Aquarela!",
+  title: "VEJA OS DIÁRIOS DE ALGUMAS ALUNAS",
   items: [
-    { src: "/depoimento-01.png", alt: "Depoimento de Marina no WhatsApp", width: 553, height: 1024 },
-    { src: "/depoimento-02.png", alt: "Depoimento de Roberta no WhatsApp", width: 553, height: 1024 },
-    { src: "/depoimento-03.png", alt: "Depoimento de cliente no WhatsApp", width: 553, height: 1024 },
-    { src: "/depoimento-04.png", alt: "Depoimento de Rosangela no WhatsApp", width: 553, height: 1024 },
-  ],
+    {
+      src: "/alunas/aluna-01-tbilisi.webp",
+      alt: "Diário de memórias de aluna com páginas de viagem a Tbilisi",
+      width: 720,
+      height: 960,
+    },
+    {
+      src: "/alunas/aluna-02-june.webp",
+      alt: "Diário de memórias de aluna com vision board de junho",
+      width: 720,
+      height: 960,
+    },
+    {
+      src: "/alunas/aluna-03-hawaii-trip.webp",
+      alt: "Diário de memórias de aluna com viagem de amigas no Havaí",
+      width: 720,
+      height: 961,
+    },
+    {
+      src: "/alunas/aluna-04-lago.webp",
+      alt: "Diário de memórias de aluna com páginas de verão no lago",
+      width: 720,
+      height: 917,
+    },
+    {
+      src: "/alunas/aluna-05-hawaii.webp",
+      alt: "Diário de memórias de aluna com fotos de casal no Havaí",
+      width: 720,
+      height: 961,
+    },
+    {
+      src: "/alunas/aluna-06-2024.webp",
+      alt: "Diário de memórias de aluna com recapitulativo de 2024",
+      width: 720,
+      height: 956,
+    },
+  ] as { src?: string; alt: string; width: number; height: number }[],
 };
 
 export const materials = {
-  title: "VEJA O QUE PODE VIRAR UMA AQUARELA PERSONALIZADA",
-  imageSize: { width: 3, height: 4 },
+  title: "VEJA OS MATERIAIS QUE VOCÊ VAI RECEBER JÁ",
+  imageSize: { width: 720, height: 900 },
   items: [
-    { src: "/produto-01.png", alt: "Casal de noivos transformado em aquarela" },
-    { src: "/produto-02.png", alt: "M?os de adulto e crian?a transformadas em aquarela" },
-    { src: "/produto-03.png", alt: "Pet transformado em aquarela" },
-    { src: "/produto-04.png", alt: "Ch? revela??o transformado em aquarela" },
-    { src: "/produto-05.png", alt: "Amigas transformadas em aquarela" },
-  ],
+    {
+      src: "/diarios/diario-01-nova-york.webp",
+      alt: "Diário de memórias com páginas de viagem a Nova York",
+    },
+    {
+      src: "/diarios/diario-02-aniversario.webp",
+      alt: "Diário de memórias com fotos de aniversário e amigas",
+    },
+    {
+      src: "/diarios/diario-03-vintage.webp",
+      alt: "Diário de memórias estilo vintage com recortes e frases",
+    },
+    {
+      src: "/diarios/diario-04-ilha.webp",
+      alt: "Diário de memórias de viagem à ilha com anotações à mão",
+    },
+    {
+      src: "/diarios/diario-05-narbonne.webp",
+      alt: "Diário de memórias de viagem a Narbonne, na França",
+    },
+  ] as { src?: string; alt: string }[],
 };
 
 export const theme = {
-  brandColor: "#3a7d44",
+  brandColor: "#c22745",
 };
 
 export const offerBar = {
-  text: "? OFERTA ESPECIAL DISPON?VEL APENAS HOJE",
+  text: "⚡ OFERTA ESPECIAL DISPONÍVEL APENAS HOJE",
 };
 
 export const hero = {
-  logo: { src: "/logo-aquarelas-da-natureza2.webp", alt: "Aquarelas Personalizadas", width: 200, height: 60 },
-  secureSeal: "??Compra 100% Segura e Protegida",
-  titleHighlight: "ENVIE UMA FOTO E RECEBA O MOLDE DE DESENHO",
-  title: "+ O GUIA PASSO A PASSO PARA PINT?-LA EM AQUARELA",
-  image: { alt: "Processo de pintura em aquarela personalizada de um pet", width: 1024, height: 1024 },
-  poster: { src: "/hero.png" },
+  logo: { src: "", alt: "Diário de Memórias", width: 200, height: 60 },
+  secureSeal: "",
+  titleHighlight: "Crie seu Diário de Memórias Personalizado",
+  title: "com modelos prontos que mostram exatamente como montar cada página.",
+  image: {
+    alt: "Diário de memórias aberto sobre a mesa, com fotos de família, flores de papel e frases escritas à mão",
+    width: 960,
+    height: 960,
+  },
+  poster: { src: "/hero.webp" },
   subtitle:
-    "Transforme o sorriso do seu filho, seu pet, uma viagem especial ou qualquer foto que voc? ama em uma aquarela pintada pelas suas pr?prias m?os.",
-  ctaLabel: "QUERO MINHA AQUARELA",
-  deliveryNoteLines: [] as string[],
+    "Use referências visuais para posicionar fotos, papéis, frases e elementos decorativos sem precisar inventar tudo do zero.",
+  ctaLabel: "QUERO CRIAR MEU DIÁRIO DE MEMÓRIAS",
+  deliveryNote: "📲 Você recebe tudo na hora, direto no seu e-mail",
   socialProofLabel: "",
 };
 
 export const whySection = {
-  title: "COM UMA FOTO, VOC? RECEBE:",
-  cards: [
-    {
-      icon: "???",
-      title: "Molde personalizado da sua foto",
-      desc: "Transformamos a refer?ncia que voc? enviar em um desenho em linhas, pronto para imprimir e pintar.",
-    },
-    {
-      icon: "??",
-      title: "Guias detalhados",
-      desc: "Passo a passo para cada obra.",
-    },
-    {
-      icon: "??",
-      title: "Suporte para d?vidas",
-      desc: "Estamos aqui para ajudar.",
-    },
-    {
-      icon: "??",
-      title: "Personaliza??o total",
-      desc: "Voc? envia as refer?ncias.",
-    },
-    {
-      icon: "?",
-      title: "Resultados r?pidos",
-      desc: "Comece a pintar imediatamente.",
-    },
-  ],
+  title: "",
+  cards: [] as { icon: string; title: string; desc: string }[],
 };
 
 export const idealSection = {
-  title: "ESTE MATERIAL ? IDEAL PARA VOC? QUE DESEJA",
+  title: "ESTE DIÁRIO É IDEAL PARA VOCÊ QUE DESEJA",
   items: [
-    {
-      title: "DEIXAR SUAS LEMBRAN?AS VIVAS",
-      desc: "Pinte momentos especiais, como o sorriso do seu filho ou uma viagem inesquec?vel.",
-    },
-    {
-      title: "APRENDER A PINTAR SEM ESTRESSE",
-      desc: "Receba tudo pronto e f?cil, sem precisar criar do zero.",
-    },
-    {
-      title: "PINTAR ALGO QUE TEM SIGNIFICADO PARA VOC?",
-      desc: "Em vez de copiar refer?ncias aleat?rias da internet, escolha justamente aquela foto que voc? gostaria de transformar em arte.",
-    },
-    {
-      title: "CRIAR PRESENTES PERSONALIZADOS",
-      desc: "Surpreenda amigos e familiares com aquarelas feitas a partir de suas fotos.",
-    },
-    {
-      title: "DESENVOLVER SUAS HABILIDADES ART?STICAS",
-      desc: "Pratique e melhore sua t?cnica de pintura com guias e dicas.",
-    },
-    {
-      title: "PINTAR SEM SABER DESENHAR DO ZERO",
-      desc: "Voc? recebe o molde da sua pr?pria foto e pode focar na pintura, sem ter que acertar propor??es e tra?os sozinho.",
-    },
+    { title: "Tirar suas fotos da galeria e transformar em lembranças de verdade", desc: "" },
+    { title: "Criar scrapbook sem precisar inventar tudo do zero", desc: "" },
+    { title: "Aproveitar melhor os materiais que já tem em casa", desc: "" },
+    { title: "Ter mais segurança na hora de montar cada página", desc: "" },
+    { title: "Registrar viagens, família e momentos especiais de um jeito mais pessoal", desc: "" },
+    { title: "Voltar a criar sem depender de inspiração o tempo todo", desc: "" },
   ],
 };
 
 export const offerSection = {
-  title: "VEJA COMO FUNCIONA AS AQUARELAS PERSONALIZADAS:",
-  pill: "?ACESSO IMEDIATO",
-  cardTitle: "TUDO FOI ORGANIZADO PARA SER SIMPLES E F?CIL DE APLICAR.",
+  title: "Tudo o que você vai receber no Diário de Memórias",
+  pill: "⚡ACESSO IMEDIATO",
+  cardTitle: "TUDO FOI ORGANIZADO PARA SER SIMPLES E FÁCIL DE APLICAR.",
+  lead: "Você escolhe o modelo e já pode começar na mesma hora.",
   image: {
-    src: "/como-funciona.png",
-    alt: "Guias de aquarela personalizada: paletas, misturas, texturas, esbo?o e pintura final",
-    width: 640,
-    height: 640,
+    src: "/kit-diario.webp",
+    alt: "Kit do Diário de Memórias: diário aberto com páginas de viagem, títulos, molduras, frases e elementos prontos para imprimir",
+    width: 1024,
+    height: 1024,
   },
   howItWorks: [
     {
-      title: "1. VOC? ENVIA SUA FOTO",
-      desc: "Escolha a lembran?a, pessoa, animal, paisagem ou imagem que gostaria de transformar em aquarela.",
+      title: "PARTE 1 — Organize sua montagem",
+      desc: "Veja quais fotos, papéis, recortes, elementos e materiais separar antes de começar.",
     },
     {
-      title: "2. N?S CRIAMOS SEU MOLDE",
-      desc: "Transformamos sua refer?ncia em um desenho em linhas, pronto para voc? imprimir e usar como base.",
+      title: "PARTE 2 — Monte seu Diário de Memórias",
+      desc: "Entenda a estrutura do diário e visualize como o projeto completo será montado.",
     },
     {
-      title: "3. PREPARAMOS SEU GUIA DE PINTURA",
-      desc: "Voc? recebe uma orienta??o personalizada mostrando cores, misturas e etapas para pintar aquela refer?ncia.",
+      title: "PARTE 3 — Modelos Prontos de Montagem",
+      desc: "Siga modelos visuais de capa, abertura e páginas internas para posicionar fotos, papéis, frases e elementos com mais facilidade.",
     },
     {
-      title: "4. VOC? PINTA SUA AQUARELA",
-      desc: "Imprima o molde, acompanhe o guia e d? vida ?quela imagem especial com suas pr?prias m?os.",
+      title: "Em cada modelo você verá:",
+      desc: "Quantidade e tamanho das fotos, posição dos elementos, espaços para títulos e memórias e uma ordem simples de montagem.",
     },
   ],
 };
 
 export const bonusSection = {
-  titleLines: ["", ""],
-  pill: "",
-  exclusiveNote: ["", ""],
-  items: [] as { src: string; title: string; desc: string; price: string }[],
+  titleLines: ["E NÃO PARA POR AÍ...", "TEM MAIS!", "Você também vai receber…"],
+  pill: "🎁 4 BÔNUS EXCLUSIVOS",
+  exclusiveNote: "Bônus incluso somente no Plano Completo",
+  items: [
+    {
+      label: "BÔNUS #1",
+      title: "24 Elementos Prontos para Imprimir e Recortar",
+      features: [
+        "6 Tags de Data e Lugar",
+        "6 Selos de Memória",
+        "6 Etiquetas para Fotos",
+        "6 Detalhes Decorativos",
+      ],
+      price: "R$27",
+      src: "/bonus/bonus-01-elementos.webp",
+    },
+    {
+      label: "BÔNUS #2",
+      title: "20 Frases Prontas para Imprimir e Usar",
+      features: [
+        "5 Frases para Abertura",
+        "5 Frases para Momentos Especiais",
+        "5 Frases para Pequenas Memórias do Cotidiano",
+        "5 Frases para Encerramento",
+      ],
+      price: "R$27",
+      src: "/bonus/bonus-02-frases.webp",
+    },
+    {
+      label: "BÔNUS #3",
+      title: "8 Molduras para Fotos Prontas para Imprimir",
+      features: [
+        "2 Molduras Estilo Polaroid",
+        "2 Molduras Verticais",
+        "2 Molduras Quadradas",
+        "2 Molduras Estilo Filme",
+      ],
+      price: "R$27",
+      src: "/bonus/bonus-03-molduras.webp",
+    },
+    {
+      label: "BÔNUS #4",
+      title: "6 Papéis de Fundo Prontos para Imprimir",
+      features: [
+        "2 Fundos Neutros",
+        "2 Fundos Estampados Suaves",
+        "2 Fundos Texturizados",
+      ],
+      price: "R$27",
+      src: "/bonus/bonus-04-papeis.webp",
+    },
+  ] as {
+    label: string;
+    title: string;
+    features: string[];
+    price: string;
+    src?: string;
+  }[],
 };
 
-export const bonusFeatures = [] as string[];
-
 export const plansSection = {
-  pill: "?? ?LTIMA CHANCE ? OFERTA TERMINA HOJE",
-  title: "Adquira seus moldes e guias de pintura agora mesmo!",
+  pill: "🔥 ÚLTIMA CHANCE — OFERTA TERMINA HOJE",
+  title: "ESCOLHA A MELHOR OPÇÃO PARA VOCÊ",
   basic: {
-    name: "Aquarelas Personalizadas",
+    name: "PLANO BÁSICO",
     image: {
-      src: "/guia-moldes.png",
-      alt: "Guia de pintura em aquarela com molde, esbo?o e pintura final de Golden Retriever",
-      width: 640,
-      height: 640,
+      src: "/plano-basico.webp",
+      alt: "Diário de Memórias aberto com páginas de viagem, fotos, tesoura e washi tape",
+      width: 1024,
+      height: 1024,
     },
-    receiveLabel: "Voc? recebe:",
+    receiveLabel: "Você recebe:",
     features: [
-      "Molde de desenho personalizado a partir da sua foto",
-      "Guia passo a passo de pintura feito para sua refer?ncia",
-      "Suporte para d?vidas durante o processo",
+      "Guia de organização da montagem",
+      "Estrutura completa do diário",
+      "Modelos prontos de capa e páginas",
+      "Guias visuais de montagem",
     ],
-    oldPrice: "R$67,90",
+    oldPrice: "R$37,90",
     price: "R$27,90",
-    installments: "ou 12x de R$2,33",
-    savings: "?? voc? economiza R$40,00",
-    ctaLabel: "QUERO MINHA AQUARELA",
+    installments: "ou 4x de R$7,48 no cartão.",
+    savings: "Você economiza R$10,00",
+    ctaLabel: "QUERO O PLANO BÁSICO",
   },
   complete: {
-    badge: "?? ?LTIMA CHANCE ? OFERTA TERMINA HOJE",
+    badge: "🔥 ÚLTIMA CHANCE — OFERTA TERMINA HOJE",
     name: "PLANO COMPLETO",
     allBonusesLabel: "",
     image: {
-      src: "/plano-completo.png",
-      alt: "Materiais do plano completo: guias de paletas, misturas, texturas e pintura passo a passo",
-      width: 640,
-      height: 640,
+      src: "/plano-completo.webp",
+      alt: "Kit do Plano Completo: diário aberto com títulos, molduras, ilustrações e elementos prontos para imprimir",
+      width: 1024,
+      height: 1024,
     },
-    pill: "?MAIS CONTE?DOS",
+    pill: "⚡4x MAIS CONTEÚDOS",
+    soldLabel: "⚡MAIS VENDIDO",
     features: [
-      "Molde de desenho personalizado",
-      "Guia de pintura em aquarela",
-      "100 Paletas Prontas para Aquarela",
-      "Guia Visual de Misturas para Aquarela",
-      "Guia Visual de Texturas para Aquarela",
-      "E muito mais?",
+      "Diário de Memórias",
+      "🎁BÔNUS 1 - 24 Elementos Prontos para Imprimir e Recortar",
+      "🎁BÔNUS 2 - 20 Frases Prontas para Imprimir e Usar",
+      "🎁BÔNUS 3 - 8 Molduras para Fotos Prontas para Imprimir",
+      "🎁BÔNUS 4 - 6 Papéis de Fundo Prontos para Imprimir",
+      "Acesso imediato ao material",
     ],
-    oldPrice: "R$97,90",
+    oldPrice: "R$67,90",
     price: "R$37,90",
-    installments: "ou 12x de R$3,92",
-    savings: "?? voc? economiza R$60,00",
-    ctaLabel: "QUERO MINHA AQUARELA",
+    installments: "ou 6x de R$6,48 no cartão.",
+    savings: "Você economiza R$30,00",
+    ctaLabel: "QUERO O PLANO COMPLETO",
   },
   upsellNote: {
-    alert: "92% das pessoas aproveitam o plano abaixo ??",
+    alert: "92% das pessoas aproveitam o plano abaixo 👇",
     body: "",
     highlight: "",
   },
   securePurchaseBadge: {
     src: "/entregaveis-v2/compra-segura-hotmart-640.webp",
-    alt: "Compra 100% segura ? Hotmart",
+    alt: "Meios de pagamento",
     width: 640,
     height: 192,
   },
@@ -215,89 +284,70 @@ export const plansSection = {
 export const guarantee = {
   seal: { alt: "Selo de garantia de 7 dias", width: 241, height: 242 },
   title: "GARANTIA DE 7 DIAS",
-  intro: "?? Compra 100% segura e garantida.",
-  lead: "Isso significa que, a qualquer momento, se voc? achar que:",
+  intro: "🔒 Compra 100% segura e garantida.",
+  lead: "Isso significa que, se você achar que:",
   bullets: [
-    "o material n?o faz sentido para voc?;",
-    "os desenhos n?o atendem sua necessidade;",
-    "ou simplesmente n?o quiser continuar.",
+    "o material não faz sentido para suas criações",
+    "os modelos não atendem suas expectativas",
+    "ou simplesmente não quiser continuar.",
   ],
-  outro: "Voc? pode solicitar o reembolso. Sem prazo, sem burocracia.",
-  outroStrong: "O risco fica todo do nosso lado.",
-  helpLabel: "Precisa de ajuda? Entre em contato conosco:",
+  outro: "Você pode solicitar o reembolso.",
+  outroStrong: "",
+  helpLabel: "",
 };
 
 export const stepsSection = {
-  title: "COMO ? O ACESSO",
+  title: "",
   subtitle: "",
-  ctaLabel: "QUERO MINHA AQUARELA",
-  steps: [
-    {
-      icon: "??",
-      title: "CONCLUA SUA COMPRA",
-      desc: "",
-      items: [] as string[],
-    },
-    {
-      icon: "??",
-      title: "ENVIE SUA FOTO",
-      desc: "",
-      items: [] as string[],
-    },
-    {
-      icon: "??",
-      title: "N?S PREPARAMOS SEU MATERIAL",
-      desc: "",
-      items: [] as string[],
-    },
-    {
-      icon: "??",
-      title: "RECEBA SEUS ARQUIVOS",
-      desc: "",
-      items: [] as string[],
-    },
-  ],
+  ctaLabel: "",
+  steps: [] as { icon: string; title: string; desc: string; items: string[] }[],
 };
+
+export const faqTitle = "PERGUNTAS FREQUENTES";
 
 export const faq: readonly (readonly [string, string])[] = [
   [
-    "Preciso saber desenhar para usar as Aquarelas Personalizadas?",
-    "N?o. Justamente para voc? n?o precisar come?ar o desenho do zero, n?s transformamos a foto que voc? enviar em um molde de desenho personalizado, com as linhas da sua refer?ncia prontas para voc? usar como base.",
+    "O que é o Diário de Memórias?",
+    "O Diário de Memórias é um material digital prático com modelos prontos e guias visuais para ajudar você a montar um scrapbook de forma mais simples, organizada e sem precisar criar tudo do zero.",
   ],
   [
-    "Preciso ter experi?ncia com aquarela?",
-    "N?o. Voc? tamb?m recebe um guia de pintura personalizado, com orienta??es de cores, misturas e etapas para ajudar na pintura da sua refer?ncia. A proposta ? tornar o processo mais simples mesmo para quem ainda est? desenvolvendo suas habilidades.",
+    "O Diário de Memórias é um curso?",
+    "Não. É um material digital prático com orientações, modelos prontos e referências visuais para você seguir durante a montagem.",
   ],
   [
-    "Posso enviar qualquer foto?",
-    "Voc? pode enviar refer?ncias de pessoas, filhos, fam?lia, pets, paisagens, viagens, lugares e outras imagens que gostaria de pintar. Para conseguirmos preparar um material melhor, recomendamos escolher uma foto n?tida e com boa visualiza??o dos elementos principais.",
+    "O que eu recebo no Plano Básico?",
+    "Você recebe o Diário de Memórias, com organização da montagem, estrutura do projeto e modelos visuais das páginas.",
   ],
   [
-    "O que exatamente vou receber?",
-    "A partir da foto que voc? enviar, preparamos para voc?: um Molde de Desenho Personalizado, criado a partir da sua refer?ncia; um Guia de Pintura Personalizado, com orienta??es para pintar aquela imagem em aquarela; suporte para d?vidas durante o processo.",
+    "O que eu recebo no Plano Completo?",
+    "Além do Diário de Memórias, você recebe os 4 bônus com elementos, frases, molduras e papéis de fundo prontos para imprimir.",
   ],
   [
-    "Como envio minha foto depois da compra?",
-    "Ap?s concluir sua compra, voc? receber? as instru??es para enviar a refer?ncia que deseja transformar em aquarela. Depois do envio, iniciamos a prepara??o do seu molde e do seu guia personalizado.",
+    "Preciso comprar muitos materiais para começar?",
+    "Não necessariamente. O material ajuda você a aproveitar fotos, papéis, recortes e elementos que já possui, além dos arquivos imprimíveis disponíveis no Plano Completo.",
   ],
   [
-    "Qual ? o prazo para receber meu material personalizado?",
-    "Depois que voc? enviar sua foto, o molde de desenho e o guia de pintura ser?o preparados especialmente para a sua refer?ncia.",
+    "Posso usar o material para registrar diferentes momentos?",
+    "Sim. Você pode adaptar as páginas para viagens, momentos em família, acontecimentos especiais e outras memórias que queira guardar.",
   ],
   [
-    "Como recebo o molde e o guia quando estiverem prontos?",
-    "Assim que o seu material personalizado estiver finalizado, voc? receber? as orienta??es para acessar os arquivos e poder? utiliz?-los para come?ar sua pintura.",
+    "Como vou receber o material?",
+    "Você receberá o material imediatamente no seu e-mail assim que realizar a compra.",
   ],
   [
-    "Preciso imprimir o molde?",
-    "O molde foi pensado para servir como base para a sua pintura e pode ser impresso para facilitar o processo. Assim, voc? n?o precisa desenhar sua refer?ncia do zero e pode concentrar sua aten??o na aquarela.",
+    "O acesso é liberado imediatamente após a compra?",
+    "Sim.",
   ],
   [
-    "Posso transformar uma foto especial em presente?",
-    "Sim. Voc? pode enviar uma foto que tenha significado para voc? ou para algu?m especial ? como um filho, casal, pet, viagem ou lembran?a ? e utilizar o molde e o guia para criar uma aquarela feita pelas suas pr?prias m?os.",
+    "Quais são as formas de pagamento?",
+    "Confira as formas de pagamento disponíveis no checkout.",
   ],
   [
-    "Quais s?o as formas de pagamento?",
-    "As formas de pagamento dispon?veis ser?o apresentadas no momento da compra. Basta clicar em QUERO MINHA AQUARELA para conferir as op??es dispon?veis no checkout.",
+    "O produto possui garantia?",
+    "Sim, de 7 dias.",
+  ],
+  [
+    "Preciso saber fazer scrapbook para usar o material?",
+    "Não. Os modelos e guias visuais foram pensados justamente para mostrar como organizar fotos, papéis, frases e elementos sem precisar criar tudo do zero.",
   ],
 ];
