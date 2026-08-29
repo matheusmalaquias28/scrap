@@ -1,19 +1,22 @@
-import { trackingBootForPath, UTMIFY_PIXEL_URL } from "@/lib/tracking-boot";
+import {
+  UTMIFY_PIXEL_ID,
+  UTMIFY_PIXEL_URL,
+  UTMIFY_UTMS_URL,
+} from "@/lib/tracking-boot";
 
-type Props = {
-  pathname: string;
-};
-
-/** Scripts Utmify inline no head — executam imediatamente, sem fila do Next.js. */
-export function TrackingHead({ pathname }: Props) {
-  const tracking = trackingBootForPath(pathname);
-  if (!tracking) return null;
-
+/** Tags reais no HTML, com pixelId definido antes do pixel.js. */
+export function TrackingHead() {
   return (
     <>
       <link rel="preconnect" href="https://cdn.utmify.com.br" crossOrigin="anonymous" />
-      <link rel="preload" href={UTMIFY_PIXEL_URL} as="script" fetchPriority="high" />
-      <script id={tracking.id} dangerouslySetInnerHTML={{ __html: tracking.boot }} />
+      <link rel="preconnect" href="https://connect.facebook.net" crossOrigin="anonymous" />
+      <script
+        dangerouslySetInnerHTML={{
+          __html: `window.pixelId="${UTMIFY_PIXEL_ID}";`,
+        }}
+      />
+      <script src={UTMIFY_PIXEL_URL} />
+      <script src={UTMIFY_UTMS_URL} async data-utmify-prevent-subids="" />
     </>
   );
 }

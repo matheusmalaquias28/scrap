@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { headers } from "next/headers";
 import { Fredoka, Manrope } from "next/font/google";
 import { DeferredVercel } from "@/components/DeferredVercel";
 import { TrackingHead } from "@/components/TrackingHead";
@@ -49,12 +48,10 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const pathname = (await headers()).get("x-pathname") ?? "/";
-
   return (
     <html lang="pt-BR" className={`${fredoka.variable} ${manrope.variable} antialiased`}>
       <head>
-        <TrackingHead pathname={pathname} />
+        <TrackingHead />
         {hero.poster.src ? (
           <link
             rel="preload"
