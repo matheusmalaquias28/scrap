@@ -1,0 +1,182 @@
+{
+  "/hero.webp": {
+    "widths": [
+      384,
+      512,
+      640,
+      768
+    ],
+    "full": 960,
+    "sizes": "(max-width: 423px) calc(100vw - 40px), 383px"
+  },
+  "/diarios/diario-01-nova-york.webp": {
+    "widths": [
+      260,
+      390,
+      520
+    ],
+    "full": 720,
+    "sizes": "260px"
+  },
+  "/diarios/diario-02-aniversario.webp": {
+    "widths": [
+      260,
+      390,
+      520
+    ],
+    "full": 720,
+    "sizes": "260px"
+  },
+  "/diarios/diario-03-vintage.webp": {
+    "widths": [
+      260,
+      390,
+      520
+    ],
+    "full": 720,
+    "sizes": "260px"
+  },
+  "/diarios/diario-04-ilha.webp": {
+    "widths": [
+      260,
+      390,
+      520
+    ],
+    "full": 720,
+    "sizes": "260px"
+  },
+  "/diarios/diario-05-narbonne.webp": {
+    "widths": [
+      260,
+      390,
+      520
+    ],
+    "full": 720,
+    "sizes": "260px"
+  },
+  "/kit-diario.webp": {
+    "widths": [
+      384,
+      560,
+      768
+    ],
+    "full": 1024,
+    "sizes": "(max-width: 520px) 88vw, 448px"
+  },
+  "/plano-basico.webp": {
+    "widths": [
+      384,
+      560,
+      768
+    ],
+    "full": 1024,
+    "sizes": "(max-width: 520px) 88vw, 448px"
+  },
+  "/plano-completo.webp": {
+    "widths": [
+      384,
+      560,
+      768
+    ],
+    "full": 1024,
+    "sizes": "(max-width: 520px) 88vw, 448px"
+  },
+  "/bonus/bonus-01-elementos.webp": {
+    "widths": [
+      384,
+      560,
+      768
+    ],
+    "full": 900,
+    "sizes": "(max-width: 640px) 88vw, 400px"
+  },
+  "/bonus/bonus-02-frases.webp": {
+    "widths": [
+      384,
+      560,
+      768
+    ],
+    "full": 900,
+    "sizes": "(max-width: 640px) 88vw, 400px"
+  },
+  "/bonus/bonus-03-molduras.webp": {
+    "widths": [
+      384,
+      560,
+      768
+    ],
+    "full": 900,
+    "sizes": "(max-width: 640px) 88vw, 400px"
+  },
+  "/bonus/bonus-04-papeis.webp": {
+    "widths": [
+      384,
+      560,
+      768
+    ],
+    "full": 900,
+    "sizes": "(max-width: 640px) 88vw, 400px"
+  },
+  "/alunas/aluna-01-tbilisi.webp": {
+    "widths": [
+      384,
+      560
+    ],
+    "full": 720,
+    "sizes": "(max-width: 600px) 90vw, 460px"
+  },
+  "/alunas/aluna-02-june.webp": {
+    "widths": [
+      384,
+      560
+    ],
+    "full": 720,
+    "sizes": "(max-width: 600px) 90vw, 460px"
+  },
+  "/alunas/aluna-03-hawaii-trip.webp": {
+    "widths": [
+      384,
+      560
+    ],
+    "full": 720,
+    "sizes": "(max-width: 600px) 90vw, 460px"
+  },
+  "/alunas/aluna-04-lago.webp": {
+    "widths": [
+      384,
+      560
+    ],
+    "full": 720,
+    "sizes": "(max-width: 600px) 90vw, 460px"
+  },
+  "/alunas/aluna-05-hawaii.webp": {
+    "widths": [
+      384,
+      560
+    ],
+    "full": 720,
+    "sizes": "(max-width: 600px) 90vw, 460px"
+  },
+  "/alunas/aluna-06-2024.webp": {
+    "widths": [
+      384,
+      560
+    ],
+    "full": 720,
+    "sizes": "(max-width: 600px) 90vw, 460px"
+  },
+  "/guarantee-seal.webp": {
+    "widths": [
+      241
+    ],
+    "full": 482,
+    "sizes": "241px"
+  },
+  "/entregaveis-v2/compra-segura-hotmart-640.webp": {
+    "widths": [
+      320
+    ],
+    "full": 640,
+    "sizes": "(max-width: 360px) 88vw, 320px"
+  }
+}

@@ -11,6 +11,11 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true,
   },
+  // Inlina o CSS (atômico, do Tailwind) direto no <head>, removendo o request
+  // de folha de estilo que bloqueava a renderização — ganho de FCP/LCP.
+  experimental: {
+    inlineCss: true,
+  },
   async headers() {
     return [
       {

@@ -3,6 +3,7 @@ import { CtaButton } from "@/components/CtaButton";
 import { ImagePlaceholder } from "@/components/ImagePlaceholder";
 import { Marquee } from "@/components/Marquee";
 import { AnchorScroll } from "@/components/AnchorScroll";
+import { responsive } from "@/lib/responsive";
 import {
   theme,
   offerBar,
@@ -73,10 +74,14 @@ function LazyImg({
     );
   }
 
+  const { srcSet, sizes } = responsive(src);
+
   return (
     // eslint-disable-next-line @next/next/no-img-element
     <img
       src={src}
+      srcSet={srcSet}
+      sizes={sizes}
       alt={alt}
       width={width}
       height={height}

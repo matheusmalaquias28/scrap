@@ -3,6 +3,7 @@ import { Fredoka, Manrope } from "next/font/google";
 import { DeferredVercel } from "@/components/DeferredVercel";
 import { TrackingHead } from "@/components/TrackingHead";
 import { hero } from "@/lib/content";
+import { responsive } from "@/lib/responsive";
 import "./globals.css";
 import "./page.css";
 
@@ -23,6 +24,8 @@ const manrope = Manrope({
   preload: true,
   adjustFontFallback: true,
 });
+
+const heroResponsive = responsive(hero.poster.src);
 
 export const metadata: Metadata = {
   title: "Diário de Memórias — Crie Seu Scrapbooking de Forma Simples e Prática",
@@ -57,8 +60,10 @@ export default async function RootLayout({
             rel="preload"
             as="image"
             href={hero.poster.src}
+            imageSrcSet={heroResponsive.srcSet}
+            imageSizes={heroResponsive.sizes}
             fetchPriority="high"
-            type="image/png"
+            type="image/webp"
           />
         ) : null}
       </head>

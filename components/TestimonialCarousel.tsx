@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { ImagePlaceholder } from "@/components/ImagePlaceholder";
+import { responsive } from "@/lib/responsive";
 
 type Item = {
   src?: string;
@@ -18,10 +19,13 @@ type Props = {
 
 function Slide({ item }: { item: Item }) {
   if (item.src) {
+    const { srcSet, sizes } = responsive(item.src);
     return (
       // eslint-disable-next-line @next/next/no-img-element
       <img
         src={item.src}
+        srcSet={srcSet}
+        sizes={sizes}
         alt={item.alt}
         width={item.width}
         height={item.height}
