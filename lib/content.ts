@@ -97,13 +97,13 @@ export const hero = {
   titleHighlight: "Crie seu Diário de Memórias Personalizado",
   title: "com modelos prontos que mostram exatamente como montar cada página.",
   image: {
-    alt: "Diário de memórias aberto sobre a mesa, com fotos de família, flores de papel e frases escritas à mão",
-    width: 960,
-    height: 960,
+    alt: "Diário de memórias aberto com páginas de viagem, títulos, molduras e elementos prontos para imprimir",
+    width: 1024,
+    height: 1024,
   },
   poster: { src: "/hero.webp" },
   subtitle:
-    "Use referências visuais para posicionar fotos, papéis, frases e elementos decorativos sem precisar inventar tudo do zero.",
+    "Use nosso guial visual para posicionar fotos, papéis, frases e elementos decorativos sem precisar inventar tudo do zero.",
   ctaLabel: "QUERO CRIAR MEU DIÁRIO DE MEMÓRIAS",
   deliveryNote: "📲 Você recebe tudo na hora, direto no seu e-mail",
   socialProofLabel: "",
@@ -140,15 +140,15 @@ export const offerSection = {
   howItWorks: [
     {
       title: "PARTE 1 — Organize sua montagem",
-      desc: "Veja quais fotos, papéis, recortes, elementos e materiais separar antes de começar.",
+      desc: "Escolha quais fotos, papéis, recortes, elementos e materiais separar antes de começar.",
     },
     {
       title: "PARTE 2 — Monte seu Diário de Memórias",
       desc: "Entenda a estrutura do diário e visualize como o projeto completo será montado.",
     },
     {
-      title: "PARTE 3 — Modelos Prontos de Montagem",
-      desc: "Siga modelos visuais de capa, abertura e páginas internas para posicionar fotos, papéis, frases e elementos com mais facilidade.",
+      title: "PARTE 3 — Modelos Prontos de Montagem para você seguir",
+      desc: "Siga modelos visuais de capa, abertura e páginas internas para posicionar suas fotos, papéis, frases e elementos com mais facilidade.",
     },
     {
       title: "Em cada modelo você verá:",
@@ -235,6 +235,7 @@ export const plansSection = {
       "Estrutura completa do diário",
       "Modelos prontos de capa e páginas",
       "Guias visuais de montagem",
+      "Acesso imediato ao material",
     ],
     oldPrice: "R$37,90",
     price: "R$27,90",
@@ -255,7 +256,10 @@ export const plansSection = {
     pill: "⚡4x MAIS CONTEÚDOS",
     soldLabel: "⚡MAIS VENDIDO",
     features: [
-      "Diário de Memórias",
+      "Guia de organização da montagem",
+      "Estrutura completa do diário",
+      "Modelos prontos de capa e páginas",
+      "Guias visuais de montagem",
       "🎁BÔNUS 1 - 24 Elementos Prontos para Imprimir e Recortar",
       "🎁BÔNUS 2 - 20 Frases Prontas para Imprimir e Usar",
       "🎁BÔNUS 3 - 8 Molduras para Fotos Prontas para Imprimir",
@@ -291,7 +295,7 @@ export const guarantee = {
     "os modelos não atendem suas expectativas",
     "ou simplesmente não quiser continuar.",
   ],
-  outro: "Você pode solicitar o reembolso.",
+  outro: "Você pode solicitar o reembolso, sem perguntas, sem burocracia, não gostou? Devolvemos 100% do seu dinheiro de volta.",
   outroStrong: "",
   helpLabel: "",
 };
@@ -340,11 +344,11 @@ export const faq: readonly (readonly [string, string])[] = [
   ],
   [
     "Quais são as formas de pagamento?",
-    "Confira as formas de pagamento disponíveis no checkout.",
+    "Aceitamos, Pix, Cartão de Crédito e Boleto Bancário.",
   ],
   [
     "O produto possui garantia?",
-    "Sim, de 7 dias.",
+    "Sim, de 7 dias, se você não gostar, devolvemos 100% do seu dinheiro de volta.",
   ],
   [
     "Preciso saber fazer scrapbook para usar o material?",
