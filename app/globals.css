@@ -23,6 +23,20 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Bloqueio de seleção aplicado pelo PageGuard (só desktop).
+   Inputs/textarea seguem selecionáveis para não quebrar formulários. */
+body.guard-noselect {
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+}
+body.guard-noselect input,
+body.guard-noselect textarea,
+body.guard-noselect [contenteditable="true"] {
+  -webkit-user-select: text;
+  user-select: text;
+}
+
 html,
 body {
   overflow-x: clip;

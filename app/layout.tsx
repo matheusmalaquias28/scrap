@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Fredoka, Manrope } from "next/font/google";
 import { DeferredVercel } from "@/components/DeferredVercel";
+import { PageGuard } from "@/components/PageGuard";
 import { TrackingHead } from "@/components/TrackingHead";
 import { hero } from "@/lib/content";
 import { responsive } from "@/lib/responsive";
@@ -69,6 +70,7 @@ export default async function RootLayout({
       </head>
       <body className="scrap-page">
         {children}
+        <PageGuard />
         <DeferredVercel />
       </body>
     </html>
