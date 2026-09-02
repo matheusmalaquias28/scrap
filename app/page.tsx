@@ -227,7 +227,7 @@ export default function Home() {
             </span>
           ) : null}
           <div role="heading" aria-level={1} className="leading-[1.05]">
-            <p className="text-[26px] font-normal">
+            <p className="text-[22.5px] font-normal sm:text-[26px]">
               <span
                 style={{
                   fontFamily: "var(--font-agbalumo)",
