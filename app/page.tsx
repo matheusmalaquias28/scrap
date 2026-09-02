@@ -227,12 +227,40 @@ export default function Home() {
             </span>
           ) : null}
           <div role="heading" aria-level={1} className="leading-[1.05]">
-            <p className="block font-display text-[26px] font-semibold text-brand">
-              {hero.titleHighlight}
+            <p className="text-[26px] font-normal">
+              <span
+                style={{
+                  fontFamily: "var(--font-agbalumo)",
+                  color: "#FB8804",
+                  backgroundColor: "#ffffff",
+                  padding: "0.15em 0.5em",
+                  borderRadius: "0.6em",
+                  WebkitBoxDecorationBreak: "clone",
+                  boxDecorationBreak: "clone",
+                  lineHeight: 1.38,
+                }}
+              >
+                Crie seu Diário
+                <br />
+                de Memórias Personalizado
+              </span>
             </p>
             {hero.title ? (
-              <p className="mt-1 block font-display text-[22px] font-semibold text-ink/70">
-                {hero.title}
+              <p className="text-[22px] font-semibold" style={{ marginTop: "0.35em" }}>
+                <span
+                  style={{
+                    fontFamily: "var(--font-fredoka)",
+                    color: "#ffffff",
+                    backgroundColor: "#3E4B1C",
+                    padding: "0.15em 0.5em",
+                    borderRadius: "0.6em",
+                    WebkitBoxDecorationBreak: "clone",
+                    boxDecorationBreak: "clone",
+                    lineHeight: 1.3,
+                  }}
+                >
+                  {hero.title}
+                </span>
               </p>
             ) : null}
           </div>

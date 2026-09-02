@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Fredoka, Manrope } from "next/font/google";
+import { Agbalumo, Fredoka, Manrope } from "next/font/google";
 import { DeferredVercel } from "@/components/DeferredVercel";
 import { PageGuard } from "@/components/PageGuard";
 import { TrackingHead } from "@/components/TrackingHead";
@@ -12,6 +12,15 @@ const fredoka = Fredoka({
   variable: "--font-fredoka",
   subsets: ["latin", "latin-ext"],
   weight: ["400", "600"],
+  display: "swap",
+  preload: true,
+  adjustFontFallback: true,
+});
+
+const agbalumo = Agbalumo({
+  variable: "--font-agbalumo",
+  subsets: ["latin", "latin-ext"],
+  weight: ["400"],
   display: "swap",
   preload: true,
   adjustFontFallback: true,
@@ -53,7 +62,7 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-BR" className={`${fredoka.variable} ${manrope.variable} antialiased`}>
+    <html lang="pt-BR" className={`${fredoka.variable} ${agbalumo.variable} ${manrope.variable} antialiased`}>
       <head>
         <TrackingHead />
         {hero.poster.src ? (
