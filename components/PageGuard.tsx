@@ -92,24 +92,6 @@ export function PageGuard() {
       }
     };
 
-    // 4) Detector de DevTools por diferença de viewport (docked) — throttled.
-    //    Evita o truque com `debugger` de propósito: ele congela a aba (UX péssima).
-    let devtoolsOpen = false;
-    const THRESHOLD = 160;
-    const checkDevtools = () => {
-      const widthGap = window.outerWidth - window.innerWidth > THRESHOLD;
-      const heightGap = window.outerHeight - window.innerHeight > THRESHOLD;
-      const open = widthGap || heightGap;
-      if (open && !devtoolsOpen) {
-        devtoolsOpen = true;
-        report("devtools_open", { widthGap, heightGap });
-        showOverlay("Console de desenvolvedor detectado. Este acesso foi registrado.");
-      } else if (!open && devtoolsOpen) {
-        devtoolsOpen = false;
-      }
-    };
-    const interval = window.setInterval(checkDevtools, 1500);
-
     // Classe que aplica user-select:none via CSS (ver globals.css).
     if (isDesktop) document.body.classList.add("guard-noselect");
 
@@ -126,7 +108,6 @@ export function PageGuard() {
       document.removeEventListener("copy", onCopy);
       document.removeEventListener("cut", onCopy);
       document.removeEventListener("keydown", onKeyDown);
-      window.clearInterval(interval);
     };
   }, []);
 
