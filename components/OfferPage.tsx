@@ -89,12 +89,12 @@ function LazyImg({
     );
   }
 
-  const { srcSet, sizes } = responsive(src);
+  const { srcSet, sizes, defaultSrc } = responsive(src);
 
   return (
     // eslint-disable-next-line @next/next/no-img-element
     <img
-      src={src}
+      src={defaultSrc ?? src}
       srcSet={srcSet}
       sizes={sizes}
       alt={alt}

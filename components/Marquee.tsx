@@ -37,12 +37,12 @@ export function Marquee({
             const dims = it.size ?? imageSize;
             const sharedClass = "shrink-0 rounded-[7px] object-cover";
             const sharedStyle: React.CSSProperties = { width: itemWidth, aspectRatio: `${dims.width} / ${dims.height}` };
-            const { srcSet, sizes } = responsive(it.src);
+            const { srcSet, sizes, defaultSrc } = responsive(it.src);
             return it.src ? (
               // eslint-disable-next-line @next/next/no-img-element
               <img
                 key={`${copy}-${i}`}
-                src={it.src}
+                src={defaultSrc ?? it.src}
                 srcSet={srcSet}
                 sizes={sizes}
                 alt={copy === 0 ? it.alt : ""}

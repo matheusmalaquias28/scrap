@@ -19,11 +19,11 @@ type Props = {
 
 function Slide({ item }: { item: Item }) {
   if (item.src) {
-    const { srcSet, sizes } = responsive(item.src);
+    const { srcSet, sizes, defaultSrc } = responsive(item.src);
     return (
       // eslint-disable-next-line @next/next/no-img-element
       <img
-        src={item.src}
+        src={defaultSrc ?? item.src}
         srcSet={srcSet}
         sizes={sizes}
         alt={item.alt}

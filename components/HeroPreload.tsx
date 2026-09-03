@@ -1,26 +1,21 @@
-"use client";
-
-import ReactDOM from "react-dom";
-import { responsive } from "@/lib/responsive";
+import { preload } from "react-dom";
+import { responsive, responsiveDefaultSrc } from "@/lib/responsive";
 
 /**
- * Faz o preload da imagem LCP (o pôster do hero) o mais cedo possível.
- *
- * Substitui o `<link rel="preload">` que ficava fixo no <head> do layout — como
- * agora cada rota tem um hero diferente, o preload precisa ser por página.
- * `ReactDOM.preload` é a forma recomendada pelo Next para resource hints e, no
- * SSR, emite um único `<link rel="preload">` direto no <head> do HTML inicial.
+ * Preload da imagem LCP (pôster do hero) durante o SSR — sem esperar hidratação.
+ * Usa a menor variante como href e repassa srcset/sizes para o navegador escolher.
  */
 export function HeroPreload({ src }: { src?: string }) {
   if (!src) return null;
 
+  const href = responsiveDefaultSrc(src) ?? src;
   const { srcSet, sizes } = responsive(src);
-  ReactDOM.preload(src, {
+
+  preload(href, {
     as: "image",
-    imageSrcSet: srcSet,
-    imageSizes: sizes,
     fetchPriority: "high",
     type: "image/webp",
+    ...(srcSet ? { imageSrcSet: srcSet, imageSizes: sizes } : {}),
   });
 
   return null;

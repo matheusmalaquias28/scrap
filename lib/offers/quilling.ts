@@ -78,7 +78,7 @@ export const quilling: OfferContent = {
 
   materials: {
     title: "VEJA NA PRÁTICA OS PROJETOS QUE VOCÊ VAI RECEBER",
-    imageSize: { width: 720, height: 900 },
+    imageSize: { width: 819, height: 1024 },
     items: [
       { src: "/offers/quilling/projeto-01.webp", alt: "Cartões decorados com quilling em formato de coração" },
       { src: "/offers/quilling/projeto-02.webp", alt: "Projeto de buquê de flores rosas em quilling" },
