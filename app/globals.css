@@ -71,6 +71,15 @@ body {
   }
 }
 
+/* Tipografia sem "palavras viúvas": a última linha não fica com uma
+   palavra sozinha. Escopado a .offer-balance (ativado por oferta). */
+.offer-balance :is(h1, h2, h3, h4, p, li, summary, figcaption) {
+  text-wrap: pretty;
+}
+.offer-balance :is(h1, h2, h3, h4) {
+  text-wrap: balance;
+}
+
 .cv-auto {
   content-visibility: auto;
   contain-intrinsic-size: auto 640px;

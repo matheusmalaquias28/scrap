@@ -3,15 +3,13 @@ import { Agbalumo, Fredoka, Manrope } from "next/font/google";
 import { DeferredVercel } from "@/components/DeferredVercel";
 import { PageGuard } from "@/components/PageGuard";
 import { TrackingHead } from "@/components/TrackingHead";
-import { hero } from "@/lib/content";
-import { responsive } from "@/lib/responsive";
 import "./globals.css";
 import "./page.css";
 
 const fredoka = Fredoka({
   variable: "--font-fredoka",
   subsets: ["latin", "latin-ext"],
-  weight: ["400", "600"],
+  weight: ["400", "600", "700"],
   display: "swap",
   preload: true,
   adjustFontFallback: true,
@@ -35,19 +33,12 @@ const manrope = Manrope({
   adjustFontFallback: true,
 });
 
-const heroResponsive = responsive(hero.poster.src);
-
+/**
+ * Metadata GLOBAL (vale para todas as rotas). O título, a descrição e o
+ * Open Graph específicos de cada oferta são definidos por página, a partir
+ * de `offerMetadata()` (ver lib/offers).
+ */
 export const metadata: Metadata = {
-  title: "Diário de Memórias — Crie Seu Scrapbooking de Forma Simples e Prática",
-  description:
-    "Use referências visuais para posicionar fotos, papéis, frases e elementos decorativos sem precisar inventar tudo do zero.",
-  openGraph: {
-    title: "Diário de Memórias — Crie Seu Scrapbooking de Forma Simples e Prática",
-    description:
-      "Crie seu Diário de Memórias com modelos prontos que mostram exatamente como montar cada página.",
-    locale: "pt_BR",
-    type: "website",
-  },
   robots: { index: true, follow: true },
   icons: {
     icon: "/favicon.svg",
@@ -65,17 +56,6 @@ export default async function RootLayout({
     <html lang="pt-BR" className={`${fredoka.variable} ${agbalumo.variable} ${manrope.variable} antialiased`}>
       <head>
         <TrackingHead />
-        {hero.poster.src ? (
-          <link
-            rel="preload"
-            as="image"
-            href={hero.poster.src}
-            imageSrcSet={heroResponsive.srcSet}
-            imageSizes={heroResponsive.sizes}
-            fetchPriority="high"
-            type="image/webp"
-          />
-        ) : null}
       </head>
       <body className="scrap-page">
         {children}

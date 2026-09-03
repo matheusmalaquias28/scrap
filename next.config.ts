@@ -43,6 +43,13 @@ const nextConfig: NextConfig = {
         ],
       },
       {
+        // Imagens das novas ofertas (convenção: public/offers/<slug>/...).
+        source: "/offers/:path*",
+        headers: [
+          { key: "Cache-Control", value: "public, max-age=31536000, immutable" },
+        ],
+      },
+      {
         source: "/:file(avatar-*.webp|guarantee-seal.webp|favicon.svg|hero.webp|kit-diario.webp|plano-basico.webp|plano-completo.webp)",
         headers: [
           { key: "Cache-Control", value: "public, max-age=31536000, immutable" },

@@ -16,14 +16,22 @@ const QUALITY = 78;
 const PLAN = [
   // Hero (LCP) — container no máx. 383px CSS.
   { src: "/hero.webp", widths: [384, 512, 640, 768], sizes: "(max-width: 423px) calc(100vw - 40px), 383px" },
+  { src: "/offers/quilling/hero.webp", widths: [384, 512, 640, 768], sizes: "(max-width: 423px) calc(100vw - 40px), 383px" },
 
   // Marquee de diários — cada item tem 260px CSS fixos.
   ...["diario-01-nova-york", "diario-02-aniversario", "diario-03-vintage", "diario-04-ilha", "diario-05-narbonne"].map(
     (n) => ({ src: `/diarios/${n}.webp`, widths: [260, 390, 520], sizes: "260px" }),
   ),
 
+  // Marquee de projetos quilling — cada item tem 260px CSS fixos.
+  ...["projeto-01", "projeto-02", "projeto-03", "projeto-04", "projeto-05", "projeto-06"].map((n) => ({
+    src: `/offers/quilling/${n}.webp`,
+    widths: [260, 390, 520],
+    sizes: "260px",
+  })),
+
   // Kit / planos (1024²) dentro de cartão de no máx. ~448px CSS.
-  ...["/kit-diario.webp", "/plano-basico.webp", "/plano-completo.webp"].map((src) => ({
+  ...["/kit-diario.webp", "/plano-basico.webp", "/plano-completo.webp", "/offers/quilling/kit.webp", "/offers/quilling/plano-basico.webp", "/offers/quilling/plano-completo.webp"].map((src) => ({
     src,
     widths: [384, 560, 768],
     sizes: "(max-width: 520px) 88vw, 448px",
@@ -36,9 +44,21 @@ const PLAN = [
     sizes: "(max-width: 640px) 88vw, 400px",
   })),
 
+  // Bônus quilling (900²) — mesmo layout dos bônus da home.
+  ...["bonus-01", "bonus-02", "bonus-03", "bonus-04"].map((n) => ({
+    src: `/offers/quilling/${n}.webp`,
+    widths: [384, 560, 768],
+    sizes: "(max-width: 640px) 88vw, 400px",
+  })),
+
   // Depoimentos de alunas (720x960) — carrossel, 1 por vez no mobile.
   ...["aluna-01-tbilisi", "aluna-02-june", "aluna-03-hawaii-trip", "aluna-04-lago", "aluna-05-hawaii", "aluna-06-2024"].map(
     (n) => ({ src: `/alunas/${n}.webp`, widths: [384, 560], sizes: "(max-width: 600px) 90vw, 460px" }),
+  ),
+
+  // Depoimentos quilling — carrossel, 1 por vez no mobile.
+  ...["depoimento-01", "depoimento-02", "depoimento-03", "depoimento-04", "depoimento-05", "depoimento-06", "depoimento-07"].map(
+    (n) => ({ src: `/offers/quilling/${n}.webp`, widths: [384, 560], sizes: "(max-width: 600px) 90vw, 460px" }),
   ),
 
   // Selo de garantia (482²) — exibido a 241px CSS.

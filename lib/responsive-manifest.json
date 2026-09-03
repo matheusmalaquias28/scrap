@@ -9,6 +9,16 @@
     "full": 1024,
     "sizes": "(max-width: 423px) calc(100vw - 40px), 383px"
   },
+  "/offers/quilling/hero.webp": {
+    "widths": [
+      384,
+      512,
+      640,
+      768
+    ],
+    "full": 1024,
+    "sizes": "(max-width: 423px) calc(100vw - 40px), 383px"
+  },
   "/diarios/diario-01-nova-york.webp": {
     "widths": [
       260,
@@ -54,6 +64,60 @@
     "full": 720,
     "sizes": "260px"
   },
+  "/offers/quilling/projeto-01.webp": {
+    "widths": [
+      260,
+      390,
+      520
+    ],
+    "full": 819,
+    "sizes": "260px"
+  },
+  "/offers/quilling/projeto-02.webp": {
+    "widths": [
+      260,
+      390,
+      520
+    ],
+    "full": 819,
+    "sizes": "260px"
+  },
+  "/offers/quilling/projeto-03.webp": {
+    "widths": [
+      260,
+      390,
+      520
+    ],
+    "full": 819,
+    "sizes": "260px"
+  },
+  "/offers/quilling/projeto-04.webp": {
+    "widths": [
+      260,
+      390,
+      520
+    ],
+    "full": 819,
+    "sizes": "260px"
+  },
+  "/offers/quilling/projeto-05.webp": {
+    "widths": [
+      260,
+      390,
+      520
+    ],
+    "full": 819,
+    "sizes": "260px"
+  },
+  "/offers/quilling/projeto-06.webp": {
+    "widths": [
+      260,
+      390,
+      520
+    ],
+    "full": 819,
+    "sizes": "260px"
+  },
   "/kit-diario.webp": {
     "widths": [
       384,
@@ -73,6 +137,33 @@
     "sizes": "(max-width: 520px) 88vw, 448px"
   },
   "/plano-completo.webp": {
+    "widths": [
+      384,
+      560,
+      768
+    ],
+    "full": 1024,
+    "sizes": "(max-width: 520px) 88vw, 448px"
+  },
+  "/offers/quilling/kit.webp": {
+    "widths": [
+      384,
+      560,
+      768
+    ],
+    "full": 1024,
+    "sizes": "(max-width: 520px) 88vw, 448px"
+  },
+  "/offers/quilling/plano-basico.webp": {
+    "widths": [
+      384,
+      560,
+      768
+    ],
+    "full": 1024,
+    "sizes": "(max-width: 520px) 88vw, 448px"
+  },
+  "/offers/quilling/plano-completo.webp": {
     "widths": [
       384,
       560,
@@ -115,6 +206,42 @@
       768
     ],
     "full": 900,
+    "sizes": "(max-width: 640px) 88vw, 400px"
+  },
+  "/offers/quilling/bonus-01.webp": {
+    "widths": [
+      384,
+      560,
+      768
+    ],
+    "full": 1024,
+    "sizes": "(max-width: 640px) 88vw, 400px"
+  },
+  "/offers/quilling/bonus-02.webp": {
+    "widths": [
+      384,
+      560,
+      768
+    ],
+    "full": 1024,
+    "sizes": "(max-width: 640px) 88vw, 400px"
+  },
+  "/offers/quilling/bonus-03.webp": {
+    "widths": [
+      384,
+      560,
+      768
+    ],
+    "full": 1024,
+    "sizes": "(max-width: 640px) 88vw, 400px"
+  },
+  "/offers/quilling/bonus-04.webp": {
+    "widths": [
+      384,
+      560,
+      768
+    ],
+    "full": 1024,
     "sizes": "(max-width: 640px) 88vw, 400px"
   },
   "/alunas/aluna-01-tbilisi.webp": {
@@ -163,6 +290,62 @@
       560
     ],
     "full": 720,
+    "sizes": "(max-width: 600px) 90vw, 460px"
+  },
+  "/offers/quilling/depoimento-01.webp": {
+    "widths": [
+      384,
+      560
+    ],
+    "full": 819,
+    "sizes": "(max-width: 600px) 90vw, 460px"
+  },
+  "/offers/quilling/depoimento-02.webp": {
+    "widths": [
+      384,
+      560
+    ],
+    "full": 819,
+    "sizes": "(max-width: 600px) 90vw, 460px"
+  },
+  "/offers/quilling/depoimento-03.webp": {
+    "widths": [
+      384,
+      560
+    ],
+    "full": 819,
+    "sizes": "(max-width: 600px) 90vw, 460px"
+  },
+  "/offers/quilling/depoimento-04.webp": {
+    "widths": [
+      384,
+      560
+    ],
+    "full": 819,
+    "sizes": "(max-width: 600px) 90vw, 460px"
+  },
+  "/offers/quilling/depoimento-05.webp": {
+    "widths": [
+      384,
+      560
+    ],
+    "full": 819,
+    "sizes": "(max-width: 600px) 90vw, 460px"
+  },
+  "/offers/quilling/depoimento-06.webp": {
+    "widths": [
+      384,
+      560
+    ],
+    "full": 819,
+    "sizes": "(max-width: 600px) 90vw, 460px"
+  },
+  "/offers/quilling/depoimento-07.webp": {
+    "widths": [
+      384,
+      560
+    ],
+    "full": 819,
     "sizes": "(max-width: 600px) 90vw, 460px"
   },
   "/guarantee-seal.webp": {

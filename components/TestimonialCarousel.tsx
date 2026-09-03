@@ -92,7 +92,7 @@ export function TestimonialCarousel({ items, intervalMs = 4500 }: Props) {
             {page.map((item, i) => (
               <div
                 key={item.src ?? `${item.alt}-${pageIndex}-${i}`}
-                className="min-w-0 flex-1"
+                className="min-w-0 w-full flex-1 lg:max-w-[460px]"
               >
                 <Slide item={item} />
               </div>
