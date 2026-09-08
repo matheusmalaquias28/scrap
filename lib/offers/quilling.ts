@@ -60,9 +60,9 @@ export const quilling: OfferContent = {
   hero: {
     logo: { src: "", alt: "Quilling", width: 200, height: 60 },
     secureSeal: "",
-    titleHighlight: "Quilling: 12 Projetos para Montar\ne Experimentar seu Hobby",
-    title:
-      "com moldes e mapas de montagem para produzir suas primeiras peças sem erro",
+    titleHighlight:
+      "12 PROJETOS DE QUILLING COM MOLDES E MAPAS DE MONTAGEM PARA PRODUZIR SUAS PRIMEIRAS PEÇAS SEM ERRO",
+    title: "",
     image: {
       alt: "12 projetos de quilling para montar com flor emoldurada e selo de 4 bônus exclusivos",
       width: 1024,
