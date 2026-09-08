@@ -7,7 +7,6 @@ import type { OfferContent } from "./types";
  * definido em `theme` — não afeta as demais páginas.
  *
  * ⚠️ Ainda placeholder:
- *   - `checkout.basic` / `checkout.complete`: trocar pelos links reais da Hotmart;
  *   - imagens em `public/offers/quilling/` (enquanto o `src` não existir, aparece
  *     um placeholder no lugar).
  */
@@ -364,7 +363,7 @@ export const quilling: OfferContent = {
 
   checkout: {
     hero: "#planos",
-    basic: "#", // TODO: substituir pelo link real da Hotmart (plano básico)
-    complete: "#", // TODO: substituir pelo link real da Hotmart (plano completo)
+    basic: "https://pay.hotmart.com/H107518260L?off=43o2qxuq&checkoutMode=10",
+    complete: "https://pay.hotmart.com/H107518260L?off=jnkmiyx8&checkoutMode=10",
   },
 };
