@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import type { OfferContent } from "./types";
 import { diarioMemorias } from "./diario-memorias";
 import { quilling } from "./quilling";
+import { terrario } from "./terrario";
 
 export type { OfferContent } from "./types";
 
@@ -17,6 +18,7 @@ export type { OfferContent } from "./types";
 export const offers = {
   "diario-memorias": diarioMemorias,
   quilling,
+  terrario,
 } satisfies Record<string, OfferContent>;
 
 export type OfferSlug = keyof typeof offers;

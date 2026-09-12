@@ -65,6 +65,12 @@ export interface Theme {
   palette: Palette;
   heroHeading: HeroHeading;
   /**
+   * Classe CSS extra aplicada ao `<main>` da oferta. Serve de gancho para
+   * refinos visuais escopados a UMA rota (ex.: `.theme-terrario` em
+   * `app/page.css`), sem tocar no visual das demais ofertas.
+   */
+  className?: string;
+  /**
    * Ativa o tratamento tipográfico que evita “palavras viúvas”
    * (`text-wrap: pretty`/`balance`) em todos os blocos de texto da página.
    */
@@ -79,6 +85,8 @@ export interface Hero {
   image: { alt: string; width: number; height: number };
   poster: { src: string };
   subtitle: string;
+  /** Parágrafo de apoio opcional, renderizado abaixo do subtítulo do hero. */
+  description?: string;
   ctaLabel: string;
   deliveryNote: string;
   socialProofLabel: string;
@@ -87,7 +95,8 @@ export interface Hero {
 export interface WhyCard {
   icon: string;
   title: string;
-  desc: string;
+  /** Descrição opcional; quando ausente o card mostra só o título. */
+  desc?: string;
 }
 
 export interface IdealItem {
@@ -115,6 +124,12 @@ export interface BasicPlan {
   image: ImageAsset;
   receiveLabel: string;
   features: string[];
+  /**
+   * Itens que NÃO vêm neste plano, listados tachados e opacos logo abaixo
+   * dos entregáveis — deixa explícito o que só existe no Plano Completo.
+   * Opcional: sem o campo, nada é renderizado (comportamento antigo).
+   */
+  unavailableFeatures?: string[];
   oldPrice: string;
   price: string;
   installments: string;
@@ -164,6 +179,21 @@ export interface StepItem {
   items: string[];
 }
 
+/**
+ * Bloco de autoridade (quem assina o material). Opcional: sem ele a seção
+ * simplesmente não é renderizada, e as ofertas antigas seguem iguais.
+ */
+export interface Authority {
+  /** Kicker acima do nome (ex.: "QUEM CRIOU ESTE MATERIAL"). */
+  pill?: string;
+  name: string;
+  /** Linha curta de papel/credencial, abaixo do nome. */
+  role?: string;
+  photo: ImageAsset;
+  /** Parágrafos de apresentação, na ordem. */
+  paragraphs: string[];
+}
+
 export interface OfferContent {
   meta: OfferMeta;
   theme: Theme;
@@ -182,6 +212,14 @@ export interface OfferContent {
     cardTitle: string;
     lead: string;
     image: ImageAsset;
+    /** Título opcional acima da lista de entregáveis (ex.: "Você recebe:"). */
+    howItWorksTitle?: string;
+    /**
+     * Numera os itens de `howItWorks` na linha do tempo mesmo quando os
+     * títulos não seguem a convenção "PARTE 1 — …". Padrão: `false`
+     * (mantém o comportamento das ofertas antigas).
+     */
+    howItWorksNumbered?: boolean;
     howItWorks: HowStep[];
   };
   bonusSection: {
@@ -192,9 +230,13 @@ export interface OfferContent {
   };
   plansSection: PlansSection;
   guarantee: Guarantee;
+  /** Seção "quem está por trás", renderizada logo abaixo da garantia. */
+  authority?: Authority;
   contact: { email: string };
   testimonials: {
     title: string;
+    /** Subtítulo opcional, renderizado abaixo do título da seção. */
+    subtitle?: string;
     items: ImageAsset[];
     /** Quando definido, usa carrossel contínuo (Marquee) em vez de slides. */
     marquee?: {

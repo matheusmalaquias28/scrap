@@ -361,5 +361,177 @@
     ],
     "full": 640,
     "sizes": "(max-width: 360px) 88vw, 320px"
+  },
+  "/offers/terrario/hero.webp": {
+    "widths": [
+      384,
+      512,
+      640,
+      768
+    ],
+    "full": 1024,
+    "sizes": "(max-width: 423px) calc(100vw - 40px), 383px"
+  },
+  "/offers/terrario/plano-basico.webp": {
+    "widths": [
+      384,
+      560,
+      768
+    ],
+    "full": 1024,
+    "sizes": "(max-width: 520px) 88vw, 448px"
+  },
+  "/offers/terrario/guia-01-materiais.webp": {
+    "widths": [
+      260,
+      390,
+      520
+    ],
+    "full": 768,
+    "sizes": "260px"
+  },
+  "/offers/terrario/guia-02-substrato.webp": {
+    "widths": [
+      260,
+      390,
+      520
+    ],
+    "full": 768,
+    "sizes": "260px"
+  },
+  "/offers/terrario/guia-03-ferramentas.webp": {
+    "widths": [
+      260,
+      390,
+      520
+    ],
+    "full": 768,
+    "sizes": "260px"
+  },
+  "/offers/terrario/guia-04-camadas.webp": {
+    "widths": [
+      260,
+      390,
+      520
+    ],
+    "full": 768,
+    "sizes": "260px"
+  },
+  "/offers/terrario/guia-05-posicionamento.webp": {
+    "widths": [
+      260,
+      390,
+      520
+    ],
+    "full": 768,
+    "sizes": "260px"
+  },
+  "/offers/terrario/guia-06-musgo.webp": {
+    "widths": [
+      260,
+      390,
+      520
+    ],
+    "full": 768,
+    "sizes": "260px"
+  },
+  "/offers/terrario/guia-07-montagem.webp": {
+    "widths": [
+      260,
+      390,
+      520
+    ],
+    "full": 768,
+    "sizes": "260px"
+  },
+  "/offers/terrario/bonus-01.webp": {
+    "widths": [
+      384,
+      560,
+      768
+    ],
+    "full": 1024,
+    "sizes": "(max-width: 640px) 88vw, 400px"
+  },
+  "/offers/terrario/bonus-02.webp": {
+    "widths": [
+      384,
+      560,
+      768
+    ],
+    "full": 1024,
+    "sizes": "(max-width: 640px) 88vw, 400px"
+  },
+  "/offers/terrario/bonus-03.webp": {
+    "widths": [
+      384,
+      560,
+      768
+    ],
+    "full": 1024,
+    "sizes": "(max-width: 640px) 88vw, 400px"
+  },
+  "/offers/terrario/bruna.webp": {
+    "widths": [
+      168,
+      256,
+      336
+    ],
+    "full": 640,
+    "sizes": "(max-width: 520px) 32vw, 168px"
+  },
+  "/offers/terrario/produto-principal.webp": {
+    "widths": [
+      384,
+      560,
+      768
+    ],
+    "full": 1024,
+    "sizes": "(max-width: 520px) 88vw, 448px"
+  },
+  "/offers/terrario/depoimento-01.webp": {
+    "widths": [
+      260,
+      390,
+      520
+    ],
+    "full": 720,
+    "sizes": "260px"
+  },
+  "/offers/terrario/depoimento-02.webp": {
+    "widths": [
+      260,
+      390,
+      520
+    ],
+    "full": 720,
+    "sizes": "260px"
+  },
+  "/offers/terrario/depoimento-03.webp": {
+    "widths": [
+      260,
+      390,
+      520
+    ],
+    "full": 720,
+    "sizes": "260px"
+  },
+  "/offers/terrario/depoimento-04.webp": {
+    "widths": [
+      260,
+      390,
+      520
+    ],
+    "full": 720,
+    "sizes": "260px"
+  },
+  "/offers/terrario/plano-completo.webp": {
+    "widths": [
+      384,
+      560,
+      768
+    ],
+    "full": 1024,
+    "sizes": "(max-width: 520px) 88vw, 448px"
   }
 }

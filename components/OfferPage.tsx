@@ -112,7 +112,7 @@ function LazyImg({
 
 function WaveDivider({ from, to }: { from: string; to: string }) {
   return (
-    <div style={{ backgroundColor: from }}>
+    <div className="offer-wave" style={{ backgroundColor: from }}>
       <svg
         viewBox="0 0 1440 56"
         preserveAspectRatio="none"
@@ -127,7 +127,7 @@ function WaveDivider({ from, to }: { from: string; to: string }) {
 
 function Check({ className = "" }: { className?: string }) {
   return (
-    <svg viewBox="0 0 18 13" fill="none" className={`w-4 shrink-0 ${className}`} aria-hidden>
+    <svg viewBox="0 0 18 13" fill="none" className={`check-icon w-4 shrink-0 ${className}`} aria-hidden>
       <path d="M17 1L6 12L1 7" stroke="#1f7a7a" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   );
@@ -135,7 +135,7 @@ function Check({ className = "" }: { className?: string }) {
 
 function CrossIcon({ className = "" }: { className?: string }) {
   return (
-    <svg viewBox="0 0 14 14" fill="none" className={`w-4 shrink-0 ${className}`} aria-hidden>
+    <svg viewBox="0 0 14 14" fill="none" className={`cross-icon w-4 shrink-0 ${className}`} aria-hidden>
       <path d="M1 1L13 13M13 1L1 13" stroke="#c22745" strokeWidth="2" strokeLinecap="round" />
     </svg>
   );
@@ -148,14 +148,14 @@ function SecurePurchaseBadge({ badge }: { badge: ImageAsset }) {
       alt={badge.alt}
       width={badge.width}
       height={badge.height}
-      className="w-full max-w-[320px]"
+      className="offer-secure w-full max-w-[320px]"
     />
   );
 }
 
 function Badge({ children, className = "" }: { children: React.ReactNode; className?: string }) {
   return (
-    <span className={`z-10 inline-block rounded-full bg-badge px-4 py-2 text-[13px] font-semibold text-white ${className}`}>
+    <span className={`offer-badge z-10 inline-block rounded-full bg-badge px-4 py-2 text-[13px] font-semibold text-white ${className}`}>
       {children}
     </span>
   );
@@ -164,7 +164,7 @@ function Badge({ children, className = "" }: { children: React.ReactNode; classN
 function FreePriceBadge({ price }: { price: string }) {
   return (
     <span
-      className="inline-flex flex-col items-center rounded-2xl bg-badge px-6 py-3 leading-none"
+      className="offer-free inline-flex flex-col items-center rounded-2xl bg-badge px-6 py-3 leading-none"
       aria-label={`De ${price} por grátis`}
     >
       <s className="text-[12px] font-medium tracking-wide text-white/60">
@@ -188,8 +188,8 @@ function FeatureItem({
 }) {
   return (
     <li
-      className={`flex items-start gap-3 py-[9px] ${SUB} leading-snug
-        ${struck ? "opacity-40 line-through" : ""}
+      className={`offer-feat flex items-start gap-3 py-[9px] ${SUB} leading-snug
+        ${struck ? "offer-feat--off opacity-40 line-through" : ""}
         ${light ? "text-white" : "text-ink"}`}
     >
       {struck ? (
@@ -216,6 +216,7 @@ export function OfferPage({ content }: { content: OfferContent }) {
     bonusSection,
     plansSection,
     guarantee,
+    authority,
     contact,
     testimonials,
     stepsSection,
@@ -237,14 +238,14 @@ export function OfferPage({ content }: { content: OfferContent }) {
   return (
     <>
     <main
-      className={`flex w-full flex-col overflow-x-hidden${theme.balanceText ? " offer-balance" : ""}`}
+      className={`offer-root flex w-full flex-col overflow-x-hidden${theme.balanceText ? " offer-balance" : ""}${theme.className ? ` ${theme.className}` : ""}`}
       style={{
         ...paletteVars(P),
         fontFamily: "var(--font-manrope), Manrope, sans-serif",
       }}
     >
       {/* Offer bar */}
-      <div className="flex items-center justify-center px-4 py-[10px]" style={{ backgroundColor: P.raspberry }}>
+      <div className="offer-bar flex items-center justify-center px-4 py-[10px]" style={{ backgroundColor: P.raspberry }}>
         <p className="text-center font-display text-[12px] font-semibold leading-snug text-white">
           {offerBar.text} {today}
         </p>
@@ -254,14 +255,14 @@ export function OfferPage({ content }: { content: OfferContent }) {
       <AnchorScroll />
 
       {/* ══ HERO ══ */}
-      <section className="scrap-hero px-5 pb-1 pt-4 text-center">
+      <section className="offer-sec offer-hero scrap-hero px-5 pb-1 pt-4 text-center">
         <div className="mx-auto flex w-full max-w-[480px] flex-col items-center gap-5">
           {hero.secureSeal ? (
             <span className="inline-flex items-center rounded-full border border-brand/20 bg-blush px-4 py-2 text-[12px] font-semibold leading-snug text-ink shadow-[0_2px_8px_oklch(0.52_0.2_15_/_0.12)]">
               {hero.secureSeal}
             </span>
           ) : null}
-          <div role="heading" aria-level={1} className="leading-[1.05]">
+          <div role="heading" aria-level={1} className="offer-hero__heading leading-[1.05]">
             <p className="text-[22.5px] font-normal sm:text-[26px]">
               <span
                 style={{
@@ -312,9 +313,14 @@ export function OfferPage({ content }: { content: OfferContent }) {
             />
           </div>
 
-          <p className={`max-w-[340px] ${SUB} leading-relaxed text-muted`}>
+          <p className={`offer-hero__subtitle max-w-[340px] ${SUB} leading-relaxed text-muted`}>
             {hero.subtitle}
           </p>
+          {hero.description ? (
+            <p className={`offer-hero__desc max-w-[340px] ${SUB} leading-relaxed text-muted`}>
+              {hero.description}
+            </p>
+          ) : null}
 
           <CtaButton
             href={checkout.hero}
@@ -323,7 +329,7 @@ export function OfferPage({ content }: { content: OfferContent }) {
             className="w-full max-w-[382px]"
           />
           {hero.deliveryNote ? (
-            <p className={`text-center ${SUB} leading-snug text-muted`}>
+            <p className={`offer-hero__note text-center ${SUB} leading-snug text-muted`}>
               {hero.deliveryNote}
             </p>
           ) : null}
@@ -334,7 +340,7 @@ export function OfferPage({ content }: { content: OfferContent }) {
       <WaveDivider from={P.paper} to={P.mint} />
 
       {/* ══ MATERIAIS ══ */}
-      <section style={{ backgroundColor: P.mint }} className={`${BELOW} pb-14 pt-4 text-center`}>
+      <section style={{ backgroundColor: P.mint }} className={`offer-sec offer-materials ${BELOW} pb-14 pt-4 text-center`}>
         <div className="mx-auto max-w-[640px] px-5">
           <h2 className="mb-7 font-display text-[36px] font-semibold leading-[0.9] text-ink">
             {materials.title}
@@ -354,27 +360,29 @@ export function OfferPage({ content }: { content: OfferContent }) {
           <WaveDivider from={P.mint} to={P.peacock} />
           <section
             style={{ backgroundColor: P.peacock }}
-            className={`${BELOW} px-6 pb-16 pt-12 text-center`}
+            className={`offer-sec offer-why ${BELOW} px-6 pb-16 pt-12 text-center`}
           >
-            <h2 className="mb-9 font-display text-[36px] font-semibold leading-[0.9] text-white">
+            <h2 className="offer-h2 mb-9 font-display text-[36px] font-semibold leading-[0.9] text-white">
               {whySection.title}
             </h2>
-            <div className="mx-auto grid w-full max-w-[900px] gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="offer-why__grid mx-auto grid w-full max-w-[900px] gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {whySection.cards.map((c) => (
                 <div
                   key={c.title}
-                  className="flex items-start gap-4 rounded-2xl scrap-card px-5 py-5 text-left"
+                  className="offer-why__card flex items-start gap-4 rounded-2xl scrap-card px-5 py-5 text-left"
                 >
-                  <span className="text-[30px] leading-none" aria-hidden>
+                  <span className="offer-why__icon text-[30px] leading-none" aria-hidden>
                     {c.icon}
                   </span>
                   <div>
-                    <p className="font-display text-[19px] font-semibold leading-snug text-ink">
+                    <p className="offer-why__title font-display text-[19px] font-semibold leading-snug text-ink">
                       {c.title}
                     </p>
-                    <p className={`mt-1 ${SUB} leading-snug text-muted`}>
-                      {c.desc}
-                    </p>
+                    {c.desc ? (
+                      <p className={`offer-why__desc mt-1 ${SUB} leading-snug text-muted`}>
+                        {c.desc}
+                      </p>
+                    ) : null}
                   </div>
                 </div>
               ))}
@@ -389,31 +397,30 @@ export function OfferPage({ content }: { content: OfferContent }) {
       {/* ══ IDEAL PARA VOCÊ ══ */}
       <section
         style={{ backgroundColor: P.blush }}
-        className={`${BELOW} px-5 pb-16 pt-12 text-center`}
+        className={`offer-sec offer-ideal ${BELOW} px-5 pb-16 pt-12 text-center`}
       >
         <div className="mx-auto max-w-[960px]">
-          <h2 className="mb-9 font-display text-[36px] font-semibold leading-[0.9] text-ink">
+          <h2 className="offer-h2 mb-9 font-display text-[36px] font-semibold leading-[0.9] text-ink">
             {idealSection.title}
           </h2>
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="offer-ideal__grid grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {idealSection.items.map((item, i) => (
               <div
                 key={item.title}
-                className="flex flex-col gap-3 rounded-2xl scrap-card p-7 text-left"
-                style={{ boxShadow: "0 2px 16px rgba(0,0,0,0.06)" }}
+                className="offer-ideal__card flex flex-col gap-3 rounded-2xl scrap-card p-7 text-left shadow-[0_2px_16px_rgba(0,0,0,0.06)]"
               >
                 <span
-                  className="font-display text-[52px] font-semibold leading-none select-none"
+                  className="offer-ideal__num font-display text-[52px] font-semibold leading-none select-none"
                   style={{ color: "color-mix(in srgb, var(--color-marigold) 55%, transparent)" }}
                   aria-hidden
                 >
                   {String(i + 1).padStart(2, "0")}
                 </span>
-                <p className="font-display text-[16px] font-bold uppercase leading-tight text-ink">
+                <p className="offer-ideal__title font-display text-[16px] font-bold uppercase leading-tight text-ink">
                   {item.title}
                 </p>
                 {item.desc ? (
-                  <p className={`${SUB} leading-relaxed text-muted`}>
+                  <p className={`offer-ideal__desc ${SUB} leading-relaxed text-muted`}>
                     {item.desc}
                   </p>
                 ) : null}
@@ -429,18 +436,20 @@ export function OfferPage({ content }: { content: OfferContent }) {
       {/* ══ OFERTA PRINCIPAL ══ */}
       <section
         style={{ backgroundColor: P.plum }}
-        className={`${BELOW} px-5 pb-16 pt-12 text-center`}
+        className={`offer-sec offer-main ${BELOW} px-5 pb-16 pt-12 text-center`}
       >
         <div className="mx-auto flex w-full max-w-[480px] flex-col items-center gap-5">
           <Badge>{offerSection.pill}</Badge>
-          <h2 className="font-display text-[36px] font-semibold leading-[0.9] text-white">
+          <h2 className="offer-h2 font-display text-[36px] font-semibold leading-[0.9] text-white">
             {offerSection.title}
           </h2>
-          <p className={`font-display ${SUB} text-white/60`}>
-            {offerSection.cardTitle}
-          </p>
+          {offerSection.cardTitle ? (
+            <p className={`offer-main__kicker font-display ${SUB} text-white/60`}>
+              {offerSection.cardTitle}
+            </p>
+          ) : null}
           {offerSection.lead ? (
-            <p className={`${SUB} text-white/70`}>{offerSection.lead}</p>
+            <p className={`offer-main__lead ${SUB} text-white/70`}>{offerSection.lead}</p>
           ) : null}
 
           <LazyImg
@@ -451,7 +460,16 @@ export function OfferPage({ content }: { content: OfferContent }) {
             className="w-full rounded-[12px]"
           />
 
-          <PartsTimeline steps={offerSection.howItWorks} />
+          {offerSection.howItWorksTitle ? (
+            <p className="offer-main__list-title w-full max-w-[400px] text-left font-display text-[22px] font-semibold text-white">
+              {offerSection.howItWorksTitle}
+            </p>
+          ) : null}
+
+          <PartsTimeline
+            steps={offerSection.howItWorks}
+            numbered={offerSection.howItWorksNumbered}
+          />
         </div>
       </section>
 
@@ -461,10 +479,10 @@ export function OfferPage({ content }: { content: OfferContent }) {
       {/* ══ BÔNUS ══ */}
       <section
         style={{ backgroundColor: P.peacock }}
-        className={`${BELOW} px-5 pb-16 pt-12 text-center`}
+        className={`offer-sec offer-bonus ${BELOW} px-5 pb-16 pt-12 text-center`}
       >
         <div className="mx-auto flex max-w-[1040px] flex-col items-center gap-6">
-          <h2 className="font-display text-[32px] font-semibold leading-snug text-white">
+          <h2 className="offer-h2 font-display text-[32px] font-semibold leading-snug text-white">
             {bonusSection.titleLines.map((line, i) => (
               <span key={line}>
                 {i > 0 ? <br /> : null}
@@ -477,7 +495,7 @@ export function OfferPage({ content }: { content: OfferContent }) {
             {bonusSection.items.map((b) => (
               <article
                 key={b.title}
-                className="flex flex-col items-center gap-4 rounded-2xl scrap-card px-5 pb-6 pt-5 text-center"
+                className="offer-bonus__card flex flex-col items-center gap-4 rounded-2xl scrap-card px-5 pb-6 pt-5 text-center"
               >
                 <LazyImg
                   src={b.src}
@@ -486,14 +504,14 @@ export function OfferPage({ content }: { content: OfferContent }) {
                   height={900}
                   className="w-full rounded-xl"
                 />
-                <p className="font-display text-[13px] font-bold tracking-wide text-brand">
+                <p className="offer-bonus__label font-display text-[13px] font-bold tracking-wide text-brand">
                   {b.label}
                 </p>
-                <h3 className="font-display text-[20px] font-semibold leading-snug text-ink">
+                <h3 className="offer-bonus__title font-display text-[20px] font-semibold leading-snug text-ink">
                   {b.title}
                 </h3>
                 {b.desc ? (
-                  <p className={`max-w-[300px] ${SUB} leading-snug text-muted`}>
+                  <p className={`offer-bonus__desc max-w-[300px] ${SUB} leading-snug text-muted`}>
                     {b.desc}
                   </p>
                 ) : null}
@@ -505,9 +523,11 @@ export function OfferPage({ content }: { content: OfferContent }) {
                   </ul>
                 ) : null}
                 <FreePriceBadge price={b.price} />
-                <p className="text-[12px] font-medium leading-snug text-muted">
-                  {bonusSection.exclusiveNote}
-                </p>
+                {bonusSection.exclusiveNote ? (
+                  <p className="text-[12px] font-medium leading-snug text-muted">
+                    {bonusSection.exclusiveNote}
+                  </p>
+                ) : null}
               </article>
             ))}
           </div>
@@ -520,12 +540,17 @@ export function OfferPage({ content }: { content: OfferContent }) {
       {/* ══ DEPOIMENTOS ══ */}
       <section
         style={{ backgroundColor: P.paper }}
-        className={`${BELOW} px-5 pb-16 pt-12 text-center`}
+        className={`offer-sec offer-testimonials ${BELOW} px-5 pb-16 pt-12 text-center`}
       >
         <div className="mx-auto flex w-full max-w-[553px] flex-col items-center gap-7 lg:max-w-[960px]">
-          <h2 className="max-w-[480px] font-display text-[32px] font-semibold leading-[0.95] text-ink">
+          <h2 className="offer-h2 max-w-[480px] font-display text-[32px] font-semibold leading-[0.95] text-ink">
             {testimonials.title}
           </h2>
+          {testimonials.subtitle ? (
+            <p className={`offer-testimonials__sub -mt-4 max-w-[480px] ${SUB} leading-relaxed text-muted`}>
+              {testimonials.subtitle}
+            </p>
+          ) : null}
           {testimonials.marquee ? (
             <Marquee
               duration={testimonials.marquee.duration ?? 32}
@@ -556,11 +581,11 @@ export function OfferPage({ content }: { content: OfferContent }) {
       <section
         id="planos"
         style={{ backgroundColor: P.mint }}
-        className="px-5 pb-16 pt-12 text-center"
+        className="offer-sec offer-plans px-5 pb-16 pt-12 text-center"
       >
         <div className="mx-auto max-w-[1040px]">
           <Badge className="whitespace-nowrap px-3 py-1.5 text-[10px]">{plansSection.pill}</Badge>
-          <h2 className="my-7 font-display text-[38px] font-semibold leading-[0.9] text-ink">
+          <h2 className="offer-h2 my-7 font-display text-[38px] font-semibold leading-[0.9] text-ink">
             {plansSection.title}
           </h2>
 
@@ -568,10 +593,10 @@ export function OfferPage({ content }: { content: OfferContent }) {
             {/* Plano Básico */}
             <div
               id="plano-basico"
-              className="flex w-full max-w-[480px] scroll-mt-[88px] flex-col items-center gap-4 rounded-2xl px-6 pb-10 pt-6 lg:max-w-none lg:scroll-mt-8"
+              className="offer-plan offer-plan--basic flex w-full max-w-[480px] scroll-mt-[88px] flex-col items-center gap-4 rounded-2xl px-6 pb-10 pt-6 lg:max-w-none lg:scroll-mt-8"
               style={{ backgroundColor: P.paper }}
             >
-              <p className="font-display text-[24px] font-semibold text-ink">
+              <p className="offer-plan__name font-display text-[24px] font-semibold text-ink">
                 {plansSection.basic.name}
               </p>
               <LazyImg
@@ -581,24 +606,27 @@ export function OfferPage({ content }: { content: OfferContent }) {
                 height={plansSection.basic.image.height}
                 className="w-full rounded-xl"
               />
-              <p className="font-display text-[20px] font-semibold text-ink">
+              <p className="offer-plan__receive font-display text-[20px] font-semibold text-ink">
                 {plansSection.basic.receiveLabel}
               </p>
               <ul className="w-full max-w-[320px] text-left">
                 {plansSection.basic.features.map((f) => (
                   <FeatureItem key={f} text={f} />
                 ))}
+                {plansSection.basic.unavailableFeatures?.map((f) => (
+                  <FeatureItem key={f} text={f} struck />
+                ))}
               </ul>
-              <p className="font-display text-[18px] text-alert line-through">
+              <p className="offer-plan__old font-display text-[18px] text-alert line-through">
                 de {plansSection.basic.oldPrice} por:
               </p>
-              <p className="font-display text-[60px] font-semibold leading-none text-ink">
+              <p className="offer-plan__price font-display text-[60px] font-semibold leading-none text-ink">
                 {plansSection.basic.price}
               </p>
-              <p className={`font-display ${SUB} text-ink`}>
+              <p className={`offer-plan__inst font-display ${SUB} text-ink`}>
                 {plansSection.basic.installments}
               </p>
-              <p className={`font-display ${SUB} text-ink`}>
+              <p className={`offer-plan__save font-display ${SUB} text-ink`}>
                 {plansSection.basic.savings}
               </p>
               <CtaButton
@@ -608,7 +636,7 @@ export function OfferPage({ content }: { content: OfferContent }) {
                 planName="Basico"
               />
               {plansSection.upsellNote.alert ? (
-                <p className="max-w-[280px] font-display text-[16px] font-semibold leading-snug text-alert">
+                <p className="offer-plan__upsell max-w-[280px] font-display text-[16px] font-semibold leading-snug text-alert">
                   {plansSection.upsellNote.alert}
                 </p>
               ) : null}
@@ -620,17 +648,17 @@ export function OfferPage({ content }: { content: OfferContent }) {
                 <Badge className="relative z-10 -mb-3">{plansSection.complete.soldLabel}</Badge>
               ) : null}
               <div
-                className="flex w-full flex-col items-center gap-4 rounded-2xl px-6 pb-10 pt-6"
+                className="offer-plan offer-plan--complete flex w-full flex-col items-center gap-4 rounded-2xl px-6 pb-10 pt-6"
                 style={{ backgroundColor: P.plum }}
               >
                 <span
-                  className="mt-3 inline-block whitespace-nowrap rounded-full px-3 py-1.5 font-display text-[10px] font-bold text-white"
+                  className="offer-plan__urgency mt-3 inline-block whitespace-nowrap rounded-full px-3 py-1.5 font-display text-[10px] font-bold text-white"
                   style={{ backgroundColor: P.raspberry }}
                 >
                   {plansSection.complete.badge}
                 </span>
                 <p
-                  className="rounded-full px-6 py-2 font-display text-[22px] font-semibold text-white sm:text-[24px]"
+                  className="offer-plan__name offer-plan__name--pill rounded-full px-6 py-2 font-display text-[22px] font-semibold text-white sm:text-[24px]"
                   style={{ backgroundColor: P.peacock }}
                 >
                   {plansSection.complete.name}
@@ -653,16 +681,16 @@ export function OfferPage({ content }: { content: OfferContent }) {
                     <FeatureItem key={f} text={f} light />
                   ))}
                 </ul>
-                <p className="font-display text-[18px] text-alert line-through">
+                <p className="offer-plan__old font-display text-[18px] text-alert line-through">
                   de {plansSection.complete.oldPrice} por:
                 </p>
-                <p className="font-display text-[60px] font-semibold leading-none text-white">
+                <p className="offer-plan__price font-display text-[60px] font-semibold leading-none text-white">
                   {plansSection.complete.price}
                 </p>
-                <p className={`font-display ${SUB} text-white`}>
+                <p className={`offer-plan__inst font-display ${SUB} text-white`}>
                   {plansSection.complete.installments}
                 </p>
-                <p className={`font-display ${SUB} text-white`}>
+                <p className={`offer-plan__save font-display ${SUB} text-white`}>
                   {plansSection.complete.savings}
                 </p>
                 <CtaButton
@@ -671,7 +699,7 @@ export function OfferPage({ content }: { content: OfferContent }) {
                   id="plano_completo"
                   planName="Completo"
                 />
-                <p className={`font-display ${SUB} text-white/80`}>
+                <p className={`offer-plan__secure font-display ${SUB} text-white/80`}>
                   {guarantee.intro}
                 </p>
                 <SecurePurchaseBadge badge={plansSection.securePurchaseBadge} />
@@ -687,7 +715,7 @@ export function OfferPage({ content }: { content: OfferContent }) {
       {/* ══ GARANTIA ══ */}
       <section
         style={{ backgroundColor: P.peacock }}
-        className={`${BELOW} px-10 pb-16 pt-12 text-center`}
+        className={`offer-sec offer-guarantee ${BELOW} px-10 pb-16 pt-12 text-center`}
       >
         <div className="mx-auto flex max-w-[400px] flex-col items-center gap-5">
           <LazyImg
@@ -696,11 +724,11 @@ export function OfferPage({ content }: { content: OfferContent }) {
             width={guarantee.seal.width}
             height={guarantee.seal.height}
           />
-          <h2 className="font-display text-[32px] font-semibold leading-snug text-white">
+          <h2 className="offer-h2 font-display text-[32px] font-semibold leading-snug text-white">
             {guarantee.title}
           </h2>
-          <div className={`text-left ${SUB} leading-relaxed`} style={{ color: "rgba(255,255,255,0.82)" }}>
-            <p className="mt-4">{guarantee.lead}</p>
+          <div className={`offer-guarantee__body text-left ${SUB} leading-relaxed`} style={{ color: "rgba(255,255,255,0.82)" }}>
+            {guarantee.lead ? <p className="mt-4">{guarantee.lead}</p> : null}
             <ul className="mt-3 flex flex-col gap-2">
               {guarantee.bullets.map((t) => (
                 <li key={t} className="flex items-start gap-3">
@@ -735,14 +763,54 @@ export function OfferPage({ content }: { content: OfferContent }) {
         </div>
       </section>
 
+      {/* ══ AUTORIDADE ══ */}
+      {/* Fica no mesmo campo de cor da garantia: garantia + autoridade formam
+          um bloco só de confiança. O card branco é o que separa os dois. */}
+      {authority ? (
+        <section
+          style={{ backgroundColor: P.peacock }}
+          className={`offer-sec offer-authority ${BELOW} px-5 pb-16 pt-4 text-center`}
+        >
+          <div className="offer-authority__card mx-auto flex w-full max-w-[860px] flex-col items-center gap-6 rounded-2xl scrap-card px-6 pb-8 pt-8 sm:flex-row sm:items-start sm:gap-8 sm:px-9 sm:text-left">
+            <LazyImg
+              src={authority.photo.src}
+              alt={authority.photo.alt}
+              width={authority.photo.width}
+              height={authority.photo.height}
+              className="offer-authority__photo"
+            />
+            <div className="offer-authority__body">
+              {authority.pill ? (
+                <p className="offer-authority__pill font-display text-[12px] font-bold tracking-wide text-brand">
+                  {authority.pill}
+                </p>
+              ) : null}
+              <h2 className="offer-authority__name font-display text-[28px] font-semibold leading-tight text-ink">
+                {authority.name}
+              </h2>
+              {authority.role ? (
+                <p className="offer-authority__role font-display text-[15px] font-medium text-muted">
+                  {authority.role}
+                </p>
+              ) : null}
+              {authority.paragraphs.map((text) => (
+                <p key={text} className={`offer-authority__text ${SUB} leading-relaxed text-muted`}>
+                  {text}
+                </p>
+              ))}
+            </div>
+          </div>
+        </section>
+      ) : null}
+
       {stepsSection.steps.length > 0 ? (
         <>
           <WaveDivider from={P.peacock} to={P.peacock} />
           <section
             style={{ backgroundColor: P.peacock }}
-            className={`${BELOW} px-6 pb-16 pt-12 text-center`}
+            className={`offer-sec offer-steps ${BELOW} px-6 pb-16 pt-12 text-center`}
           >
-            <h2 className="font-display text-[36px] font-semibold leading-[0.9] text-white">
+            <h2 className="offer-h2 font-display text-[36px] font-semibold leading-[0.9] text-white">
               {stepsSection.title}
             </h2>
             {stepsSection.subtitle ? (
@@ -805,19 +873,19 @@ export function OfferPage({ content }: { content: OfferContent }) {
       {/* ══ FAQ ══ */}
       <section
         style={{ backgroundColor: P.blush }}
-        className={`${BELOW} px-5 pb-16 pt-12`}
+        className={`offer-sec offer-faq ${BELOW} px-5 pb-16 pt-12`}
       >
         <div className="mx-auto max-w-[640px]">
-          <h2 className="mb-8 text-center font-display text-[36px] font-semibold leading-[0.9] text-ink">
+          <h2 className="offer-h2 mb-8 text-center font-display text-[36px] font-semibold leading-[0.9] text-ink">
             {faqTitle}
           </h2>
           <div className="flex flex-col gap-2">
             {faq.map(([q, a], i) => (
               <details
                 key={q}
-                className="scrap-faq-item rounded-xl"
+                className="offer-faq__item scrap-faq-item rounded-xl"
               >
-                <summary className="flex cursor-pointer list-none items-center justify-between gap-3 px-5 py-4 font-display text-[15px] font-semibold text-ink">
+                <summary className="offer-faq__q flex cursor-pointer list-none items-center justify-between gap-3 px-5 py-4 font-display text-[15px] font-semibold text-ink">
                   {i + 1}. {q}
                   <svg
                     viewBox="0 0 13 7"
@@ -833,7 +901,7 @@ export function OfferPage({ content }: { content: OfferContent }) {
                     />
                   </svg>
                 </summary>
-                <p className={`px-5 pb-5 ${SUB} leading-relaxed text-muted`}>{a}</p>
+                <p className={`offer-faq__a whitespace-pre-line px-5 pb-5 ${SUB} leading-relaxed text-muted`}>{a}</p>
               </details>
             ))}
           </div>
@@ -843,9 +911,9 @@ export function OfferPage({ content }: { content: OfferContent }) {
       {/* ══ RODAPÉ ══ */}
       <footer
         style={{ backgroundColor: P.paper }}
-        className="px-6 py-10 text-center"
+        className="offer-footer px-6 py-10 text-center"
       >
-        <p className={`${SUB} text-ink`}>
+        <p className={`offer-footer__copy ${SUB} text-ink`}>
           ©️ {footer.copyright}
         </p>
         {contact.email ? (
@@ -859,7 +927,7 @@ export function OfferPage({ content }: { content: OfferContent }) {
             </a>
           </p>
         ) : null}
-        <p className={`mt-6 ${SUB} text-muted`}>{footer.legal}</p>
+        <p className={`offer-footer__legal mt-6 ${SUB} text-muted`}>{footer.legal}</p>
       </footer>
     </main>
     </>

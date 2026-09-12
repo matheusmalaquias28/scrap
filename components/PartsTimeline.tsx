@@ -4,10 +4,23 @@ import { useEffect, useRef } from "react";
 
 type Step = { title: string; desc: string };
 
-export function PartsTimeline({ steps }: { steps: readonly Step[] }) {
+export function PartsTimeline({
+  steps,
+  numbered = false,
+}: {
+  steps: readonly Step[];
+  /** Numera todos os passos mesmo sem o prefixo "PARTE N". */
+  numbered?: boolean;
+}) {
   const rootRef = useRef<HTMLDivElement>(null);
-  const parts = steps.filter((s) => /^PARTE\s+\d/i.test(s.title));
-  const notes = steps.filter((s) => !/^PARTE\s+\d/i.test(s.title));
+  // Ofertas que nomeiam as etapas como "PARTE 1..." usam esse prefixo para
+  // separar etapas (numeradas na linha do tempo) de observações soltas.
+  // Com `numbered`, uma oferta sem esse prefixo também ganha a linha do tempo
+  // numerada — usado por listas de entregáveis (ex.: /terrario).
+  const tagged = steps.filter((s) => /^PARTE\s+\d/i.test(s.title));
+  const useAll = tagged.length === 0 && numbered;
+  const parts = useAll ? [...steps] : tagged;
+  const notes = useAll ? [] : steps.filter((s) => !/^PARTE\s+\d/i.test(s.title));
 
   useEffect(() => {
     const root = rootRef.current;
@@ -56,9 +69,11 @@ export function PartsTimeline({ steps }: { steps: readonly Step[] }) {
               <h3 className="font-display text-[22px] font-semibold leading-snug text-white">
                 {step.title}
               </h3>
-              <p className="mt-1 text-[18px] font-medium leading-relaxed text-white/70">
-                {step.desc}
-              </p>
+              {step.desc ? (
+                <p className="mt-1 text-[18px] font-medium leading-relaxed text-white/70">
+                  {step.desc}
+                </p>
+              ) : null}
             </div>
           </li>
         ))}
