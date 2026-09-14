@@ -245,11 +245,13 @@ export function OfferPage({ content }: { content: OfferContent }) {
       }}
     >
       {/* Offer bar */}
-      <div className="offer-bar flex items-center justify-center px-4 py-[10px]" style={{ backgroundColor: P.raspberry }}>
-        <p className="text-center font-display text-[12px] font-semibold leading-snug text-white">
-          {offerBar.text} {today}
-        </p>
-      </div>
+      {offerBar ? (
+        <div className="offer-bar flex items-center justify-center px-4 py-[10px]" style={{ backgroundColor: P.raspberry }}>
+          <p className="text-center font-display text-[12px] font-semibold leading-snug text-white">
+            {offerBar.text} {today}
+          </p>
+        </div>
+      ) : null}
 
       <StickyCta label={hero.ctaLabel} />
       <AnchorScroll />

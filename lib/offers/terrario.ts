@@ -62,10 +62,6 @@ export const terrario: OfferContent = {
     className: "theme-terrario",
   },
 
-  offerBar: {
-    text: "🔥 ÚLTIMA CHANCE — OFERTA TERMINA HOJE",
-  },
-
   hero: {
     logo: { src: "", alt: "Meu Primeiro Terrário Fechado", width: 200, height: 60 },
     secureSeal: "",
@@ -425,8 +421,10 @@ export const terrario: OfferContent = {
 
   checkout: {
     hero: "#planos",
-    basic: "#planos",
-    complete: "#planos",
+    // Plano Básico — R$ 27,90
+    basic: "https://pay.hotmart.com/M107597383G?off=d2tjfcmn&checkoutMode=10",
+    // Plano Completo — R$ 37,90
+    complete: "https://pay.hotmart.com/S107597200I?off=hlqp494p&checkoutMode=10",
   },
 };
 

@@ -61,7 +61,7 @@ body {
   animation: marquee var(--marquee-duration, 20s) linear infinite;
 }
 
-.marquee:hover .marquee-track {
+.offer-root:not(.theme-terrario) .marquee:hover .marquee-track {
   animation-play-state: paused;
 }
 

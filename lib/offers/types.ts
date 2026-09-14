@@ -197,7 +197,7 @@ export interface Authority {
 export interface OfferContent {
   meta: OfferMeta;
   theme: Theme;
-  offerBar: { text: string };
+  offerBar?: { text: string };
   hero: Hero;
   materials: {
     title: string;
