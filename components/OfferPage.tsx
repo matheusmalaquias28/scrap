@@ -536,10 +536,15 @@ export function OfferPage({ content }: { content: OfferContent }) {
         </div>
       </section>
 
+      {/* ══ DEPOIMENTOS ══
+          Sem depoimentos a seção inteira some — junto com as duas waves que a
+          emolduram; o fluxo de cores passa direto de peacock para mint. As
+          ofertas que têm prints seguem exatamente como eram. */}
+      {testimonials.items.length > 0 ? (
+      <>
       {/* Wave peacock→paper */}
       <WaveDivider from={P.peacock} to={P.paper} />
 
-      {/* ══ DEPOIMENTOS ══ */}
       <section
         style={{ backgroundColor: P.paper }}
         className={`offer-sec offer-testimonials ${BELOW} px-5 pb-16 pt-12 text-center`}
@@ -578,6 +583,10 @@ export function OfferPage({ content }: { content: OfferContent }) {
 
       {/* Wave paper→mint */}
       <WaveDivider from={P.paper} to={P.mint} />
+      </>
+      ) : (
+        <WaveDivider from={P.peacock} to={P.mint} />
+      )}
 
       {/* ══ PLANOS ══ */}
       <section

@@ -875,3 +875,687 @@
   background: rgb(255 255 255 / 0.08);
   color: rgb(255 255 255 / 0.5);
 }
+
+
+/* ════════════════════════════════════════════════════════════════════════
+   TEMA /cuba-resina  —  escopado a `.theme-resina` (lib/offers/cuba-resina.ts,
+   `theme.className`). Mesmo sistema visual de /terrario, com a paleta
+   trocada: vidro turquesa → teal profundo, e âmbar/cobre como ÚNICA cor
+   quente (urgência + CTA).
+
+   Regra: mudança visual só desta oferta → editar aqui. Nada vaza para a
+   home, /quilling ou /terrario.
+   ════════════════════════════════════════════════════════════════════════ */
+
+.theme-resina {
+  /* Ritmo vertical */
+  --t-sec-y: clamp(52px, 9vw, 88px);
+  --t-gap: clamp(18px, 4.6vw, 26px);
+
+  /* Escala tipográfica (mobile-first, cresce até o desktop) */
+  --t-display: clamp(27px, 7.2vw, 40px);
+  --t-lead: clamp(16px, 4.3vw, 19px);
+  --t-body: clamp(15px, 3.9vw, 16.5px);
+  --t-caption: clamp(12.5px, 3.2vw, 13.5px);
+
+  /* Forma */
+  --t-radius: 18px;
+  --t-radius-lg: 22px;
+  --t-line: rgb(6 50 47 / 0.08);
+  --t-shadow-sm: 0 1px 2px rgb(6 50 47 / 0.05), 0 8px 20px rgb(6 50 47 / 0.06);
+  --t-shadow-md: 0 2px 4px rgb(6 50 47 / 0.05), 0 16px 38px rgb(6 50 47 / 0.1);
+
+  /* Terracota do CTA em três paradas (topo → base do gradiente) */
+  --t-cta-top: #ee8c28;
+  --t-cta-mid: #d97316;
+  --t-cta-bot: #b25c09;
+}
+
+/* ── Ritmo vertical das seções ───────────────────────────────────────── */
+
+.theme-resina .offer-sec {
+  padding-top: var(--t-sec-y);
+  padding-bottom: var(--t-sec-y);
+}
+
+.theme-resina .offer-hero {
+  padding-top: clamp(26px, 7vw, 44px);
+  padding-bottom: clamp(30px, 7vw, 46px);
+}
+
+.theme-resina .offer-hero > div {
+  gap: var(--t-gap);
+}
+
+/* A onda já cria respiro entre seções: encurta para não somar buraco */
+.theme-resina .offer-wave svg {
+  height: clamp(30px, 6vw, 48px) !important;
+}
+
+/* ── Barra de urgência ───────────────────────────────────────────────── */
+
+.theme-resina .offer-bar {
+  padding-block: 11px;
+}
+
+.theme-resina .offer-bar p {
+  font-size: clamp(11px, 3vw, 12.5px);
+  letter-spacing: 0.045em;
+}
+
+/* ── Hero ────────────────────────────────────────────────────────────── */
+
+/* Fundo: duas manchas de folha + uma de luz âmbar, no lugar dos
+   radiais rosa/turquesa do tema original. */
+.theme-resina .scrap-hero {
+  background:
+    radial-gradient(ellipse 95% 65% at 8% -8%, oklch(0.86 0.09 152 / 0.6), transparent 62%),
+    radial-gradient(ellipse 72% 52% at 100% 4%, oklch(0.9 0.06 168 / 0.62), transparent 60%),
+    radial-gradient(ellipse 60% 42% at 52% 108%, oklch(0.9 0.09 88 / 0.38), transparent 58%),
+    var(--p-paper);
+}
+
+.theme-resina .offer-hero__heading {
+  line-height: 1.16;
+}
+
+.theme-resina .offer-hero__heading > p {
+  text-wrap: balance;
+}
+
+.theme-resina .offer-hero__heading > p:first-child {
+  font-size: clamp(23px, 6.2vw, 34px);
+}
+
+.theme-resina .offer-hero__heading > p + p {
+  font-size: clamp(15px, 4.1vw, 21px);
+  margin-top: 0.55em !important;
+}
+
+.theme-resina .offer-hero__heading span {
+  padding: 0.22em 0.52em !important;
+  border-radius: 0.5em !important;
+  line-height: 1.5 !important;
+}
+
+.theme-resina .offer-hero__subtitle {
+  max-width: 36ch;
+  font-size: var(--t-lead);
+  line-height: 1.5;
+  color: color-mix(in srgb, var(--color-ink) 78%, transparent);
+}
+
+.theme-resina .offer-hero__desc {
+  max-width: 40ch;
+  font-size: var(--t-body);
+  line-height: 1.6;
+}
+
+.theme-resina .offer-hero__note {
+  font-size: var(--t-caption);
+  letter-spacing: 0.01em;
+}
+
+/* Moldura de vidro na imagem do hero */
+.theme-resina .offer-hero img,
+.theme-resina .offer-hero [role="img"] {
+  border-radius: var(--t-radius-lg) !important;
+  box-shadow: var(--t-shadow-md);
+}
+
+/* ── Títulos de seção ────────────────────────────────────────────────── */
+
+.theme-resina .offer-h2 {
+  font-size: var(--t-display);
+  line-height: 1.1;
+  letter-spacing: -0.015em;
+}
+
+.theme-resina :is(.offer-materials, .offer-why, .offer-ideal, .offer-faq) .offer-h2 {
+  margin-bottom: clamp(24px, 5.8vw, 36px);
+}
+
+/* O título mais longo da página: um passo abaixo, para não empilhar 4 linhas */
+.theme-resina .offer-materials .offer-h2 {
+  font-size: clamp(23px, 6.2vw, 34px);
+  letter-spacing: -0.005em;
+}
+
+.theme-resina .offer-plans .offer-h2 {
+  margin-block: clamp(16px, 4vw, 22px) clamp(26px, 6vw, 38px);
+}
+
+/* Nessas seções o H2 vive dentro de um flex com `gap`: zera a margem
+   para o espaçamento não dobrar. */
+.theme-resina
+  :is(.offer-main, .offer-bonus, .offer-testimonials, .offer-guarantee)
+  .offer-h2 {
+  margin: 0;
+}
+
+.theme-resina :is(.offer-main, .offer-bonus, .offer-testimonials) > div {
+  gap: var(--t-gap);
+}
+
+/* ── Selos / pílulas ─────────────────────────────────────────────────── */
+
+.theme-resina .offer-badge {
+  font-size: 12px;
+  letter-spacing: 0.05em;
+  padding: 9px 16px;
+}
+
+/* Pílula verde sobre fundo verde some: vira vidro translúcido */
+.theme-resina :is(.offer-bonus, .offer-guarantee) .offer-badge {
+  background: rgb(255 255 255 / 0.14);
+  border: 1px solid rgb(255 255 255 / 0.28);
+  backdrop-filter: blur(2px);
+}
+
+/* ── Ícones de lista ─────────────────────────────────────────────────── */
+
+.theme-resina .check-icon path {
+  stroke: var(--color-peacock);
+}
+
+.theme-resina :is(.offer-plan--complete, .offer-main) .check-icon path {
+  stroke: #86dcd2;
+}
+
+.theme-resina .cross-icon path {
+  stroke: var(--color-alert);
+}
+
+.theme-resina .offer-feat {
+  font-size: var(--t-body);
+  padding-block: 7px;
+}
+
+/* ── "Tenha mais segurança…" ─────────────────────────────────────────── */
+
+/* 5 cards num grid de 3 colunas deixam órfãos à esquerda: vira flex
+   centralizado, então a última linha fica centrada. */
+@media (min-width: 640px) {
+  .theme-resina .offer-why__grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .theme-resina .offer-why__grid > * {
+    flex: 0 1 calc(50% - 8px);
+  }
+}
+
+@media (min-width: 1024px) {
+  .theme-resina .offer-why__grid > * {
+    flex: 0 1 calc(33.333% - 11px);
+  }
+}
+
+.theme-resina .offer-why__card {
+  align-items: center;
+  gap: 14px;
+  padding: clamp(16px, 4vw, 20px);
+  border-radius: var(--t-radius);
+  box-shadow: var(--t-shadow-sm);
+}
+
+.theme-resina .offer-why__icon {
+  font-size: 26px;
+}
+
+.theme-resina .offer-why__title {
+  font-size: clamp(15.5px, 4.1vw, 17px);
+  line-height: 1.35;
+}
+
+.theme-resina .offer-why__desc {
+  font-size: var(--t-body);
+}
+
+/* ── "Ideal para você que deseja" ────────────────────────────────────── */
+
+.theme-resina .offer-ideal__grid {
+  gap: clamp(14px, 3.4vw, 20px);
+}
+
+.theme-resina .offer-ideal__card {
+  gap: 10px;
+  padding: clamp(20px, 5vw, 26px);
+  border-radius: var(--t-radius);
+  border: 1px solid var(--t-line);
+  box-shadow: var(--t-shadow-sm);
+}
+
+.theme-resina .offer-ideal__num {
+  font-size: clamp(32px, 8.4vw, 42px);
+  color: color-mix(in srgb, var(--color-marigold) 70%, transparent);
+  letter-spacing: -0.02em;
+}
+
+.theme-resina .offer-ideal__title {
+  font-size: clamp(13px, 3.4vw, 14px);
+  letter-spacing: 0.055em;
+  line-height: 1.3;
+}
+
+.theme-resina .offer-ideal__desc {
+  font-size: var(--t-body);
+  line-height: 1.55;
+}
+
+/* ── Oferta principal (fundo floresta) ───────────────────────────────── */
+
+.theme-resina .offer-main__lead {
+  max-width: 42ch;
+  font-size: var(--t-body);
+  line-height: 1.6;
+}
+
+.theme-resina .offer-main__list-title {
+  margin-top: clamp(6px, 2vw, 12px);
+  margin-bottom: -6px;
+  font-size: clamp(18px, 4.6vw, 21px);
+  letter-spacing: -0.01em;
+}
+
+.theme-resina .parts-timeline h3 {
+  font-size: clamp(16.5px, 4.3vw, 19px);
+  line-height: 1.3;
+}
+
+.theme-resina .parts-timeline p {
+  font-size: clamp(14px, 3.6vw, 15.5px);
+  line-height: 1.55;
+}
+
+.theme-resina .parts-timeline__node {
+  width: 34px;
+  height: 34px;
+  font-size: 15px;
+}
+
+.theme-resina .parts-timeline__item > div:first-child {
+  width: 34px;
+}
+
+.theme-resina .parts-timeline__body {
+  padding-bottom: 22px;
+}
+
+/* ── Bônus ───────────────────────────────────────────────────────────── */
+
+.theme-resina .offer-bonus__card {
+  gap: 12px;
+  padding: clamp(18px, 4.4vw, 22px);
+  border-radius: var(--t-radius);
+  box-shadow: var(--t-shadow-md);
+}
+
+/* 3 bônus num grid de 2 colunas deixam o último sozinho e alinhado à
+   esquerda no desktop. Quando o último card é o ímpar (3 de 3), ele ocupa
+   as duas colunas mas mantém a largura de uma só, centralizado. O gap é 20px
+   (gap-5), então cada coluna vale calc(50% - 10px). */
+@media (min-width: 640px) {
+  .theme-resina .offer-bonus__card:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    width: calc(50% - 10px);
+    justify-self: center;
+  }
+}
+
+.theme-resina .offer-bonus__label {
+  font-size: 11.5px;
+  letter-spacing: 0.14em;
+}
+
+.theme-resina .offer-bonus__title {
+  font-size: clamp(17.5px, 4.6vw, 20px);
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+}
+
+.theme-resina .offer-bonus__desc {
+  max-width: 38ch;
+  font-size: var(--t-body);
+  line-height: 1.55;
+}
+
+.theme-resina .offer-free {
+  margin-top: 2px;
+  padding: 11px 24px;
+  border-radius: 14px;
+  border: 1px solid rgb(255 255 255 / 0.16);
+}
+
+/* O preço tachado é a âncora do "grátis": precisa ser LIDO, não só intuído.
+   Sobe de 12px/60% para 15px/92% e o risco vira terracota clara — o corte
+   fica visível sobre o verde do selo sem competir com o "GRÁTIS". */
+.theme-resina .offer-free s {
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: rgb(255 255 255 / 0.92);
+  text-decoration-color: #ff9a6a;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0;
+}
+
+.theme-resina .offer-free strong {
+  margin-top: 6px;
+  font-size: 25px;
+  letter-spacing: 0.06em;
+}
+
+/* ── Depoimentos ─────────────────────────────────────────────────────── */
+
+.theme-resina .offer-testimonials__sub {
+  margin-top: calc(var(--t-gap) * -0.55);
+  font-size: var(--t-body);
+}
+
+/* ── Planos ──────────────────────────────────────────────────────────── */
+
+.theme-resina .offer-plan {
+  gap: 14px;
+  border-radius: var(--t-radius-lg);
+  padding: clamp(22px, 5.4vw, 28px) clamp(18px, 4.6vw, 26px) clamp(28px, 6vw, 34px);
+}
+
+.theme-resina .offer-plan--basic {
+  border: 1px solid var(--t-line);
+  box-shadow: var(--t-shadow-sm);
+}
+
+.theme-resina .offer-plan--complete {
+  box-shadow: 0 24px 60px rgb(6 50 47 / 0.28);
+  outline: 2px solid color-mix(in srgb, var(--color-marigold) 55%, transparent);
+  outline-offset: -2px;
+}
+
+.theme-resina .offer-plan__name {
+  font-size: clamp(20px, 5.2vw, 24px);
+  letter-spacing: 0.01em;
+}
+
+.theme-resina .offer-plan__name--pill {
+  padding: 9px 24px;
+}
+
+.theme-resina .offer-plan__urgency {
+  font-size: 10.5px;
+  letter-spacing: 0.05em;
+  padding: 7px 14px;
+}
+
+.theme-resina .offer-plan__receive {
+  font-size: clamp(16px, 4.2vw, 18px);
+  color: color-mix(in srgb, var(--color-ink) 70%, transparent);
+}
+
+.theme-resina .offer-plan__old {
+  font-size: 15px;
+  margin-top: 6px;
+  margin-bottom: -10px;
+  opacity: 0.85;
+}
+
+.theme-resina .offer-plan__price {
+  font-size: clamp(46px, 12.6vw, 58px);
+  letter-spacing: -0.03em;
+}
+
+.theme-resina :is(.offer-plan__inst, .offer-plan__save, .offer-plan__secure) {
+  font-size: var(--t-body);
+}
+
+.theme-resina .offer-plan__inst {
+  margin-top: -6px;
+  opacity: 0.75;
+}
+
+.theme-resina .offer-plan__save {
+  margin-top: -4px;
+  font-weight: 600;
+  color: var(--color-peacock);
+}
+
+/* Economia em verde nos dois planos: no card claro o teal da paleta já
+   resolve; no card escuro (plum) ele não teria contraste, então entra um
+   verde claro. O âmbar fica reservado ao "GRÁTIS" dos bônus. */
+.theme-resina .offer-plan--complete .offer-plan__save {
+  color: #5fd99a;
+}
+
+/* Bônus listados como indisponíveis no Plano Básico: presentes para a
+   comparação ser imediata, mas apagados para não competir com o que o plano
+   realmente entrega. A hairline separa "o que vem" de "o que falta". */
+.theme-resina .offer-feat--off {
+  opacity: 0.5;
+}
+
+/* O `line-through` do Tailwind fica no <li>, que é flex — o Chrome não
+   propaga decoração de texto para flex items, então o risco não aparecia.
+   Aplicado direto no <span>, onde o texto realmente está. */
+.theme-resina .offer-feat--off span {
+  text-decoration-line: line-through;
+  text-decoration-color: color-mix(in srgb, var(--color-alert) 80%, transparent);
+  text-decoration-thickness: 1.5px;
+}
+
+.theme-resina .offer-feat:not(.offer-feat--off) + .offer-feat--off {
+  margin-top: 10px;
+  padding-top: 14px;
+  border-top: 1px solid var(--t-line);
+}
+
+.theme-resina .offer-plan__upsell {
+  font-size: clamp(14px, 3.7vw, 15.5px);
+}
+
+.theme-resina .offer-secure {
+  margin-top: 4px;
+  opacity: 0.9;
+}
+
+/* ── Garantia ────────────────────────────────────────────────────────── */
+
+.theme-resina .offer-guarantee > div {
+  gap: clamp(16px, 4vw, 22px);
+}
+
+.theme-resina .offer-guarantee .offer-h2 {
+  font-size: clamp(20px, 5.2vw, 26px);
+  line-height: 1.32;
+  letter-spacing: -0.01em;
+  max-width: 24ch;
+}
+
+.theme-resina .offer-guarantee__body {
+  font-size: var(--t-body);
+  line-height: 1.65;
+}
+
+/* Selo de garantia: é um elemento de confiança, então vale ocupar espaço */
+.theme-resina .offer-guarantee img,
+.theme-resina .offer-guarantee [role="img"] {
+  width: clamp(148px, 38vw, 200px);
+  height: auto;
+}
+
+/* ── Autoridade ──────────────────────────────────────────────────────── */
+
+/* Segue logo abaixo da garantia, no mesmo verde: o topo é curto de
+   propósito, para os dois blocos lerem como uma coisa só. */
+.theme-resina .offer-authority {
+  padding-top: clamp(6px, 2vw, 14px);
+}
+
+.theme-resina .offer-authority__card {
+  gap: clamp(18px, 4.4vw, 30px);
+  padding: clamp(26px, 6vw, 36px) clamp(22px, 5vw, 38px);
+  border-radius: var(--t-radius-lg);
+  box-shadow: var(--t-shadow-md);
+}
+
+.theme-resina .offer-authority__photo {
+  width: clamp(124px, 32vw, 168px);
+  height: auto;
+  flex-shrink: 0;
+  aspect-ratio: 1 / 1;
+  border-radius: 999px !important;
+  object-fit: cover;
+  border: 4px solid color-mix(in srgb, var(--color-peacock) 18%, transparent);
+}
+
+.theme-resina .offer-authority__body {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.theme-resina .offer-authority__pill {
+  font-size: 11.5px;
+  letter-spacing: 0.14em;
+  margin-bottom: -4px;
+}
+
+.theme-resina .offer-authority__name {
+  font-size: clamp(24px, 6.4vw, 31px);
+  letter-spacing: -0.02em;
+}
+
+.theme-resina .offer-authority__role {
+  font-size: clamp(13.5px, 3.5vw, 15px);
+  margin-top: -8px;
+  color: color-mix(in srgb, var(--color-peacock) 85%, transparent);
+}
+
+.theme-resina .offer-authority__text {
+  font-size: var(--t-body);
+  line-height: 1.65;
+  max-width: 62ch;
+}
+
+/* ── FAQ ─────────────────────────────────────────────────────────────── */
+
+.theme-resina .offer-faq__item {
+  background: #fff;
+  border: 1px solid var(--t-line);
+  border-radius: 14px;
+  transition: box-shadow 0.18s ease, border-color 0.18s ease;
+}
+
+.theme-resina .offer-faq__item[open] {
+  border-color: color-mix(in srgb, var(--color-peacock) 35%, transparent);
+  box-shadow: var(--t-shadow-sm);
+}
+
+.theme-resina .offer-faq__q {
+  font-size: clamp(14.5px, 3.8vw, 16px);
+  line-height: 1.4;
+  padding: 15px 18px;
+}
+
+.theme-resina .offer-faq__item[open] .offer-faq__q {
+  padding-bottom: 8px;
+  color: var(--color-peacock);
+}
+
+.theme-resina .offer-faq__a {
+  font-size: var(--t-body);
+  line-height: 1.65;
+  padding: 0 18px 16px;
+}
+
+/* ── Rodapé ──────────────────────────────────────────────────────────── */
+
+.theme-resina .offer-footer {
+  padding-block: clamp(32px, 7vw, 48px);
+}
+
+.theme-resina .offer-footer__copy {
+  font-size: var(--t-body);
+}
+
+.theme-resina .offer-footer__legal {
+  max-width: 78ch;
+  margin-inline: auto;
+  font-size: 11.5px;
+  line-height: 1.7;
+  opacity: 0.72;
+}
+
+/* ── CTA terracota ───────────────────────────────────────────────────── */
+
+.theme-resina .cta-pulse,
+.theme-resina a[data-cta-id="sticky_mobile"] {
+  background: linear-gradient(
+    180deg,
+    var(--t-cta-top) 0%,
+    var(--t-cta-mid) 58%,
+    var(--t-cta-bot) 100%
+  );
+  box-shadow:
+    0 1px 0 rgb(255 255 255 / 0.25) inset,
+    0 10px 24px rgb(178 92 9 / 0.3);
+  letter-spacing: 0.01em;
+}
+
+.theme-resina .cta-pulse {
+  min-height: 66px;
+  font-size: clamp(15.5px, 4.1vw, 19px);
+}
+
+.theme-resina .cta-pulse:hover {
+  box-shadow:
+    0 1px 0 rgb(255 255 255 / 0.25) inset,
+    0 12px 30px rgb(178 92 9 / 0.42);
+}
+
+.theme-resina :is(.cta-pulse, a[data-cta-id="sticky_mobile"]):focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 3px;
+}
+
+/* ── Placeholders de imagem (enquanto os arquivos não existem) ────────── */
+
+.theme-resina [role="img"] {
+  background: #e2efee;
+  color: #5f807d;
+  border-radius: var(--t-radius);
+}
+
+.theme-resina .marquee [role="img"] {
+  background: #cbe5e2;
+  color: #53736f;
+}
+
+.theme-resina :is(.offer-main, .offer-plan--complete, .offer-guarantee) [role="img"] {
+  background: rgb(255 255 255 / 0.08);
+  color: rgb(255 255 255 / 0.5);
+}
+
+/* ── Carrosséis puramente decorativos ─────────────────────────────────
+   Os dois marquees desta oferta (fichas do guia e depoimentos) correm
+   sem parar: não pausam no hover/touch, não são arrastáveis nem
+   selecionáveis, e não capturam clique. A exclusão do pause-on-hover
+   global vive em app/globals.css (`:not(.theme-resina)`); aqui fica o
+   resto da inércia. */
+
+.theme-resina .marquee {
+  pointer-events: none;
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.theme-resina .marquee :is(img, [role="img"]) {
+  pointer-events: none;
+  -webkit-user-drag: none;
+}
+
+/* Reforço: mesmo que algo tente pausar a trilha, ela continua correndo. */
+.theme-resina .marquee:is(:hover, :focus-within, :active) .marquee-track {
+  animation-play-state: running;
+}

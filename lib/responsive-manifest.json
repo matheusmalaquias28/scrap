@@ -533,5 +533,141 @@
     ],
     "full": 1024,
     "sizes": "(max-width: 520px) 88vw, 448px"
+  },
+  "/offers/cuba-resina/hero.webp": {
+    "widths": [
+      384,
+      512,
+      640,
+      768
+    ],
+    "full": 852,
+    "sizes": "(max-width: 423px) calc(100vw - 40px), 383px"
+  },
+  "/offers/cuba-resina/bonus-01.webp": {
+    "widths": [
+      384,
+      560,
+      768
+    ],
+    "full": 852,
+    "sizes": "(max-width: 640px) 88vw, 400px"
+  },
+  "/offers/cuba-resina/bonus-02.webp": {
+    "widths": [
+      384,
+      560,
+      768
+    ],
+    "full": 852,
+    "sizes": "(max-width: 640px) 88vw, 400px"
+  },
+  "/offers/cuba-resina/bonus-03.webp": {
+    "widths": [
+      384,
+      560,
+      768
+    ],
+    "full": 852,
+    "sizes": "(max-width: 640px) 88vw, 400px"
+  },
+  "/offers/cuba-resina/bonus-04.webp": {
+    "widths": [
+      384,
+      560,
+      768
+    ],
+    "full": 852,
+    "sizes": "(max-width: 640px) 88vw, 400px"
+  },
+  "/offers/cuba-resina/bonus-05.webp": {
+    "widths": [
+      384,
+      560,
+      768
+    ],
+    "full": 852,
+    "sizes": "(max-width: 640px) 88vw, 400px"
+  },
+  "/offers/cuba-resina/guia-01-materiais.webp": {
+    "widths": [
+      260,
+      390,
+      520
+    ],
+    "full": 1055,
+    "sizes": "260px"
+  },
+  "/offers/cuba-resina/guia-02-mise-en-place.webp": {
+    "widths": [
+      260,
+      390,
+      520
+    ],
+    "full": 1055,
+    "sizes": "260px"
+  },
+  "/offers/cuba-resina/guia-03-mistura.webp": {
+    "widths": [
+      260,
+      390,
+      520
+    ],
+    "full": 1055,
+    "sizes": "260px"
+  },
+  "/offers/cuba-resina/guia-04-pot-life.webp": {
+    "widths": [
+      260,
+      390,
+      520
+    ],
+    "full": 1055,
+    "sizes": "260px"
+  },
+  "/offers/cuba-resina/guia-05-pigmentacao.webp": {
+    "widths": [
+      260,
+      390,
+      520
+    ],
+    "full": 1055,
+    "sizes": "260px"
+  },
+  "/offers/cuba-resina/guia-06-correcoes.webp": {
+    "widths": [
+      260,
+      390,
+      520
+    ],
+    "full": 1055,
+    "sizes": "260px"
+  },
+  "/offers/cuba-resina/produto-principal.webp": {
+    "widths": [
+      384,
+      560,
+      768
+    ],
+    "full": 1116,
+    "sizes": "(max-width: 520px) 88vw, 448px"
+  },
+  "/offers/cuba-resina/plano-basico.webp": {
+    "widths": [
+      384,
+      560,
+      768
+    ],
+    "full": 1106,
+    "sizes": "(max-width: 520px) 88vw, 448px"
+  },
+  "/offers/cuba-resina/plano-completo.webp": {
+    "widths": [
+      384,
+      560,
+      768
+    ],
+    "full": 1254,
+    "sizes": "(max-width: 520px) 88vw, 448px"
   }
 }
