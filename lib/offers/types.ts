@@ -87,6 +87,12 @@ export interface Hero {
   subtitle: string;
   /** Parágrafo de apoio opcional, renderizado abaixo do subtítulo do hero. */
   description?: string;
+  /**
+   * Lista de destaques opcional, renderizada como checklist logo abaixo do
+   * subtítulo do hero. Sem o campo, nada é renderizado (ofertas antigas seguem
+   * iguais).
+   */
+  highlights?: string[];
   ctaLabel: string;
   deliveryNote: string;
   socialProofLabel: string;

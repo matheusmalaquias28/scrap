@@ -323,6 +323,15 @@ export function OfferPage({ content }: { content: OfferContent }) {
               {hero.description}
             </p>
           ) : null}
+          {hero.highlights && hero.highlights.length > 0 ? (
+            <ul className="offer-hero__highlights flex w-full max-w-[340px] flex-col gap-2 text-left">
+              {hero.highlights.map((t) => (
+                <li key={t} className={`flex items-start gap-2 ${SUB} leading-snug text-ink`}>
+                  <Check className="mt-[3px] !w-[14px] shrink-0" /> {t}
+                </li>
+              ))}
+            </ul>
+          ) : null}
 
           <CtaButton
             href={checkout.hero}

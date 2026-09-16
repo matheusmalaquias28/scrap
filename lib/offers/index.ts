@@ -4,6 +4,7 @@ import { diarioMemorias } from "./diario-memorias";
 import { quilling } from "./quilling";
 import { terrario } from "./terrario";
 import { cubaResina } from "./cuba-resina";
+import { concretoDecorativo } from "./concreto-decorativo";
 
 export type { OfferContent } from "./types";
 
@@ -21,6 +22,7 @@ export const offers = {
   quilling,
   terrario,
   "cuba-resina": cubaResina,
+  "concreto-decorativo": concretoDecorativo,
 } satisfies Record<string, OfferContent>;
 
 export type OfferSlug = keyof typeof offers;
