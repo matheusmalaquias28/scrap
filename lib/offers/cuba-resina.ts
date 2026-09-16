@@ -440,8 +440,8 @@ export const cubaResina: OfferContent = {
   checkout: {
     hero: "#planos",
     // Plano Básico — R$ 17,90
-    basic: "#planos",
+    basic: "https://pay.hotmart.com/X107628756E?off=trh17d2v&checkoutMode=10",
     // Plano Completo — R$ 27,90
-    complete: "#planos",
+    complete: "https://pay.hotmart.com/K107628648X?off=ecjugstd&checkoutMode=10",
   },
 };
