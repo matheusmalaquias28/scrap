@@ -59,13 +59,16 @@ export const concretoDecorativo: OfferContent = {
       alert: "#b8442a",
     },
     heroHeading: {
+      // `scale: 0.7` reduz cada tarja do título "PROJETO VISUAL…" em 30% —
+      // escopado a esta oferta (a /cuba-resina não tem `scale`).
       highlight: {
         color: "#ffffff",
         bg: "#0f6b63",
         font: "var(--font-fredoka)",
         weight: 700,
+        scale: 0.9,
       },
-      title: { color: "#ffffff", bg: "#06322f" },
+      title: { color: "#ffffff", bg: "#06322f", scale: 0.9 },
     },
     balanceText: true,
     className: "theme-resina",
