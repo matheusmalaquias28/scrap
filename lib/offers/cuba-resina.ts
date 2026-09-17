@@ -22,6 +22,7 @@ import type { OfferContent } from "./types";
  *     ainda apontam para `#planos`.
  */
 export const cubaResina: OfferContent = {
+  cashflowOfferId: "7db4d9bd-4051-40da-b16e-a81d641f8a98",
   meta: {
     title: "Viva de Resina: Produza sua Primeira Cuba de Apoio",
     description:

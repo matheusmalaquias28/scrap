@@ -5,6 +5,7 @@ import type { OfferContent } from "./types";
  * Conteúdo migrado de `lib/content.ts` sem alteração de texto/valores.
  */
 export const diarioMemorias: OfferContent = {
+  cashflowOfferId: "0c7a6f56-6bc5-4617-984d-9634a5a26c82",
   meta: {
     title:
       "Diário de Memórias — Crie Seu Scrapbooking de Forma Simples e Prática",

@@ -16,6 +16,7 @@ import type { OfferContent } from "./types";
  *     ainda são placeholders.
  */
 export const terrario: OfferContent = {
+  cashflowOfferId: "d0a84fc6-fef6-4f17-a2d1-59f939603510",
   meta: {
     title: "Monte Seu Primeiro Terrário Fechado com Facilidade",
     description:

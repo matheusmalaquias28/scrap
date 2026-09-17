@@ -202,6 +202,12 @@ export interface Authority {
 
 export interface OfferContent {
   meta: OfferMeta;
+  /**
+   * Offer ID do pixel Cashflow desta página (o parâmetro `o=` da tag, que é
+   * individual por oferta). O workspace (`w=`) é constante e vive em
+   * `lib/tracking-boot.ts`. Sem este campo, a página não emite o pixel.
+   */
+  cashflowOfferId?: string;
   theme: Theme;
   offerBar?: { text: string };
   hero: Hero;
