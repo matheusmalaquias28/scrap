@@ -24,10 +24,9 @@ import type { OfferContent } from "./types";
  *   - imagens em `public/offers/concreto-decorativo/` (enquanto o `src` não
  *     existir, aparece um placeholder no lugar). Depois de subir as artes, rode
  *     `scripts/gen-responsive.mjs` para gerar as variantes responsivas.
- *   - links de checkout do Hotmart (`checkout.basic` / `checkout.complete`)
- *     ainda apontam para `#planos`.
  */
 export const concretoDecorativo: OfferContent = {
+  cashflowOfferId: "908ce44b-d781-4c25-b932-7829416805f0",
   meta: {
     title: "Guia Mágico do Concreto Decorativo — Do Pó ao Lucro",
     description:
@@ -324,14 +323,14 @@ export const concretoDecorativo: OfferContent = {
     seal: { alt: "Selo de garantia de 7 dias", width: 241, height: 242 },
     title: "GARANTIA DE 7 DIAS — ZERO RISCO PRA VOCÊ",
     intro: "🔒 Compra 100% segura e garantida.",
-    lead: "Isso significa que, a qualquer momento, se você achar que:",
+    lead: "Isso significa que, em 7 dias, se você achar que:",
     bullets: [
       "o material não faz sentido para sua produção",
       "os passos não atendem suas expectativas",
       "ou simplesmente não quiser continuar",
     ],
     outro:
-      "Você pode solicitar o reembolso. Sem prazo, sem burocracia. O risco fica todo do nosso lado.",
+      "Você pode solicitar o reembolso sem burocracia. O risco fica todo do nosso lado.",
     outroStrong: "",
     helpLabel: "",
   },
@@ -456,9 +455,9 @@ export const concretoDecorativo: OfferContent = {
 
   checkout: {
     hero: "#planos",
-    // Plano Básico — R$ 17,90
-    basic: "#planos",
-    // Plano Completo — R$ 27,90
-    complete: "#planos",
+    basic:
+      "https://pay.hotmart.com/J107649593H?off=8z96pi6c&checkoutMode=10&bid=1789698456916",
+    complete:
+      "https://pay.hotmart.com/E107649871A?off=skx649ds&checkoutMode=10&bid=1789698425475",
   },
 };
