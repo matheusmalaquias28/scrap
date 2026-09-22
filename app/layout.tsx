@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
+import { headers } from "next/headers";
 import { Agbalumo, Fredoka, Manrope } from "next/font/google";
 import { DeferredVercel } from "@/components/DeferredVercel";
 import { PageGuard } from "@/components/PageGuard";
 import { TrackingHead } from "@/components/TrackingHead";
+import { getOffer } from "@/lib/offers";
 import "./globals.css";
 import "./page.css";
 
@@ -47,13 +49,29 @@ export const metadata: Metadata = {
   },
 };
 
+/** Rotas em português de Portugal fora do registo de ofertas (páginas legais). */
+const PT_PATHS = new Set([
+  "politica-de-privacidade",
+  "politica-de-cookies",
+  "termos-e-condicoes",
+]);
+
+/** Resolve o `lang` do <html> a partir do pathname (locale da oferta ou pt-PT). */
+async function resolveLang(): Promise<string> {
+  const pathname = (await headers()).get("x-pathname") ?? "";
+  const slug = pathname.replace(/^\/+/, "").split("/")[0];
+  return getOffer(slug)?.locale ?? (PT_PATHS.has(slug) ? "pt-PT" : "pt-BR");
+}
+
 export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const lang = await resolveLang();
+
   return (
-    <html lang="pt-BR" className={`${fredoka.variable} ${agbalumo.variable} ${manrope.variable} antialiased`}>
+    <html lang={lang} className={`${fredoka.variable} ${agbalumo.variable} ${manrope.variable} antialiased`}>
       <head>
         <TrackingHead />
       </head>

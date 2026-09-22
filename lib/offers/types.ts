@@ -168,7 +168,8 @@ export interface PlansSection {
 }
 
 export interface Guarantee {
-  seal: { alt: string; width: number; height: number };
+  /** Imagem do selo. `src` opcional — sem ele, usa `/guarantee-seal.webp`. */
+  seal: { src?: string; alt: string; width: number; height: number };
   title: string;
   intro: string;
   lead: string;
@@ -200,8 +201,25 @@ export interface Authority {
   paragraphs: string[];
 }
 
+/**
+ * Banner de consentimento (RGPD). Opcional: só as ofertas que definem este
+ * campo renderizam o banner. Usado na landing de Portugal (`/scrapbook-pt`).
+ */
+export interface Consent {
+  text: string;
+  acceptLabel: string;
+  declineLabel?: string;
+  policyHref: string;
+  policyLabel: string;
+}
+
 export interface OfferContent {
   meta: OfferMeta;
+  /**
+   * Locale BCP47 da página (ex.: "pt-PT"). Alimenta o `<html lang>` e o
+   * `og:locale`. Sem o campo, assume "pt-BR" (comportamento das ofertas antigas).
+   */
+  locale?: string;
   /**
    * Offer ID do pixel Cashflow desta página (o parâmetro `o=` da tag, que é
    * individual por oferta). O workspace (`w=`) é constante e vive em
@@ -266,6 +284,13 @@ export interface OfferContent {
   };
   faqTitle: string;
   faq: readonly (readonly [string, string])[];
-  footer: { copyright: string; legal: string };
+  footer: {
+    copyright: string;
+    legal: string;
+    /** Links legais opcionais (privacidade, cookies, termos). */
+    links?: { label: string; href: string }[];
+  };
+  /** Banner de consentimento RGPD. Sem o campo, nada é renderizado. */
+  consent?: Consent;
   checkout: { hero: string; basic: string; complete: string };
 }

@@ -15,6 +15,9 @@ const TestimonialCarousel = dynamic(() =>
 const PartsTimeline = dynamic(() =>
   import("@/components/PartsTimeline").then((m) => m.PartsTimeline),
 );
+const ConsentBanner = dynamic(() =>
+  import("@/components/ConsentBanner").then((m) => m.ConsentBanner),
+);
 const BELOW = "cv-auto contain-paint";
 const SUB = "text-[18px] font-medium";
 
@@ -223,6 +226,7 @@ export function OfferPage({ content }: { content: OfferContent }) {
     faq,
     faqTitle,
     footer,
+    consent,
     checkout,
   } = content;
 
@@ -643,9 +647,11 @@ export function OfferPage({ content }: { content: OfferContent }) {
               <p className="offer-plan__price font-display text-[60px] font-semibold leading-none text-ink">
                 {plansSection.basic.price}
               </p>
-              <p className={`offer-plan__inst font-display ${SUB} text-ink`}>
-                {plansSection.basic.installments}
-              </p>
+              {plansSection.basic.installments ? (
+                <p className={`offer-plan__inst font-display ${SUB} text-ink`}>
+                  {plansSection.basic.installments}
+                </p>
+              ) : null}
               <p className={`offer-plan__save font-display ${SUB} text-ink`}>
                 {plansSection.basic.savings}
               </p>
@@ -707,9 +713,11 @@ export function OfferPage({ content }: { content: OfferContent }) {
                 <p className="offer-plan__price font-display text-[60px] font-semibold leading-none text-white">
                   {plansSection.complete.price}
                 </p>
-                <p className={`offer-plan__inst font-display ${SUB} text-white`}>
-                  {plansSection.complete.installments}
-                </p>
+                {plansSection.complete.installments ? (
+                  <p className={`offer-plan__inst font-display ${SUB} text-white`}>
+                    {plansSection.complete.installments}
+                  </p>
+                ) : null}
                 <p className={`offer-plan__save font-display ${SUB} text-white`}>
                   {plansSection.complete.savings}
                 </p>
@@ -739,7 +747,7 @@ export function OfferPage({ content }: { content: OfferContent }) {
       >
         <div className="mx-auto flex max-w-[400px] flex-col items-center gap-5">
           <LazyImg
-            src="/guarantee-seal.webp"
+            src={guarantee.seal.src ?? "/guarantee-seal.webp"}
             alt={guarantee.seal.alt}
             width={guarantee.seal.width}
             height={guarantee.seal.height}
@@ -948,8 +956,22 @@ export function OfferPage({ content }: { content: OfferContent }) {
           </p>
         ) : null}
         <p className={`offer-footer__legal mt-6 ${SUB} text-muted`}>{footer.legal}</p>
+        {footer.links && footer.links.length > 0 ? (
+          <nav className="offer-footer__links mt-5 flex flex-wrap items-center justify-center gap-x-5 gap-y-2">
+            {footer.links.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                className="text-[14px] font-semibold text-brand hover:underline"
+              >
+                {link.label}
+              </a>
+            ))}
+          </nav>
+        ) : null}
       </footer>
     </main>
+    {consent ? <ConsentBanner {...consent} /> : null}
     </>
   );
 }

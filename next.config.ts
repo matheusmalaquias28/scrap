@@ -50,7 +50,7 @@ const nextConfig: NextConfig = {
         ],
       },
       {
-        source: "/:file(avatar-*.webp|guarantee-seal.webp|favicon.svg|hero.webp|kit-diario.webp|plano-basico.webp|plano-completo.webp)",
+        source: "/:file(avatar-*.webp|guarantee-seal.webp|selo-14-dias.png|favicon.svg|hero.webp|kit-diario.webp|plano-basico.webp|plano-completo.webp)",
         headers: [
           { key: "Cache-Control", value: "public, max-age=31536000, immutable" },
         ],

@@ -5,6 +5,7 @@ import { quilling } from "./quilling";
 import { terrario } from "./terrario";
 import { cubaResina } from "./cuba-resina";
 import { concretoDecorativo } from "./concreto-decorativo";
+import { scrapbookPt } from "./scrapbook-pt";
 
 export type { OfferContent } from "./types";
 
@@ -23,6 +24,7 @@ export const offers = {
   terrario,
   "cuba-resina": cubaResina,
   "concreto-decorativo": concretoDecorativo,
+  "scrapbook-pt": scrapbookPt,
 } satisfies Record<string, OfferContent>;
 
 export type OfferSlug = keyof typeof offers;
@@ -51,7 +53,7 @@ export function offerMetadata(offer: OfferContent): Metadata {
     openGraph: {
       title: offer.meta.ogTitle,
       description: offer.meta.ogDescription,
-      locale: "pt_BR",
+      locale: (offer.locale ?? "pt-BR").replace("-", "_"),
       type: "website",
     },
   };
