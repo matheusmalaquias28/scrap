@@ -43,7 +43,13 @@ function CashflowPixel({ offerId }: { offerId?: string }) {
 export async function TrackingHead() {
   const pathname = (await headers()).get("x-pathname") ?? "";
   const isQuilling = pathname === "/quilling";
+  const isScrapbookPt = pathname === "/scrapbook-pt";
   const cashflowOfferId = offerForPath(pathname)?.cashflowOfferId;
+
+  // Na `/scrapbook-pt` só o pixel Cashflow é emitido — sem o bloco UTMify padrão.
+  if (isScrapbookPt) {
+    return <CashflowPixel offerId={cashflowOfferId} />;
+  }
 
   if (isQuilling) {
     return (

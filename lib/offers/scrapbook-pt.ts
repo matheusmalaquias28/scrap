@@ -9,9 +9,10 @@ import type { OfferContent } from "./types";
  * Multibanco, cartão), rodapé/consentimento RGPD e links legais próprios.
  */
 export const scrapbookPt: OfferContent = {
-  // Sem `cashflowOfferId` próprio de PT — a atribuição do Cashflow é por oferta.
-  // Defina um ID exclusivo de Portugal aqui quando existir, para não misturar
-  // com a oferta BR. O pixel da Meta (via UTMify) é comum a todas as páginas.
+  // Offer ID exclusivo de Portugal no Cashflow. Na `/scrapbook-pt` este é o
+  // ÚNICO pixel emitido (ver `TrackingHead`): o bloco UTMify padrão não é
+  // carregado nesta rota.
+  cashflowOfferId: "ba69f5a4-5ef4-4252-8663-6bdc8fa7fd69",
   locale: "pt-PT",
   meta: {
     title:
