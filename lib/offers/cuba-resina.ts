@@ -290,10 +290,10 @@ export const cubaResina: OfferContent = {
         "🎁 BÔNUS 4 - Cuba com Efeito Perolado",
         "🎁 BÔNUS 5 - Cuba com Borda Metalizada",
       ],
-      oldPrice: "R$47,90",
-      price: "R$ 17,90",
-      installments: "ou 4x de R$4,48 no cartão",
-      // 47,90 − 17,90
+      oldPrice: "R$57,90",
+      price: "R$ 27,90",
+      installments: "ou 4x de R$7,47 no cartão",
+      // 57,90 − 27,90
       savings: "Você economiza R$30,00",
       ctaLabel: "QUERO O PLANO BÁSICO",
     },
@@ -324,10 +324,10 @@ export const cubaResina: OfferContent = {
         "🎁 BÔNUS 4 - Cuba com Efeito Perolado",
         "🎁 BÔNUS 5 - Cuba com Borda Metalizada",
       ],
-      oldPrice: "R$67,90",
-      price: "R$ 27,90",
-      installments: "ou 6x de R$4,65 no cartão",
-      // 67,90 − 27,90
+      oldPrice: "R$77,90",
+      price: "R$ 37,90",
+      installments: "ou 6x de R$6,49 no cartão",
+      // 77,90 − 37,90
       savings: "Você economiza R$40,00",
       ctaLabel: "QUERO O PLANO COMPLETO",
     },
@@ -440,9 +440,9 @@ export const cubaResina: OfferContent = {
 
   checkout: {
     hero: "#planos",
-    // Plano Básico — R$ 17,90
+    // Plano Básico — R$ 27,90
     basic: "https://pay.hotmart.com/X107628756E?off=trh17d2v&checkoutMode=10",
-    // Plano Completo — R$ 27,90
+    // Plano Completo — R$ 37,90
     complete: "https://pay.hotmart.com/K107628648X?off=ecjugstd&checkoutMode=10",
   },
 };
