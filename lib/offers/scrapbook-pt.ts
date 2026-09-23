@@ -49,10 +49,6 @@ export const scrapbookPt: OfferContent = {
     },
   },
 
-  offerBar: {
-    text: "⚡ OFERTA ESPECIAL DISPONÍVEL APENAS HOJE",
-  },
-
   hero: {
     logo: { src: "", alt: "Diário de Memórias", width: 200, height: 60 },
     secureSeal: "",

@@ -57,7 +57,7 @@ export const diarioMemorias: OfferContent = {
     },
     poster: { src: "/hero.webp" },
     subtitle:
-      "Use nosso guial visual para posicionar fotos, papéis, frases e elementos decorativos sem precisar inventar tudo do zero.",
+      "Use nosso guia visual para posicionar fotos, papéis, frases e elementos decorativos sem precisar inventar tudo do zero.",
     ctaLabel: "QUERO CRIAR MEU DIÁRIO DE MEMÓRIAS",
     deliveryNote: "📲 Você recebe tudo na hora, direto no seu e-mail",
     socialProofLabel: "",
