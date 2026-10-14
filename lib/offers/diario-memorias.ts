@@ -36,9 +36,16 @@ export const diarioMemorias: OfferContent = {
       alert: "#c22745",
     },
     heroHeading: {
-      highlight: { color: "#FB8804", bg: "#ffffff" },
-      title: { color: "#ffffff", bg: "#3E4B1C" },
+      highlight: {
+        color: "#141414",
+        bg: "transparent",
+        font: "var(--font-gsflex), var(--font-manrope), sans-serif",
+        weight: 400,
+      },
+      title: { color: "#141414", bg: "transparent" },
     },
+    // Hero no estilo "caderno quadriculado amarelo" — ver `.theme-diario` em app/page.css.
+    className: "theme-diario",
   },
 
   offerBar: {
@@ -48,19 +55,19 @@ export const diarioMemorias: OfferContent = {
   hero: {
     logo: { src: "", alt: "Diário de Memórias", width: 200, height: 60 },
     secureSeal: "",
-    titleHighlight: "Crie seu Diário\nde Memórias Personalizado",
-    title: "com modelos prontos que mostram exatamente como montar cada página.",
+    titleHighlight: "Crie seu **Scrapbook**\n**Personalizado**",
+    title: "",
     image: {
       alt: "Diário de memórias aberto com páginas de viagem, títulos, molduras e elementos prontos para imprimir",
-      width: 1024,
-      height: 1024,
+      width: 593,
+      height: 593,
     },
-    poster: { src: "/hero.webp" },
+    poster: { src: "/offers/diario-memorias/hero.webp" },
     subtitle:
-      "Use nosso guia visual para posicionar fotos, papéis, frases e elementos decorativos sem precisar inventar tudo do zero.",
-    ctaLabel: "QUERO CRIAR MEU DIÁRIO DE MEMÓRIAS",
-    deliveryNote: "📲 Você recebe tudo na hora, direto no seu e-mail",
-    socialProofLabel: "",
+      "Use nosso guia visual para posicionar fotos, papéis, frases e elementos decorativos sem ter que inventar tudo do zero.",
+    ctaLabel: "QUERO CRIAR MEU SCRAPBOOK",
+    deliveryNote: "Você recebe o acesso na hora, no seu Whatsapp e Email",
+    socialProofLabel: "+480 alunas",
   },
 
   materials: {

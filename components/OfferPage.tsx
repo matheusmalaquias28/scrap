@@ -52,14 +52,25 @@ function paletteVars(p: Palette): React.CSSProperties {
   } as React.CSSProperties;
 }
 
-/** Renderiza uma string com "\n" como múltiplas linhas (com <br/>). */
+/**
+ * Renderiza uma string com "\n" como múltiplas linhas (com <br/>).
+ * Trechos entre `**` saem em negrito (ex.: "Crie seu **Scrapbook**").
+ */
 function Multiline({ text }: { text: string }) {
   return (
     <>
       {text.split("\n").map((line, i) => (
         <span key={line}>
           {i > 0 ? <br /> : null}
-          {line}
+          {line.split(/\*\*(.+?)\*\*/).map((part, j) =>
+            j % 2 === 1 ? (
+              <strong key={j} style={{ fontWeight: 800 }}>
+                {part}
+              </strong>
+            ) : (
+              part
+            ),
+          )}
         </span>
       ))}
     </>
@@ -308,7 +319,7 @@ export function OfferPage({ content }: { content: OfferContent }) {
             ) : null}
           </div>
 
-          <div className="relative mt-2 w-full max-w-[383px]">
+          <div className="offer-hero__media relative mt-2 w-full max-w-[383px]">
             <LazyImg
               src={hero.poster.src}
               alt={hero.image.alt}
@@ -347,6 +358,19 @@ export function OfferPage({ content }: { content: OfferContent }) {
             <p className={`offer-hero__note text-center ${SUB} leading-snug text-muted`}>
               {hero.deliveryNote}
             </p>
+          ) : null}
+          {hero.socialProofLabel ? (
+            <div className="offer-hero__proof flex items-center justify-center gap-3">
+              <div className="flex -space-x-3" aria-hidden>
+                {["/avatar-2.webp", "/avatar-4.webp", "/avatar-5.webp"].map((src) => (
+                  <span key={src} className="offer-hero__avatar">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src={src} alt="" width={44} height={44} loading="lazy" decoding="async" />
+                  </span>
+                ))}
+              </div>
+              <span className={`${SUB} text-ink`}>{hero.socialProofLabel}</span>
+            </div>
           ) : null}
         </div>
       </section>
