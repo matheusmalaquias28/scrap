@@ -54,7 +54,8 @@ function paletteVars(p: Palette): React.CSSProperties {
 
 /**
  * Renderiza uma string com "\n" como múltiplas linhas (com <br/>).
- * Trechos entre `**` saem em negrito (ex.: "Crie seu **Scrapbook**").
+ * Marcações inline: `**negrito**`, `*itálico*`, `__sublinhado__` e
+ * `==marca-texto==` (ex.: "Crie seu **Scrapbook**").
  */
 function Multiline({ text }: { text: string }) {
   return (
@@ -62,15 +63,20 @@ function Multiline({ text }: { text: string }) {
       {text.split("\n").map((line, i) => (
         <span key={line}>
           {i > 0 ? <br /> : null}
-          {line.split(/\*\*(.+?)\*\*/).map((part, j) =>
-            j % 2 === 1 ? (
-              <strong key={j} style={{ fontWeight: 800 }}>
-                {part}
-              </strong>
-            ) : (
-              part
-            ),
-          )}
+          {line.split(/(\*\*.+?\*\*|__.+?__|==.+?==|\*[^*]+?\*)/).map((part, j) => {
+            const wrapped = (mark: string) =>
+              part.length > mark.length * 2 && part.startsWith(mark) && part.endsWith(mark);
+            if (wrapped("**"))
+              return (
+                <strong key={j} style={{ fontWeight: 800 }}>
+                  {part.slice(2, -2)}
+                </strong>
+              );
+            if (wrapped("__")) return <u key={j}>{part.slice(2, -2)}</u>;
+            if (wrapped("==")) return <mark key={j}>{part.slice(2, -2)}</mark>;
+            if (wrapped("*")) return <em key={j}>{part.slice(1, -1)}</em>;
+            return part;
+          })}
         </span>
       ))}
     </>
@@ -382,7 +388,7 @@ export function OfferPage({ content }: { content: OfferContent }) {
       <section style={{ backgroundColor: P.mint }} className={`offer-sec offer-materials ${BELOW} pb-14 pt-4 text-center`}>
         <div className="mx-auto max-w-[640px] px-5">
           <h2 className="mb-7 font-display text-[36px] font-semibold leading-[0.9] text-ink">
-            {materials.title}
+            <Multiline text={materials.title} />
           </h2>
         </div>
         <Marquee
@@ -402,7 +408,7 @@ export function OfferPage({ content }: { content: OfferContent }) {
             className={`offer-sec offer-why ${BELOW} px-6 pb-16 pt-12 text-center`}
           >
             <h2 className="offer-h2 mb-9 font-display text-[36px] font-semibold leading-[0.9] text-white">
-              {whySection.title}
+              <Multiline text={whySection.title} />
             </h2>
             <div className="offer-why__grid mx-auto grid w-full max-w-[900px] gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {whySection.cards.map((c) => (
@@ -440,7 +446,7 @@ export function OfferPage({ content }: { content: OfferContent }) {
       >
         <div className="mx-auto max-w-[960px]">
           <h2 className="offer-h2 mb-9 font-display text-[36px] font-semibold leading-[0.9] text-ink">
-            {idealSection.title}
+            <Multiline text={idealSection.title} />
           </h2>
           <div className="offer-ideal__grid grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {idealSection.items.map((item, i) => (
@@ -480,24 +486,26 @@ export function OfferPage({ content }: { content: OfferContent }) {
         <div className="mx-auto flex w-full max-w-[480px] flex-col items-center gap-5">
           <Badge>{offerSection.pill}</Badge>
           <h2 className="offer-h2 font-display text-[36px] font-semibold leading-[0.9] text-white">
-            {offerSection.title}
+            <Multiline text={offerSection.title} />
           </h2>
           {offerSection.cardTitle ? (
             <p className={`offer-main__kicker font-display ${SUB} text-white/60`}>
-              {offerSection.cardTitle}
+              <Multiline text={offerSection.cardTitle} />
             </p>
           ) : null}
           {offerSection.lead ? (
             <p className={`offer-main__lead ${SUB} text-white/70`}>{offerSection.lead}</p>
           ) : null}
 
-          <LazyImg
-            src={offerSection.image.src}
-            alt={offerSection.image.alt}
-            width={offerSection.image.width}
-            height={offerSection.image.height}
-            className="w-full rounded-[12px]"
-          />
+          <div className="offer-main__media relative w-full">
+            <LazyImg
+              src={offerSection.image.src}
+              alt={offerSection.image.alt}
+              width={offerSection.image.width}
+              height={offerSection.image.height}
+              className="w-full rounded-[12px]"
+            />
+          </div>
 
           {offerSection.howItWorksTitle ? (
             <p className="offer-main__list-title w-full max-w-[400px] text-left font-display text-[22px] font-semibold text-white">
@@ -525,7 +533,7 @@ export function OfferPage({ content }: { content: OfferContent }) {
             {bonusSection.titleLines.map((line, i) => (
               <span key={line}>
                 {i > 0 ? <br /> : null}
-                {line}
+                <Multiline text={line} />
               </span>
             ))}
           </h2>
@@ -588,7 +596,7 @@ export function OfferPage({ content }: { content: OfferContent }) {
       >
         <div className="mx-auto flex w-full max-w-[553px] flex-col items-center gap-7 lg:max-w-[960px]">
           <h2 className="offer-h2 max-w-[480px] font-display text-[32px] font-semibold leading-[0.95] text-ink">
-            {testimonials.title}
+            <Multiline text={testimonials.title} />
           </h2>
           {testimonials.subtitle ? (
             <p className={`offer-testimonials__sub -mt-4 max-w-[480px] ${SUB} leading-relaxed text-muted`}>
@@ -632,9 +640,11 @@ export function OfferPage({ content }: { content: OfferContent }) {
         className="offer-sec offer-plans px-5 pb-16 pt-12 text-center"
       >
         <div className="mx-auto max-w-[1040px]">
-          <Badge className="whitespace-nowrap px-3 py-1.5 text-[10px]">{plansSection.pill}</Badge>
+          {plansSection.pill ? (
+            <Badge className="whitespace-nowrap px-3 py-1.5 text-[10px]">{plansSection.pill}</Badge>
+          ) : null}
           <h2 className="offer-h2 my-7 font-display text-[38px] font-semibold leading-[0.9] text-ink">
-            {plansSection.title}
+            <Multiline text={plansSection.title} />
           </h2>
 
           <div className="flex w-full flex-col items-center gap-10 lg:grid lg:grid-cols-2 lg:items-start lg:gap-6">
@@ -701,12 +711,14 @@ export function OfferPage({ content }: { content: OfferContent }) {
                 className="offer-plan offer-plan--complete flex w-full flex-col items-center gap-4 rounded-2xl px-6 pb-10 pt-6"
                 style={{ backgroundColor: P.plum }}
               >
-                <span
-                  className="offer-plan__urgency mt-3 inline-block whitespace-nowrap rounded-full px-3 py-1.5 font-display text-[10px] font-bold text-white"
-                  style={{ backgroundColor: P.raspberry }}
-                >
-                  {plansSection.complete.badge}
-                </span>
+                {plansSection.complete.badge ? (
+                  <span
+                    className="offer-plan__urgency mt-3 inline-block whitespace-nowrap rounded-full px-3 py-1.5 font-display text-[10px] font-bold text-white"
+                    style={{ backgroundColor: P.raspberry }}
+                  >
+                    {plansSection.complete.badge}
+                  </span>
+                ) : null}
                 <p
                   className="offer-plan__name offer-plan__name--pill rounded-full px-6 py-2 font-display text-[22px] font-semibold text-white sm:text-[24px]"
                   style={{ backgroundColor: P.peacock }}
@@ -777,7 +789,7 @@ export function OfferPage({ content }: { content: OfferContent }) {
             height={guarantee.seal.height}
           />
           <h2 className="offer-h2 font-display text-[32px] font-semibold leading-snug text-white">
-            {guarantee.title}
+            <Multiline text={guarantee.title} />
           </h2>
           <div className={`offer-guarantee__body text-left ${SUB} leading-relaxed`} style={{ color: "rgba(255,255,255,0.82)" }}>
             {guarantee.lead ? <p className="mt-4">{guarantee.lead}</p> : null}
@@ -863,7 +875,7 @@ export function OfferPage({ content }: { content: OfferContent }) {
             className={`offer-sec offer-steps ${BELOW} px-6 pb-16 pt-12 text-center`}
           >
             <h2 className="offer-h2 font-display text-[36px] font-semibold leading-[0.9] text-white">
-              {stepsSection.title}
+              <Multiline text={stepsSection.title} />
             </h2>
             {stepsSection.subtitle ? (
               <p className={`mt-2 font-display ${SUB} text-white/65`}>
@@ -929,7 +941,7 @@ export function OfferPage({ content }: { content: OfferContent }) {
       >
         <div className="mx-auto max-w-[640px]">
           <h2 className="offer-h2 mb-8 text-center font-display text-[36px] font-semibold leading-[0.9] text-ink">
-            {faqTitle}
+            <Multiline text={faqTitle} />
           </h2>
           <div className="flex flex-col gap-2">
             {faq.map(([q, a], i) => (

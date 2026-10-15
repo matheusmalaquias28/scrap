@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Google_Sans_Flex } from "next/font/google";
+import { Google_Sans_Flex, Instrument_Serif } from "next/font/google";
 import { HeroPreload } from "@/components/HeroPreload";
 import { OfferPage } from "@/components/OfferPage";
 import { homeOffer, offerMetadata } from "@/lib/offers";
@@ -21,11 +21,22 @@ const googleSansFlex = Google_Sans_Flex({
   adjustFontFallback: true,
 });
 
+/** Itálico serifado dos destaques (`*texto*`) nos títulos da home. */
+const instrumentSerif = Instrument_Serif({
+  variable: "--font-iserif",
+  subsets: ["latin", "latin-ext"],
+  weight: "400",
+  style: "italic",
+  display: "swap",
+  preload: false,
+  adjustFontFallback: true,
+});
+
 export default function Home() {
   return (
     <>
       <HeroPreload src={homeOffer.hero.poster.src} />
-      <div className={googleSansFlex.variable} style={{ display: "contents" }}>
+      <div className={`${googleSansFlex.variable} ${instrumentSerif.variable}`} style={{ display: "contents" }}>
         <OfferPage content={homeOffer} />
       </div>
     </>

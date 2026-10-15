@@ -1,34 +1,28 @@
-# Copy da página principal — Diário de Memórias (Scrapbook)
+# Copy da página principal — Scrapbook (Scrapbook)
 
 > Rota: `/` (URL principal / home) · Fonte: `lib/offers/diario-memorias.ts`
-> Oferta: **Diário de Memórias — Crie Seu Scrapbooking de Forma Simples e Prática**
+> Oferta: **Scrapbook — Crie Seu Scrapbooking de Forma Simples e Prática**
 
 ---
 
 ## Meta (SEO / Open Graph)
 
-- **Title:** Diário de Memórias — Crie Seu Scrapbooking de Forma Simples e Prática
+- **Title:** Scrapbook — Crie Seu Scrapbooking de Forma Simples e Prática
 - **Description:** Use referências visuais para posicionar fotos, papéis, frases e elementos decorativos sem precisar inventar tudo do zero.
-- **OG Title:** Diário de Memórias — Crie Seu Scrapbooking de Forma Simples e Prática
-- **OG Description:** Crie seu Diário de Memórias com modelos prontos que mostram exatamente como montar cada página.
-
----
-
-## Barra de oferta (offerBar)
-
-- **Texto:** ⚡ OFERTA ESPECIAL DISPONÍVEL APENAS HOJE
+- **OG Title:** Scrapbook — Crie Seu Scrapbooking de Forma Simples e Prática
+- **OG Description:** Crie seu Scrapbook com modelos prontos que mostram exatamente como montar cada página.
 
 ---
 
 ## Seção: Hero
 
-- **Logo (alt):** Diário de Memórias
-- **Título (destaque):** Crie seu Diário de Memórias Personalizado
-- **Título:** com modelos prontos que mostram exatamente como montar cada página.
-- **Subtítulo:** Use nosso guial visual para posicionar fotos, papéis, frases e elementos decorativos sem precisar inventar tudo do zero.
-- **CTA:** QUERO CRIAR MEU DIÁRIO DE MEMÓRIAS
-- **Nota de entrega:** 📲 Você recebe tudo na hora, direto no seu e-mail
-- **Imagem (alt):** Diário de memórias aberto com páginas de viagem, títulos, molduras e elementos prontos para imprimir
+- **Logo (alt):** Scrapbook
+- **Título (destaque):** Crie seu **Scrapbook Personalizado**
+- **Subtítulo:** Use nosso guia visual para posicionar fotos, papéis, frases e elementos decorativos sem ter que inventar tudo do zero.
+- **CTA:** QUERO CRIAR MEU SCRAPBOOK
+- **Nota de entrega:** Você recebe o acesso na hora, no seu Whatsapp e Email
+- **Prova social:** +480 alunas
+- **Imagem (alt):** Scrapbook aberto com páginas de viagem, títulos, molduras e elementos prontos para imprimir
 
 ---
 
@@ -38,11 +32,11 @@
 
 Legendas (alt) das imagens no carrossel:
 
-1. Diário de memórias com páginas de viagem a Nova York
-2. Diário de memórias com fotos de aniversário e amigas
-3. Diário de memórias estilo vintage com recortes e frases
-4. Diário de memórias de viagem à ilha com anotações à mão
-5. Diário de memórias de viagem a Narbonne, na França
+1. Scrapbook com páginas de viagem a Nova York
+2. Scrapbook com fotos de aniversário e amigas
+3. Scrapbook estilo vintage com recortes e frases
+4. Scrapbook de viagem à ilha com anotações à mão
+5. Scrapbook de viagem a Narbonne, na França
 
 ---
 
@@ -54,7 +48,7 @@ Legendas (alt) das imagens no carrossel:
 
 ## Seção: Ideal para você (idealSection)
 
-**Título:** ESTE DIÁRIO É IDEAL PARA VOCÊ QUE DESEJA
+**Título:** ESTE SCRAPBOOK É IDEAL PARA VOCÊ QUE DESEJA
 
 1. Tirar suas fotos da galeria e transformar em lembranças de verdade
 2. Criar scrapbook sem precisar inventar tudo do zero
@@ -67,18 +61,18 @@ Legendas (alt) das imagens no carrossel:
 
 ## Seção: A oferta (offerSection)
 
-- **Título:** Tudo o que você vai receber no Diário de Memórias
+- **Título:** Tudo o que você vai receber no Scrapbook
 - **Pill:** ⚡ACESSO IMEDIATO
 - **Título do card:** TUDO FOI ORGANIZADO PARA SER SIMPLES E FÁCIL DE APLICAR.
 - **Lead:** Você escolhe o modelo e já pode começar na mesma hora.
-- **Imagem (alt):** Kit do Diário de Memórias: diário aberto com páginas de viagem, títulos, molduras, frases e elementos prontos para imprimir
+- **Imagem (alt):** Kit do Scrapbook: scrapbook aberto com páginas de viagem, títulos, molduras, frases e elementos prontos para imprimir
 
 **Como funciona:**
 
 | # | Título | Descrição |
 |---|--------|-----------|
 | 1 | PARTE 1 — Organize sua montagem | Escolha quais fotos, papéis, recortes, elementos e materiais separar antes de começar. |
-| 2 | PARTE 2 — Monte seu Diário de Memórias | Entenda a estrutura do diário e visualize como o projeto completo será montado. |
+| 2 | PARTE 2 — Monte seu Scrapbook | Entenda a estrutura do scrapbook e visualize como o projeto completo será montado. |
 | 3 | PARTE 3 — Modelos Prontos de Montagem para você seguir | Siga modelos visuais de capa, abertura e páginas internas para posicionar suas fotos, papéis, frases e elementos com mais facilidade. |
 | — | Em cada modelo você verá: | Quantidade e tamanho das fotos, posição dos elementos, espaços para títulos e memórias e uma ordem simples de montagem. |
 
@@ -133,11 +127,11 @@ Legendas (alt) das imagens no carrossel:
 - **Parcelas:** ou 4x de R$7,48 no cartão.
 - **Economia:** Você economiza R$10,00
 - **CTA:** QUERO O PLANO BÁSICO
-- **Imagem (alt):** Diário de Memórias aberto com páginas de viagem, fotos, tesoura e washi tape
+- **Imagem (alt):** Scrapbook aberto com páginas de viagem, fotos, tesoura e washi tape
 
 **Itens incluídos:**
 - Guia de organização da montagem
-- Estrutura completa do diário
+- Estrutura completa do scrapbook
 - Modelos prontos de capa e páginas
 - Guias visuais de montagem
 - Acesso imediato ao material
@@ -153,11 +147,11 @@ Legendas (alt) das imagens no carrossel:
 - **Parcelas:** ou 6x de R$6,48 no cartão.
 - **Economia:** Você economiza R$30,00
 - **CTA:** QUERO O PLANO COMPLETO
-- **Imagem (alt):** Kit do Plano Completo: diário aberto com títulos, molduras, ilustrações e elementos prontos para imprimir
+- **Imagem (alt):** Kit do Plano Completo: scrapbook aberto com títulos, molduras, ilustrações e elementos prontos para imprimir
 
 **Itens incluídos:**
 - Guia de organização da montagem
-- Estrutura completa do diário
+- Estrutura completa do scrapbook
 - Modelos prontos de capa e páginas
 - Guias visuais de montagem
 - 🎁BÔNUS 1 - 24 Elementos Prontos para Imprimir e Recortar
@@ -196,16 +190,16 @@ Legendas (alt) das imagens no carrossel:
 
 ## Seção: Depoimentos (testimonials)
 
-**Título:** VEJA OS DIÁRIOS DE ALGUMAS ALUNAS
+**Título:** VEJA OS SCRAPBOOKS DE ALGUMAS ALUNAS
 
 Legendas (alt) das imagens de alunas:
 
-1. Diário de memórias de aluna com páginas de viagem a Tbilisi
-2. Diário de memórias de aluna com vision board de junho
-3. Diário de memórias de aluna com viagem de amigas no Havaí
-4. Diário de memórias de aluna com páginas de verão no lago
-5. Diário de memórias de aluna com fotos de casal no Havaí
-6. Diário de memórias de aluna com recapitulativo de 2024
+1. Scrapbook de aluna com páginas de viagem a Tbilisi
+2. Scrapbook de aluna com vision board de junho
+3. Scrapbook de aluna com viagem de amigas no Havaí
+4. Scrapbook de aluna com páginas de verão no lago
+5. Scrapbook de aluna com fotos de casal no Havaí
+6. Scrapbook de aluna com recapitulativo de 2024
 
 ---
 
@@ -213,14 +207,14 @@ Legendas (alt) das imagens de alunas:
 
 **Título:** PERGUNTAS FREQUENTES
 
-1. **O que é o Diário de Memórias?**
-   O Diário de Memórias é um material digital prático com modelos prontos e guias visuais para ajudar você a montar um scrapbook de forma mais simples, organizada e sem precisar criar tudo do zero.
-2. **O Diário de Memórias é um curso?**
+1. **O que é o Scrapbook?**
+   O Scrapbook é um material digital prático com modelos prontos e guias visuais para ajudar você a montar um scrapbook de forma mais simples, organizada e sem precisar criar tudo do zero.
+2. **O Scrapbook é um curso?**
    Não. É um material digital prático com orientações, modelos prontos e referências visuais para você seguir durante a montagem.
 3. **O que eu recebo no Plano Básico?**
-   Você recebe o Diário de Memórias, com organização da montagem, estrutura do projeto e modelos visuais das páginas.
+   Você recebe o Scrapbook, com organização da montagem, estrutura do projeto e modelos visuais das páginas.
 4. **O que eu recebo no Plano Completo?**
-   Além do Diário de Memórias, você recebe os 4 bônus com elementos, frases, molduras e papéis de fundo prontos para imprimir.
+   Além do Scrapbook, você recebe os 4 bônus com elementos, frases, molduras e papéis de fundo prontos para imprimir.
 5. **Preciso comprar muitos materiais para começar?**
    Não necessariamente. O material ajuda você a aproveitar fotos, papéis, recortes e elementos que já possui, além dos arquivos imprimíveis disponíveis no Plano Completo.
 6. **Posso usar o material para registrar diferentes momentos?**
