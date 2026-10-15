@@ -1561,7 +1561,7 @@
 }
 
 /* ═══════════════════════════════════════════════════════════════════
-   THEME: DIÁRIO DE MEMÓRIAS (home `/`) — só o hero
+   THEME: SCRAPBOOK V2 (`/scrapbook-v2`, `.theme-diario`)
    Caderno quadriculado amarelo, imagem no topo, título preto grande,
    CTA largo e prova social com avatares.
    ═══════════════════════════════════════════════════════════════════ */
@@ -1674,7 +1674,7 @@
   letter-spacing: -0.015em;
 }
 
-/* ── Home: seção "o que você vai receber" (.offer-main) ────────────────
+/* ── v2: seção "o que você vai receber" (.offer-main) ────────────────
    Cartão branco sobre o quadriculado amarelo, título preto com destaque
    em negrito, imagem emoldurada e passos com barra roxa à esquerda. */
 
@@ -1834,7 +1834,7 @@
   color: #6f6f6f;
 }
 
-/* ── Home: títulos de seção ─────────────────────────────────────────────
+/* ── v2: títulos de seção ─────────────────────────────────────────────
    Base leve em Google Sans Flex + destaques escritos no conteúdo:
    **negrito** (800), *itálico* (Instrument Serif, cor de acento) e
    ==marca-texto==. Ver `Multiline` em components/OfferPage.tsx. */

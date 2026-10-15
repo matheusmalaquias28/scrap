@@ -8,13 +8,13 @@ export const diarioMemorias: OfferContent = {
   cashflowOfferId: "0c7a6f56-6bc5-4617-984d-9634a5a26c82",
   meta: {
     title:
-      "Scrapbook — Crie Seu Scrapbooking de Forma Simples e Prática",
+      "Diário de Memórias — Crie Seu Scrapbooking de Forma Simples e Prática",
     description:
       "Use referências visuais para posicionar fotos, papéis, frases e elementos decorativos sem precisar inventar tudo do zero.",
     ogTitle:
-      "Scrapbook — Crie Seu Scrapbooking de Forma Simples e Prática",
+      "Diário de Memórias — Crie Seu Scrapbooking de Forma Simples e Prática",
     ogDescription:
-      "Crie seu Scrapbook com modelos prontos que mostram exatamente como montar cada página.",
+      "Crie seu Diário de Memórias com modelos prontos que mostram exatamente como montar cada página.",
   },
 
   theme: {
@@ -36,59 +36,56 @@ export const diarioMemorias: OfferContent = {
       alert: "#c22745",
     },
     heroHeading: {
-      highlight: {
-        color: "#141414",
-        bg: "transparent",
-        font: "var(--font-gsflex), var(--font-manrope), sans-serif",
-        weight: 400,
-      },
-      title: { color: "#141414", bg: "transparent" },
+      highlight: { color: "#FB8804", bg: "#ffffff" },
+      title: { color: "#ffffff", bg: "#3E4B1C" },
     },
-    // Hero no estilo "caderno quadriculado amarelo" — ver `.theme-diario` em app/page.css.
-    className: "theme-diario",
+  },
+
+  offerBar: {
+    text: "⚡ OFERTA ESPECIAL DISPONÍVEL APENAS HOJE",
   },
 
   hero: {
-    logo: { src: "", alt: "Scrapbook", width: 200, height: 60 },
+    logo: { src: "", alt: "Diário de Memórias", width: 200, height: 60 },
     secureSeal: "",
-    titleHighlight: "Crie seu **Scrapbook**\n**Personalizado**",
-    title: "",
+    titleHighlight: "Crie seu Diário\nde Memórias Personalizado",
+    title: "com modelos prontos que mostram exatamente como montar cada página.",
     image: {
-      alt: "Scrapbook aberto com páginas de viagem, títulos, molduras e elementos prontos para imprimir",
-      width: 593,
-      height: 593,
+      alt: "Diário de memórias aberto com páginas de viagem, títulos, molduras e elementos prontos para imprimir",
+      width: 1024,
+      height: 1024,
     },
-    poster: { src: "/offers/diario-memorias/hero.webp" },
+    poster: { src: "/hero.webp" },
     subtitle:
-      "Use nosso guia visual para posicionar fotos, papéis, frases e elementos decorativos sem ter que inventar tudo do zero.",
-    ctaLabel: "QUERO CRIAR MEU SCRAPBOOK",
-    deliveryNote: "Você recebe o acesso na hora, no seu Whatsapp e Email",
-    socialProofLabel: "+480 alunas",
+      "Use nosso guia visual para posicionar fotos, papéis, frases e elementos decorativos sem precisar inventar tudo do zero.",
+    ctaLabel: "QUERO CRIAR MEU DIÁRIO DE MEMÓRIAS",
+    deliveryNote: "📲 Você recebe tudo na hora, direto no seu e-mail",
+    socialProofLabel: "",
   },
 
   materials: {
-    title: "Veja os **materiais** que\nvocê vai *receber*",
+    title: "VEJA OS MATERIAIS QUE VOCÊ VAI RECEBER JÁ",
     imageSize: { width: 720, height: 900 },
     items: [
       {
         src: "/diarios/diario-01-nova-york.webp",
-        alt: "Scrapbook com páginas de viagem a Nova York",
+        alt: "Diário de memórias com páginas de viagem a Nova York",
       },
       {
         src: "/diarios/diario-02-aniversario.webp",
-        alt: "Scrapbook com fotos de aniversário e amigas",
+        alt: "Diário de memórias com fotos de aniversário e amigas",
       },
       {
         src: "/diarios/diario-03-vintage.webp",
-        alt: "Scrapbook estilo vintage com recortes e frases",
+        alt: "Diário de memórias estilo vintage com recortes e frases",
       },
       {
         src: "/diarios/diario-04-ilha.webp",
-        alt: "Scrapbook de viagem à ilha com anotações à mão",
+        alt: "Diário de memórias de viagem à ilha com anotações à mão",
       },
       {
         src: "/diarios/diario-05-narbonne.webp",
-        alt: "Scrapbook de viagem a Narbonne, na França",
+        alt: "Diário de memórias de viagem a Narbonne, na França",
       },
     ],
   },
@@ -99,7 +96,7 @@ export const diarioMemorias: OfferContent = {
   },
 
   idealSection: {
-    title: "Este material é ==ideal==\npra você que *deseja:*",
+    title: "ESTE DIÁRIO É IDEAL PARA VOCÊ QUE DESEJA",
     items: [
       { title: "Tirar suas fotos da galeria e transformar em lembranças de verdade", desc: "" },
       { title: "Criar scrapbook sem precisar inventar tudo do zero", desc: "" },
@@ -111,35 +108,38 @@ export const diarioMemorias: OfferContent = {
   },
 
   offerSection: {
-    title: "Isso é tudo que você vai receber no **Scrapbook**",
-    pill: "ACESSO IMEDIATO",
-    cardTitle: "Tudo foi organizado para ser __simples e fácil de aplicar.__",
-    lead: "Você escolhe o modelo que gostou e já pode começar na mesma hora!",
+    title: "Tudo o que você vai receber no Diário de Memórias",
+    pill: "⚡ACESSO IMEDIATO",
+    cardTitle: "TUDO FOI ORGANIZADO PARA SER SIMPLES E FÁCIL DE APLICAR.",
+    lead: "Você escolhe o modelo e já pode começar na mesma hora.",
     image: {
       src: "/kit-diario.webp",
-      alt: "Kit do Scrapbook: scrapbook aberto com páginas de viagem, títulos, molduras, frases e elementos prontos para imprimir",
+      alt: "Kit do Diário de Memórias: diário aberto com páginas de viagem, títulos, molduras, frases e elementos prontos para imprimir",
       width: 1024,
       height: 1024,
     },
-    howItWorksNumbered: true,
     howItWorks: [
       {
-        title: "Organize sua montagem",
-        desc: "Escolha quais fotos, papéis, recortes, elementos e materiais e os separe antes de começar.",
+        title: "PARTE 1 — Organize sua montagem",
+        desc: "Escolha quais fotos, papéis, recortes, elementos e materiais separar antes de começar.",
       },
       {
-        title: "Monte seu Scrapbook!",
-        desc: "Entenda a estrutura do Scrapbook e visualize como o projeto completo será montado.",
+        title: "PARTE 2 — Monte seu Diário de Memórias",
+        desc: "Entenda a estrutura do diário e visualize como o projeto completo será montado.",
       },
       {
-        title: "Modelos prontos de montagem para você!",
-        desc: "Siga os modelos visuais de capa, abertura e páginas internas para posicionar suas fotos, papéis, frases e elementos com mais facilidade.",
+        title: "PARTE 3 — Modelos Prontos de Montagem para você seguir",
+        desc: "Siga modelos visuais de capa, abertura e páginas internas para posicionar suas fotos, papéis, frases e elementos com mais facilidade.",
+      },
+      {
+        title: "Em cada modelo você verá:",
+        desc: "Quantidade e tamanho das fotos, posição dos elementos, espaços para títulos e memórias e uma ordem simples de montagem.",
       },
     ],
   },
 
   bonusSection: {
-    titleLines: ["E não para por aí...", "**Tem mais!**", "*Você também vai receber…*"],
+    titleLines: ["E NÃO PARA POR AÍ...", "TEM MAIS!", "Você também vai receber…"],
     pill: "🎁 4 BÔNUS EXCLUSIVOS",
     exclusiveNote: "Bônus incluso somente no Plano Completo",
     items: [
@@ -194,20 +194,20 @@ export const diarioMemorias: OfferContent = {
   },
 
   plansSection: {
-    pill: "",
-    title: "Escolha a ==melhor opção==\n*para você*",
+    pill: "🔥 ÚLTIMA CHANCE — OFERTA TERMINA HOJE",
+    title: "ESCOLHA A MELHOR OPÇÃO PARA VOCÊ",
     basic: {
       name: "PLANO BÁSICO",
       image: {
         src: "/plano-basico.webp",
-        alt: "Scrapbook aberto com páginas de viagem, fotos, tesoura e washi tape",
+        alt: "Diário de Memórias aberto com páginas de viagem, fotos, tesoura e washi tape",
         width: 1024,
         height: 1024,
       },
       receiveLabel: "Você recebe:",
       features: [
         "Guia de organização da montagem",
-        "Estrutura completa do scrapbook",
+        "Estrutura completa do diário",
         "Modelos prontos de capa e páginas",
         "Guias visuais de montagem",
         "Acesso imediato ao material",
@@ -219,12 +219,12 @@ export const diarioMemorias: OfferContent = {
       ctaLabel: "QUERO O PLANO BÁSICO",
     },
     complete: {
-      badge: "",
+      badge: "🔥 ÚLTIMA CHANCE — OFERTA TERMINA HOJE",
       name: "PLANO COMPLETO",
       allBonusesLabel: "",
       image: {
         src: "/plano-completo.webp",
-        alt: "Kit do Plano Completo: scrapbook aberto com títulos, molduras, ilustrações e elementos prontos para imprimir",
+        alt: "Kit do Plano Completo: diário aberto com títulos, molduras, ilustrações e elementos prontos para imprimir",
         width: 1024,
         height: 1024,
       },
@@ -232,7 +232,7 @@ export const diarioMemorias: OfferContent = {
       soldLabel: "⚡MAIS VENDIDO",
       features: [
         "Guia de organização da montagem",
-        "Estrutura completa do scrapbook",
+        "Estrutura completa do diário",
         "Modelos prontos de capa e páginas",
         "Guias visuais de montagem",
         "🎁BÔNUS 1 - 24 Elementos Prontos para Imprimir e Recortar",
@@ -262,7 +262,7 @@ export const diarioMemorias: OfferContent = {
 
   guarantee: {
     seal: { alt: "Selo de garantia de 7 dias", width: 241, height: 242 },
-    title: "**Garantia** de *7 dias*",
+    title: "GARANTIA DE 7 DIAS",
     intro: "🔒 Compra 100% segura e garantida.",
     lead: "Isso significa que, se você achar que:",
     bullets: [
@@ -281,41 +281,41 @@ export const diarioMemorias: OfferContent = {
   },
 
   testimonials: {
-    title: "Veja os **scrapbooks**\nde *algumas alunas*",
+    title: "VEJA OS DIÁRIOS DE ALGUMAS ALUNAS",
     items: [
       {
         src: "/alunas/aluna-01-tbilisi.webp",
-        alt: "Scrapbook de aluna com páginas de viagem a Tbilisi",
+        alt: "Diário de memórias de aluna com páginas de viagem a Tbilisi",
         width: 720,
         height: 960,
       },
       {
         src: "/alunas/aluna-02-june.webp",
-        alt: "Scrapbook de aluna com vision board de junho",
+        alt: "Diário de memórias de aluna com vision board de junho",
         width: 720,
         height: 960,
       },
       {
         src: "/alunas/aluna-03-hawaii-trip.webp",
-        alt: "Scrapbook de aluna com viagem de amigas no Havaí",
+        alt: "Diário de memórias de aluna com viagem de amigas no Havaí",
         width: 720,
         height: 961,
       },
       {
         src: "/alunas/aluna-04-lago.webp",
-        alt: "Scrapbook de aluna com páginas de verão no lago",
+        alt: "Diário de memórias de aluna com páginas de verão no lago",
         width: 720,
         height: 917,
       },
       {
         src: "/alunas/aluna-05-hawaii.webp",
-        alt: "Scrapbook de aluna com fotos de casal no Havaí",
+        alt: "Diário de memórias de aluna com fotos de casal no Havaí",
         width: 720,
         height: 961,
       },
       {
         src: "/alunas/aluna-06-2024.webp",
-        alt: "Scrapbook de aluna com recapitulativo de 2024",
+        alt: "Diário de memórias de aluna com recapitulativo de 2024",
         width: 720,
         height: 956,
       },
@@ -329,24 +329,24 @@ export const diarioMemorias: OfferContent = {
     steps: [],
   },
 
-  faqTitle: "Perguntas *frequentes*",
+  faqTitle: "PERGUNTAS FREQUENTES",
 
   faq: [
     [
-      "O que é o Scrapbook?",
-      "O Scrapbook é um material digital prático com modelos prontos e guias visuais para ajudar você a montar um scrapbook de forma mais simples, organizada e sem precisar criar tudo do zero.",
+      "O que é o Diário de Memórias?",
+      "O Diário de Memórias é um material digital prático com modelos prontos e guias visuais para ajudar você a montar um scrapbook de forma mais simples, organizada e sem precisar criar tudo do zero.",
     ],
     [
-      "O Scrapbook é um curso?",
+      "O Diário de Memórias é um curso?",
       "Não. É um material digital prático com orientações, modelos prontos e referências visuais para você seguir durante a montagem.",
     ],
     [
       "O que eu recebo no Plano Básico?",
-      "Você recebe o Scrapbook, com organização da montagem, estrutura do projeto e modelos visuais das páginas.",
+      "Você recebe o Diário de Memórias, com organização da montagem, estrutura do projeto e modelos visuais das páginas.",
     ],
     [
       "O que eu recebo no Plano Completo?",
-      "Além do Scrapbook, você recebe os 4 bônus com elementos, frases, molduras e papéis de fundo prontos para imprimir.",
+      "Além do Diário de Memórias, você recebe os 4 bônus com elementos, frases, molduras e papéis de fundo prontos para imprimir.",
     ],
     [
       "Preciso comprar muitos materiais para começar?",
@@ -386,7 +386,8 @@ export const diarioMemorias: OfferContent = {
 
   checkout: {
     hero: "#plano-basico",
-    basic: "https://pay.wiapy.com/UGMNNk7gq2lQ",
-    complete: "https://pay.wiapy.com/GNPhkCPglC29",
+    basic:
+      "https://pay.hotmart.com/U107331805R?off=sz8wlcz6&checkoutMode=10&bid=1787952607380",
+    complete: "https://pay.hotmart.com/R107331870H?off=wcrp69ev&checkoutMode=10",
   },
 };

@@ -6,6 +6,7 @@ import { terrario } from "./terrario";
 import { cubaResina } from "./cuba-resina";
 import { concretoDecorativo } from "./concreto-decorativo";
 import { scrapbookPt } from "./scrapbook-pt";
+import { scrapbookV2 } from "./scrapbook-v2";
 
 export type { OfferContent } from "./types";
 
@@ -25,6 +26,7 @@ export const offers = {
   "cuba-resina": cubaResina,
   "concreto-decorativo": concretoDecorativo,
   "scrapbook-pt": scrapbookPt,
+  "scrapbook-v2": scrapbookV2,
 } satisfies Record<string, OfferContent>;
 
 export type OfferSlug = keyof typeof offers;
@@ -40,9 +42,15 @@ export function getOffer(slug: string): OfferContent | undefined {
   return (offers as Record<string, OfferContent>)[slug];
 }
 
-/** Slugs das ofertas servidas em `/<slug>` (exclui a home). */
+/**
+ * Ofertas com rota própria em `app/<slug>/page.tsx` (em vez de `/[offer]`),
+ * para carregar fontes só delas. Continuam no registro para tracking/metadata.
+ */
+const OWN_ROUTE_SLUGS = new Set<string>(["scrapbook-v2"]);
+
+/** Slugs das ofertas servidas por `/[offer]` (exclui a home e as de rota própria). */
 export function offerSlugs(): string[] {
-  return Object.keys(offers).filter((slug) => slug !== HOME_SLUG);
+  return Object.keys(offers).filter((slug) => slug !== HOME_SLUG && !OWN_ROUTE_SLUGS.has(slug));
 }
 
 /** Monta o objeto de metadata do Next a partir de uma oferta. */
