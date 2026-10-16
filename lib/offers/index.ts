@@ -7,6 +7,7 @@ import { cubaResina } from "./cuba-resina";
 import { concretoDecorativo } from "./concreto-decorativo";
 import { scrapbookPt } from "./scrapbook-pt";
 import { scrapbookV2 } from "./scrapbook-v2";
+import { scrapbookV3 } from "./scrapbook-v3";
 
 export type { OfferContent } from "./types";
 
@@ -27,6 +28,7 @@ export const offers = {
   "concreto-decorativo": concretoDecorativo,
   "scrapbook-pt": scrapbookPt,
   "scrapbook-v2": scrapbookV2,
+  "scrapbook-v3": scrapbookV3,
 } satisfies Record<string, OfferContent>;
 
 export type OfferSlug = keyof typeof offers;
@@ -46,7 +48,7 @@ export function getOffer(slug: string): OfferContent | undefined {
  * Ofertas com rota própria em `app/<slug>/page.tsx` (em vez de `/[offer]`),
  * para carregar fontes só delas. Continuam no registro para tracking/metadata.
  */
-const OWN_ROUTE_SLUGS = new Set<string>(["scrapbook-v2"]);
+const OWN_ROUTE_SLUGS = new Set<string>(["scrapbook-v2", "scrapbook-v3"]);
 
 /** Slugs das ofertas servidas por `/[offer]` (exclui a home e as de rota própria). */
 export function offerSlugs(): string[] {
