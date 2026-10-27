@@ -1899,3 +1899,99 @@
   text-transform: uppercase;
   letter-spacing: 0.01em;
 }
+
+/* ═══════════════════════════════════════════════════════════════════
+   THEME: NAIL DESIGNER (`/nail-designer`, `.theme-diario.theme-nail`)
+   Mesmo layout da scrapbook-v2; troca o amarelo/roxo por rosé, nude e
+   berry, mais próximos do universo de manicure.
+   ═══════════════════════════════════════════════════════════════════ */
+
+.theme-nail {
+  --nail-rose: #f6c9d3;
+  --nail-grid: rgb(181 48 106 / 0.12);
+  --nail-berry: #b5306a;
+}
+
+/* Hero: quadriculado rosé desenhado em CSS (sem a arte amarela). */
+.theme-nail .scrap-hero,
+.theme-nail .offer-main {
+  background-color: var(--nail-rose) !important;
+  background-image:
+    linear-gradient(var(--nail-grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--nail-grid) 1px, transparent 1px);
+  background-size: 24px 24px;
+  background-position: center top;
+}
+
+@media (min-width: 768px) {
+  .theme-nail .scrap-hero {
+    background-color: var(--nail-rose);
+    background-image:
+      linear-gradient(var(--nail-grid) 1px, transparent 1px),
+      linear-gradient(90deg, var(--nail-grid) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+}
+
+.theme-nail .offer-hero + .offer-wave,
+.theme-nail .offer-main + .offer-wave {
+  background-color: var(--nail-rose) !important;
+}
+.theme-nail .offer-wave:has(+ .offer-main) path {
+  fill: var(--nail-rose);
+}
+
+.theme-nail .offer-hero__heading,
+.theme-nail .offer-hero__subtitle,
+.theme-nail .offer-hero__note {
+  color: #2a1820;
+}
+
+.theme-nail .offer-hero__media img {
+  border-radius: 20px !important;
+  filter: drop-shadow(0 10px 18px rgb(120 20 60 / 0.18));
+}
+
+/* Foto da equipe (grupo): quadro arredondado, não o avatar circular. */
+.theme-nail .offer-authority__photo {
+  width: 100%;
+  max-width: 360px;
+  height: auto;
+  flex-shrink: 0;
+  aspect-ratio: 1 / 1;
+  border-radius: 16px !important;
+  object-fit: cover;
+}
+
+@media (min-width: 640px) {
+  .theme-nail .offer-authority__photo {
+    width: 280px;
+  }
+}
+
+.theme-nail .offer-hero__avatar {
+  border-color: #2a1820;
+}
+
+.theme-nail .offer-main {
+  --diario-purple: var(--nail-berry);
+}
+.theme-nail .offer-main > div {
+  box-shadow: 0 14px 34px rgb(120 20 60 / 0.2);
+}
+
+/* Destaques dos títulos: itálico berry e marca-texto rosa. */
+.theme-nail .offer-sec {
+  --diario-accent: var(--nail-berry);
+  --diario-marker: #ffc2d4;
+}
+.theme-nail :is(.offer-bonus, .offer-guarantee, .offer-why, .offer-steps) {
+  --diario-accent: #ffc2d4;
+  --diario-marker: rgb(255 194 212 / 0.4);
+}
+
+/* Placeholders de imagem em nude rosado (o padrão é bege). */
+.theme-nail [role="img"] {
+  background-color: #fbe3e9;
+  color: #9a5a72;
+}

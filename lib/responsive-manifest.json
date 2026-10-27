@@ -669,5 +669,141 @@
     ],
     "full": 1254,
     "sizes": "(max-width: 520px) 88vw, 448px"
+  },
+  "/offers/nail-designer/hero.webp": {
+    "widths": [
+      384,
+      512,
+      640,
+      768
+    ],
+    "full": 1254,
+    "sizes": "(max-width: 423px) calc(100vw - 40px), 383px"
+  },
+  "/offers/nail-designer/plano-basico.webp": {
+    "widths": [
+      384,
+      560,
+      768
+    ],
+    "full": 1254,
+    "sizes": "(max-width: 520px) 88vw, 448px"
+  },
+  "/offers/nail-designer/plano-completo.webp": {
+    "widths": [
+      384,
+      560,
+      768
+    ],
+    "full": 1254,
+    "sizes": "(max-width: 520px) 88vw, 448px"
+  },
+  "/offers/nail-designer/bonus-01.webp": {
+    "widths": [
+      384,
+      560,
+      768
+    ],
+    "full": 1254,
+    "sizes": "(max-width: 640px) 88vw, 400px"
+  },
+  "/offers/nail-designer/bonus-02.webp": {
+    "widths": [
+      384,
+      560,
+      768
+    ],
+    "full": 1254,
+    "sizes": "(max-width: 640px) 88vw, 400px"
+  },
+  "/offers/nail-designer/bonus-03.webp": {
+    "widths": [
+      384,
+      560,
+      768
+    ],
+    "full": 1254,
+    "sizes": "(max-width: 640px) 88vw, 400px"
+  },
+  "/offers/nail-designer/bonus-04.webp": {
+    "widths": [
+      384,
+      560,
+      768
+    ],
+    "full": 1254,
+    "sizes": "(max-width: 640px) 88vw, 400px"
+  },
+  "/offers/nail-designer/kit.webp": {
+    "widths": [
+      384,
+      560,
+      768
+    ],
+    "full": 1254,
+    "sizes": "(max-width: 520px) 88vw, 448px"
+  },
+  "/offers/nail-designer/material-01-sequencia-didatica.webp": {
+    "widths": [
+      260,
+      390,
+      520
+    ],
+    "full": 1018,
+    "sizes": "260px"
+  },
+  "/offers/nail-designer/material-02-acabamento-visual.webp": {
+    "widths": [
+      260,
+      390,
+      520
+    ],
+    "full": 1018,
+    "sizes": "260px"
+  },
+  "/offers/nail-designer/material-03-correcao-util.webp": {
+    "widths": [
+      260,
+      390,
+      520
+    ],
+    "full": 1018,
+    "sizes": "260px"
+  },
+  "/offers/nail-designer/material-04-treino-amendoada.webp": {
+    "widths": [
+      260,
+      390,
+      520
+    ],
+    "full": 1018,
+    "sizes": "260px"
+  },
+  "/offers/nail-designer/material-05-materiais.webp": {
+    "widths": [
+      260,
+      390,
+      520
+    ],
+    "full": 1018,
+    "sizes": "260px"
+  },
+  "/offers/nail-designer/material-06-demonstre-antes.webp": {
+    "widths": [
+      260,
+      390,
+      520
+    ],
+    "full": 1018,
+    "sizes": "260px"
+  },
+  "/offers/nail-designer/equipe.webp": {
+    "widths": [
+      320,
+      480,
+      720
+    ],
+    "full": 1254,
+    "sizes": "(max-width: 640px) min(calc(100vw - 88px), 360px), 280px"
   }
 }
