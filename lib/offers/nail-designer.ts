@@ -400,7 +400,7 @@ export const nailDesigner: OfferContent = {
 
   checkout: {
     hero: "#plano-basico",
-    basic: "https://pay.wiapy.com/W5K_rMrb0jvG",
-    complete: "https://pay.wiapy.com/2jjmjB5byZyf",
+    basic: "https://pay.hotmart.com/C108221116M?off=74orurtt",
+    complete: "https://pay.hotmart.com/K108221154R?off=4o5tw489",
   },
 };
